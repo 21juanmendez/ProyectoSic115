@@ -46,10 +46,10 @@ public class Inicio extends javax.swing.JFrame {
         jMenuBar2 = new javax.swing.JMenuBar();
         jMenuInicio = new javax.swing.JMenu();
         jMenuItemInicio = new javax.swing.JMenuItem();
-        jMenuTransaccion = new javax.swing.JMenu();
-        jMenuItemTransaccion = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
-        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuCatalogo = new javax.swing.JMenu();
+        jMenuItemCatalogo = new javax.swing.JMenuItem();
+        jMenuManoObra = new javax.swing.JMenu();
+        jMenuIManoObra = new javax.swing.JMenuItem();
 
         jMenu1.setText("jMenu1");
 
@@ -91,29 +91,29 @@ public class Inicio extends javax.swing.JFrame {
 
         jMenuBar2.add(jMenuInicio);
 
-        jMenuTransaccion.setText("Transaccion");
-        jMenuTransaccion.addActionListener(new java.awt.event.ActionListener() {
+        jMenuCatalogo.setText("Catalogo de Cuentas");
+        jMenuCatalogo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuTransaccionActionPerformed(evt);
+                jMenuCatalogoActionPerformed(evt);
             }
         });
 
-        jMenuItemTransaccion.setText("Transaccion");
-        jMenuItemTransaccion.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItemCatalogo.setText("Catalogo de Cuentas");
+        jMenuItemCatalogo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItemTransaccionActionPerformed(evt);
+                jMenuItemCatalogoActionPerformed(evt);
             }
         });
-        jMenuTransaccion.add(jMenuItemTransaccion);
+        jMenuCatalogo.add(jMenuItemCatalogo);
 
-        jMenuBar2.add(jMenuTransaccion);
+        jMenuBar2.add(jMenuCatalogo);
 
-        jMenu2.setText("jMenu2");
+        jMenuManoObra.setText("Mano de Obra");
 
-        jMenuItem2.setText("jMenuItem2");
-        jMenu2.add(jMenuItem2);
+        jMenuIManoObra.setText("Mano de Obra");
+        jMenuManoObra.add(jMenuIManoObra);
 
-        jMenuBar2.add(jMenu2);
+        jMenuBar2.add(jMenuManoObra);
 
         setJMenuBar(jMenuBar2);
 
@@ -147,21 +147,21 @@ public class Inicio extends javax.swing.JFrame {
         jPanelInicio.repaint();
     }//GEN-LAST:event_jMenuItemInicioActionPerformed
 
-    private void jMenuTransaccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuTransaccionActionPerformed
+    private void jMenuCatalogoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuCatalogoActionPerformed
         // TODO add your handling code here:
 
-    }//GEN-LAST:event_jMenuTransaccionActionPerformed
+    }//GEN-LAST:event_jMenuCatalogoActionPerformed
 
-    private void jMenuItemTransaccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemTransaccionActionPerformed
+    private void jMenuItemCatalogoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCatalogoActionPerformed
         // TODO add your handling code here:
-        Transaccion inicio = new Transaccion();
+        catalogoCuenta inicio = new catalogoCuenta();
         inicio.setSize(1280, 660);
         inicio.setLocation(0, 0);
         jPanelInicio.removeAll();
         jPanelInicio.add(inicio, BorderLayout.CENTER);
         jPanelInicio.revalidate();
         jPanelInicio.repaint();
-    }//GEN-LAST:event_jMenuItemTransaccionActionPerformed
+    }//GEN-LAST:event_jMenuItemCatalogoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -208,14 +208,14 @@ public class Inicio extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar2;
+    private javax.swing.JMenu jMenuCatalogo;
+    private javax.swing.JMenuItem jMenuIManoObra;
     private javax.swing.JMenu jMenuInicio;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItemCatalogo;
     private javax.swing.JMenuItem jMenuItemInicio;
-    private javax.swing.JMenuItem jMenuItemTransaccion;
-    private javax.swing.JMenu jMenuTransaccion;
+    private javax.swing.JMenu jMenuManoObra;
     private javax.swing.JPanel jPanelInicio;
     // End of variables declaration//GEN-END:variables
 }

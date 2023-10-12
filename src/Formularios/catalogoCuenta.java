@@ -8,12 +8,12 @@ package Formularios;
  *
  * @author juann
  */
-public class Transaccion extends javax.swing.JPanel {
+public class catalogoCuenta extends javax.swing.JPanel {
 
     /**
      * Creates new form Transaccion
      */
-    public Transaccion() {
+    public catalogoCuenta() {
         initComponents();
     }
 
@@ -55,9 +55,9 @@ public class Transaccion extends javax.swing.JPanel {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(198, Short.MAX_VALUE)
+                .addContainerGap(208, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 908, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(174, 174, 174))
+                .addGap(164, 164, 164))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
