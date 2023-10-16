@@ -42,24 +42,46 @@ public class Inicio extends javax.swing.JFrame {
 
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenu2 = new javax.swing.JMenu();
+        jMenu4 = new javax.swing.JMenu();
+        jMenu5 = new javax.swing.JMenu();
         jPanelInicio = new javax.swing.JPanel();
         jMenuBar2 = new javax.swing.JMenuBar();
         jMenuInicio = new javax.swing.JMenu();
         jMenuItemInicio = new javax.swing.JMenuItem();
+        jMenuCatalogo = new javax.swing.JMenu();
+        jMenuItemCatalogo = new javax.swing.JMenuItem();
+        jMenuManoObra = new javax.swing.JMenu();
+        jMenuIManoObra = new javax.swing.JMenuItem();
         jMenuTransaccion = new javax.swing.JMenu();
         jMenuItemTransaccion = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
-        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuLibroMayor = new javax.swing.JMenu();
+        jMenuItemLibroMayor = new javax.swing.JMenuItem();
+        jMenuBalanceComprobacion = new javax.swing.JMenu();
+        jMenuItemBalanceComprobacion = new javax.swing.JMenuItem();
+        jMenu3 = new javax.swing.JMenu();
+        jMenuItem3 = new javax.swing.JMenuItem();
+        jMenuCierreContable = new javax.swing.JMenu();
+        jMenuItemCierreContable = new javax.swing.JMenuItem();
 
         jMenu1.setText("jMenu1");
 
         jMenuItem1.setText("jMenuItem1");
 
+        jMenuItem2.setText("jMenuItem2");
+
+        jMenu2.setText("jMenu2");
+
+        jMenu4.setText("jMenu4");
+
+        jMenu5.setText("jMenu5");
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("AGORA S.A");
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setPreferredSize(new java.awt.Dimension(1280, 660));
 
-        jPanelInicio.setBackground(new java.awt.Color(204, 255, 255));
         jPanelInicio.setToolTipText("");
         jPanelInicio.setPreferredSize(new java.awt.Dimension(1280, 660));
 
@@ -91,29 +113,69 @@ public class Inicio extends javax.swing.JFrame {
 
         jMenuBar2.add(jMenuInicio);
 
-        jMenuTransaccion.setText("Transaccion");
-        jMenuTransaccion.addActionListener(new java.awt.event.ActionListener() {
+        jMenuCatalogo.setText("Catalogo de Cuentas");
+        jMenuCatalogo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuTransaccionActionPerformed(evt);
+                jMenuCatalogoActionPerformed(evt);
             }
         });
 
-        jMenuItemTransaccion.setText("Transaccion");
-        jMenuItemTransaccion.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItemCatalogo.setText("Catalogo de Cuentas");
+        jMenuItemCatalogo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItemTransaccionActionPerformed(evt);
+                jMenuItemCatalogoActionPerformed(evt);
             }
         });
+        jMenuCatalogo.add(jMenuItemCatalogo);
+
+        jMenuBar2.add(jMenuCatalogo);
+
+        jMenuManoObra.setText("Mano de Obra");
+
+        jMenuIManoObra.setText("Mano de Obra");
+        jMenuManoObra.add(jMenuIManoObra);
+
+        jMenuBar2.add(jMenuManoObra);
+
+        jMenuTransaccion.setText("Transaccion");
+
+        jMenuItemTransaccion.setText("Transaccion");
         jMenuTransaccion.add(jMenuItemTransaccion);
 
         jMenuBar2.add(jMenuTransaccion);
 
-        jMenu2.setText("jMenu2");
+        jMenuLibroMayor.setText("Libro Mayor");
 
-        jMenuItem2.setText("jMenuItem2");
-        jMenu2.add(jMenuItem2);
+        jMenuItemLibroMayor.setText("Libro Mayor");
+        jMenuItemLibroMayor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemLibroMayorActionPerformed(evt);
+            }
+        });
+        jMenuLibroMayor.add(jMenuItemLibroMayor);
 
-        jMenuBar2.add(jMenu2);
+        jMenuBar2.add(jMenuLibroMayor);
+
+        jMenuBalanceComprobacion.setText("Balance de comprobacion");
+
+        jMenuItemBalanceComprobacion.setText("Balance de comprobacion");
+        jMenuBalanceComprobacion.add(jMenuItemBalanceComprobacion);
+
+        jMenuBar2.add(jMenuBalanceComprobacion);
+
+        jMenu3.setText("Hoja de Trabajo");
+
+        jMenuItem3.setText("Hoja de Trabajo");
+        jMenu3.add(jMenuItem3);
+
+        jMenuBar2.add(jMenu3);
+
+        jMenuCierreContable.setText("Cierre Contable");
+
+        jMenuItemCierreContable.setText("Cierre Contable");
+        jMenuCierreContable.add(jMenuItemCierreContable);
+
+        jMenuBar2.add(jMenuCierreContable);
 
         setJMenuBar(jMenuBar2);
 
@@ -147,21 +209,25 @@ public class Inicio extends javax.swing.JFrame {
         jPanelInicio.repaint();
     }//GEN-LAST:event_jMenuItemInicioActionPerformed
 
-    private void jMenuTransaccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuTransaccionActionPerformed
+    private void jMenuCatalogoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuCatalogoActionPerformed
         // TODO add your handling code here:
 
-    }//GEN-LAST:event_jMenuTransaccionActionPerformed
+    }//GEN-LAST:event_jMenuCatalogoActionPerformed
 
-    private void jMenuItemTransaccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemTransaccionActionPerformed
+    private void jMenuItemCatalogoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCatalogoActionPerformed
         // TODO add your handling code here:
-        Transaccion inicio = new Transaccion();
+        catalogoCuenta inicio = new catalogoCuenta();
         inicio.setSize(1280, 660);
         inicio.setLocation(0, 0);
         jPanelInicio.removeAll();
         jPanelInicio.add(inicio, BorderLayout.CENTER);
         jPanelInicio.revalidate();
         jPanelInicio.repaint();
-    }//GEN-LAST:event_jMenuItemTransaccionActionPerformed
+    }//GEN-LAST:event_jMenuItemCatalogoActionPerformed
+
+    private void jMenuItemLibroMayorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemLibroMayorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItemLibroMayorActionPerformed
 
     /**
      * @param args the command line arguments
@@ -209,12 +275,26 @@ public class Inicio extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenu jMenu5;
+    private javax.swing.JMenu jMenuBalanceComprobacion;
     private javax.swing.JMenuBar jMenuBar2;
+    private javax.swing.JMenu jMenuCatalogo;
+    private javax.swing.JMenu jMenuCierreContable;
+    private javax.swing.JMenuItem jMenuIManoObra;
     private javax.swing.JMenu jMenuInicio;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItemBalanceComprobacion;
+    private javax.swing.JMenuItem jMenuItemCatalogo;
+    private javax.swing.JMenuItem jMenuItemCierreContable;
     private javax.swing.JMenuItem jMenuItemInicio;
+    private javax.swing.JMenuItem jMenuItemLibroMayor;
     private javax.swing.JMenuItem jMenuItemTransaccion;
+    private javax.swing.JMenu jMenuLibroMayor;
+    private javax.swing.JMenu jMenuManoObra;
     private javax.swing.JMenu jMenuTransaccion;
     private javax.swing.JPanel jPanelInicio;
     // End of variables declaration//GEN-END:variables
