@@ -56,10 +56,10 @@ public class Inicio extends javax.swing.JFrame {
         jMenuItem1.setText("jMenuItem1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("AGORA S.A");
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setPreferredSize(new java.awt.Dimension(1280, 660));
 
-        jPanelInicio.setBackground(new java.awt.Color(204, 255, 255));
         jPanelInicio.setToolTipText("");
         jPanelInicio.setPreferredSize(new java.awt.Dimension(1280, 660));
 
