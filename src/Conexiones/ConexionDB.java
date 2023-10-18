@@ -16,7 +16,7 @@ public class ConexionDB {
     private static final String driver = "com.mysql.cj.jdbc.Driver";
     private static final String user = "root";
     private static final String pass = "";
-    private static final String url = "jdbc:mysql://localhost:3306/sic115";
+    private static final String url = "jdbc:mysql://localhost:3306/agora";
 
     // Funcion que va conectarse a mi bd de mysql
     public Connection conectar() {
