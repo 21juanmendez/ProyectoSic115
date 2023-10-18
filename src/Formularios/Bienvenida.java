@@ -39,7 +39,7 @@ public class Bienvenida extends javax.swing.JPanel {
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 440, 660, 69));
 
         jLabel2.setBackground(new java.awt.Color(0, 153, 153));
-        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\juann\\Downloads\\agoraaaa.png")); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\juann\\OneDrive\\Documentos\\GitHub\\ProyectoSic115\\src\\Imagenes\\agoraaaa.png")); // NOI18N
         jLabel2.setPreferredSize(new java.awt.Dimension(1200, 1200));
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 80, 364, 352));
 

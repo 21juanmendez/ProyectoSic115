@@ -15,7 +15,7 @@ public class ConexionDB {
     public static Connection con;
     // Declaramos los datos de conexion a la bd
     private static final String driver = "org.postgresql.Driver";
-    private static final String user = "postgres";
+    private static final String user = "root";
     private static final String pass = "1999";
     private static final String url = "jdbc:postgresql://localhost:5433/Sic115";
 
