@@ -4,6 +4,14 @@
  */
 package Formularios;
 
+import Conexiones.ConexionDB;
+import Conexiones.consultas;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author juann
@@ -15,6 +23,27 @@ public class catalogoCuenta extends javax.swing.JPanel {
      */
     public catalogoCuenta() {
         initComponents();
+        catalogoCuentas();//MANDA A LLAMAR EL METODO EN EL CONSTRUCTOR PARA QUE CUANDO SE INICIALICE SE EJECUTE
+    }
+    //METODO QUE MANDA A LLAMAR DE LA BD EL CATALOGO DE CUENTAS Y LO MUESTRA EN LA TABLA CORRESPONDIENTE
+    public void catalogoCuentas() {
+        ConexionDB db = new ConexionDB();
+        Connection cn = db.conectar();
+        try {
+            PreparedStatement pst = cn.prepareStatement("SELECT * FROM catalogocuentas");
+            ResultSet resultado = pst.executeQuery();
+            DefaultTableModel modeloTabla = new DefaultTableModel();
+            modeloTabla.addColumn("Código");
+            modeloTabla.addColumn("Cuenta");
+            while (resultado.next()) {
+                int codigo = resultado.getInt("codigo"); // Reemplaza "codigo" con el nombre de tu columna.
+                String cuenta = resultado.getString("cuenta"); // Reemplaza "cuenta" con el nombre de tu columna.
+                modeloTabla.addRow(new Object[]{codigo, cuenta});
+                jTable1.setModel(modeloTabla); // Reemplaza "jTable1" con el nombre de tu JTable.
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error: " + e);
+        }
     }
 
     /**
@@ -28,17 +57,34 @@ public class catalogoCuenta extends javax.swing.JPanel {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
 
-        setToolTipText("Transacciones");
+        setToolTipText("");
         setPreferredSize(new java.awt.Dimension(1150, 650));
 
         jPanel1.setName("aa"); // NOI18N
         jPanel1.setPreferredSize(new java.awt.Dimension(1175, 650));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
-        jLabel1.setText("CATALOGO DE CUENTAS");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 30, -1, -1));
+        jLabel1.setFont(new java.awt.Font("Arial", 1, 48)); // NOI18N
+        jLabel1.setText("CATALOGO DE CUENTAS DE AGORA S.A");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 30, -1, -1));
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
+
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 120, 1010, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -56,5 +102,7 @@ public class catalogoCuenta extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }

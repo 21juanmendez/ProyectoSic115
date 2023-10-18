@@ -37,7 +37,6 @@ public class FormRegistro extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(204, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Lucida Sans", 1, 18)); // NOI18N
@@ -56,7 +55,6 @@ public class FormRegistro extends javax.swing.JFrame {
         jPanel1.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(178, 173, 180, 18));
 
         jTextClave.setBackground(new java.awt.Color(153, 255, 255));
-        jTextClave.setForeground(new java.awt.Color(255, 255, 255));
         jTextClave.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextClave.setBorder(null);
         jPanel1.add(jTextClave, new org.netbeans.lib.awtextra.AbsoluteConstraints(178, 147, 180, 19));
@@ -70,7 +68,7 @@ public class FormRegistro extends javax.swing.JFrame {
                 jbtnGuardarActionPerformed(evt);
             }
         });
-        jPanel1.add(jbtnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(221, 202, 93, -1));
+        jPanel1.add(jbtnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 200, 93, -1));
 
         jbtnGuardar1.setBackground(new java.awt.Color(0, 153, 153));
         jbtnGuardar1.setFont(new java.awt.Font("Lucida Sans", 1, 14)); // NOI18N
@@ -82,13 +80,12 @@ public class FormRegistro extends javax.swing.JFrame {
                 jbtnGuardar1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jbtnGuardar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(115, 202, -1, -1));
+        jPanel1.add(jbtnGuardar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 200, -1, -1));
 
         jSeparator3.setForeground(new java.awt.Color(0, 0, 0));
         jPanel1.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(175, 94, 180, 18));
 
         jTextNombre.setBackground(new java.awt.Color(153, 255, 255));
-        jTextNombre.setForeground(new java.awt.Color(255, 255, 255));
         jTextNombre.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextNombre.setBorder(null);
         jPanel1.add(jTextNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(175, 67, 180, 20));
@@ -119,6 +116,9 @@ public class FormRegistro extends javax.swing.JFrame {
         // TODO add your handling code here:
         consultas con = new consultas();
         con.guardarUsuario(jTextNombre.getText(), jTextClave.getText());
+        this.setVisible(false);
+        FormLogin login = new FormLogin();
+        login.setVisible(true);
     }//GEN-LAST:event_jbtnGuardarActionPerformed
 
     /**
