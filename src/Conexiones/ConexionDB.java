@@ -2,7 +2,6 @@ package Conexiones;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import org.postgresql.Driver;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 /**
@@ -14,10 +13,10 @@ public class ConexionDB {
     // Declaramos la conexion a mysql
     public static Connection con;
     // Declaramos los datos de conexion a la bd
-    private static final String driver = "org.postgresql.Driver";
-    private static final String user = "postgres";
-    private static final String pass = "1999";
-    private static final String url = "jdbc:postgresql://localhost:5433/Sic115";
+    private static final String driver = "com.mysql.cj.jdbc.Driver";
+    private static final String user = "root";
+    private static final String pass = "";
+    private static final String url = "jdbc:mysql://localhost:3306/sic115";
 
     // Funcion que va conectarse a mi bd de mysql
     public Connection conectar() {

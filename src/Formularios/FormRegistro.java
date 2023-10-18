@@ -56,7 +56,6 @@ public class FormRegistro extends javax.swing.JFrame {
         jPanel1.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(178, 173, 180, 18));
 
         jTextClave.setBackground(new java.awt.Color(153, 255, 255));
-        jTextClave.setForeground(new java.awt.Color(255, 255, 255));
         jTextClave.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextClave.setBorder(null);
         jPanel1.add(jTextClave, new org.netbeans.lib.awtextra.AbsoluteConstraints(178, 147, 180, 19));
@@ -88,7 +87,6 @@ public class FormRegistro extends javax.swing.JFrame {
         jPanel1.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(175, 94, 180, 18));
 
         jTextNombre.setBackground(new java.awt.Color(153, 255, 255));
-        jTextNombre.setForeground(new java.awt.Color(255, 255, 255));
         jTextNombre.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextNombre.setBorder(null);
         jPanel1.add(jTextNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(175, 67, 180, 20));
