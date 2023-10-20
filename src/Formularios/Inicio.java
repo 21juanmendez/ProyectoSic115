@@ -97,7 +97,7 @@ public class Inicio extends javax.swing.JFrame {
             .addGap(0, 660, Short.MAX_VALUE)
         );
 
-        jMenuInicio.setText("Inicio");
+        jMenuInicio.setText("| Inicio |");
         jMenuInicio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuInicioActionPerformed(evt);
@@ -114,7 +114,7 @@ public class Inicio extends javax.swing.JFrame {
 
         jMenuBar2.add(jMenuInicio);
 
-        jMenuCatalogo.setText("Catalogo de Cuentas");
+        jMenuCatalogo.setText("Catalogo de Cuentas ");
         jMenuCatalogo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuCatalogoActionPerformed(evt);
@@ -131,7 +131,7 @@ public class Inicio extends javax.swing.JFrame {
 
         jMenuBar2.add(jMenuCatalogo);
 
-        jMenuManoObra.setText("Mano de Obra");
+        jMenuManoObra.setText("| Mano de Obra |");
 
         jMenuItemManoObra.setText("Mano de Obra");
         jMenuItemManoObra.addActionListener(new java.awt.event.ActionListener() {
@@ -143,7 +143,7 @@ public class Inicio extends javax.swing.JFrame {
 
         jMenuBar2.add(jMenuManoObra);
 
-        jMenuTransaccion.setText("Transaccion");
+        jMenuTransaccion.setText(" Transaccion ");
 
         jMenuItemTransaccion.setText("Transaccion");
         jMenuItemTransaccion.addActionListener(new java.awt.event.ActionListener() {
@@ -155,7 +155,7 @@ public class Inicio extends javax.swing.JFrame {
 
         jMenuBar2.add(jMenuTransaccion);
 
-        jMenuLibroMayor.setText("Libro Mayor");
+        jMenuLibroMayor.setText("| Libro Mayor |");
 
         jMenuItemLibroMayor.setText("Libro Mayor");
         jMenuItemLibroMayor.addActionListener(new java.awt.event.ActionListener() {
@@ -179,7 +179,7 @@ public class Inicio extends javax.swing.JFrame {
 
         jMenuBar2.add(jMenuBalanceComprobacion);
 
-        jMenu3.setText("Hoja de Trabajo");
+        jMenu3.setText("| Hoja de Trabajo |");
 
         jMenuItem3.setText("Hoja de Trabajo");
         jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
