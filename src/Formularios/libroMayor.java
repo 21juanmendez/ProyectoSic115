@@ -31,39 +31,41 @@ public class libroMayor extends javax.swing.JPanel {
     public void mostrarCuentas() {
         ConexionDB db = new ConexionDB();
         Connection cn = db.conectar();
+        
         //CUENTA CAJA
         try {
             PreparedStatement pst = cn.prepareStatement("SELECT cuenta,cargo,abono FROM transacciones WHERE codigo='1101'");
             ResultSet resultado = pst.executeQuery();
             DefaultTableModel modeloTabla = new DefaultTableModel();
-            modeloTabla.addColumn("Cuenta");
+            //modeloTabla.addColumn("Cuenta");
             modeloTabla.addColumn("Debe");
             modeloTabla.addColumn("Haber");
             while (resultado.next()) {
-                String cuenta = resultado.getString("Cuenta");
+                //String cuenta = resultado.getString("Cuenta");
                 String cargo = resultado.getString("cargo");
                 String abono = resultado.getString("abono");
 
-                modeloTabla.addRow(new Object[]{cuenta, abono, cargo});
+                modeloTabla.addRow(new Object[]{ cargo,abono});//si se agrega la cuenta quedaria (cuenta,cargo,abono);
                 jTableCaja.setModel(modeloTabla); // Reemplaza "jTable1" con el nombre de tu JTable.
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error: " + e);
         }
+        
         //CUENTA IVA-CREDITO FISCAL
         try {
-            PreparedStatement pst = cn.prepareStatement("SELECT cuenta,cargo,abono FROM transacciones WHERE codigo='1107'");
+            PreparedStatement pst = cn.prepareStatement("SELECT cargo,abono FROM transacciones WHERE codigo='1107'");
             ResultSet resultado = pst.executeQuery();
             DefaultTableModel modeloTabla = new DefaultTableModel();
-            modeloTabla.addColumn("Cuenta");
+            //modeloTabla.addColumn("Cuenta");
             modeloTabla.addColumn("Debe");
             modeloTabla.addColumn("Haber");
             while (resultado.next()) {
-                String cuenta = resultado.getString("Cuenta");
+                //String cuenta = resultado.getString("Cuenta");
                 String cargo = resultado.getString("Cargo");
                 String abono = resultado.getString("Abono");
 
-                modeloTabla.addRow(new Object[]{cuenta, abono, cargo});
+                modeloTabla.addRow(new Object[]{cargo,abono});//si se agrega la cuenta quedaria (cuenta,cargo,abono);
                 jTableCredito.setModel(modeloTabla); // Reemplaza "jTable1" con el nombre de tu JTable.
             }
         } catch (Exception e) {
@@ -76,18 +78,19 @@ public class libroMayor extends javax.swing.JPanel {
         int rowCount = modelo.getRowCount();
         double sumaCargo = 0.0;
         double sumaAbono = 0.0;
-        
+        //sumamos la columna del debe
+        for (int i = 0; i < rowCount; i++) {
+            sumaCargo += Double.parseDouble(modelo.getValueAt(i, 0).toString()); // Suma los valores de la columna 2 (índice 1).
+        }
+        //mostramos la suma del debe en el textbox
+        jTextFieldSumaCajaCargo.setText(String.valueOf(sumaCargo)); // Establece el resultado de la suma en el JTextField.
         for (int i = 0; i < rowCount; i++) {
             sumaAbono += Double.parseDouble(modelo.getValueAt(i, 1).toString()); // Suma los valores de la columna 2 (índice 1).
         }
-        jTextFieldSumaCajaAbono.setText(String.valueOf(sumaAbono)); // Establece el resultado de la suma en el JTextField.
-        for (int i = 0; i < rowCount; i++) {
-            sumaCargo += Double.parseDouble(modelo.getValueAt(i, 2).toString()); // Suma los valores de la columna 2 (índice 1).
-        }
-        jTextFieldCajaCargo.setText(String.valueOf(sumaCargo));
+        jTextFieldSumaCajaAbono.setText(String.valueOf(sumaAbono));
         
-        if (sumaAbono > sumaCargo) {
-            double total = sumaAbono - sumaCargo;
+        if (sumaCargo>sumaAbono) {
+            double total = sumaCargo-sumaAbono;
             jTextFieldSumaTotalCaja.setText(String.valueOf(total));
         }
     }
@@ -110,7 +113,7 @@ public class libroMayor extends javax.swing.JPanel {
         jTableCredito = new javax.swing.JTable();
         jLabel3 = new javax.swing.JLabel();
         jTextFieldSumaCajaAbono = new javax.swing.JTextField();
-        jTextFieldCajaCargo = new javax.swing.JTextField();
+        jTextFieldSumaCajaCargo = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jTextFieldSumaTotalCaja = new javax.swing.JTextField();
 
@@ -133,10 +136,10 @@ public class libroMayor extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(jTableCaja);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 250, 180));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 150, 180));
 
         jLabel2.setText("CAJA");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 50, -1, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 60, -1, -1));
 
         jTableCredito.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -151,16 +154,16 @@ public class libroMayor extends javax.swing.JPanel {
         ));
         jScrollPane2.setViewportView(jTableCredito);
 
-        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 70, 250, 180));
+        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 80, 150, 180));
 
         jLabel3.setText("IVA - CREDITO FISCAL");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 50, -1, -1));
-        jPanel1.add(jTextFieldSumaCajaAbono, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 260, 70, -1));
-        jPanel1.add(jTextFieldCajaCargo, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 260, 70, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 60, -1, -1));
+        jPanel1.add(jTextFieldSumaCajaAbono, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 260, 70, -1));
+        jPanel1.add(jTextFieldSumaCajaCargo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 70, -1));
 
         jLabel4.setText("TOTAL");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 290, -1, -1));
-        jPanel1.add(jTextFieldSumaTotalCaja, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 290, 70, -1));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 290, -1, 20));
+        jPanel1.add(jTextFieldSumaTotalCaja, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, 70, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -185,8 +188,8 @@ public class libroMayor extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTableCaja;
     private javax.swing.JTable jTableCredito;
-    private javax.swing.JTextField jTextFieldCajaCargo;
     private javax.swing.JTextField jTextFieldSumaCajaAbono;
+    private javax.swing.JTextField jTextFieldSumaCajaCargo;
     private javax.swing.JTextField jTextFieldSumaTotalCaja;
     // End of variables declaration//GEN-END:variables
 }
