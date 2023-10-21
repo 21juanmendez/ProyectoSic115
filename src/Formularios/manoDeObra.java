@@ -136,7 +136,10 @@ public class manoDeObra extends javax.swing.JPanel {
 
         jButtonTotal.setText("Ver Total");
         jPanel1.add(jButtonTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 480, -1, -1));
-        jPanel1.add(lblID, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 540, -1, -1));
+
+        lblID.setText("oo");
+        lblID.setEnabled(false);
+        jPanel1.add(lblID, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 480, 90, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -209,7 +212,7 @@ public class manoDeObra extends javax.swing.JPanel {
         int filaSeleccionada = tablaManoObra.getSelectedRow();
 
         if (filaSeleccionada >= 0) {
-            int id = (int) tablaManoObra.getValueAt(filaSeleccionada, 0);
+            int id = Integer.parseInt(tablaManoObra.getValueAt(filaSeleccionada, 0).toString());
             String nombre = tablaManoObra.getValueAt(filaSeleccionada, 1).toString();
             String puesto = tablaManoObra.getValueAt(filaSeleccionada, 2).toString();
             String salario = tablaManoObra.getValueAt(filaSeleccionada, 3).toString();
@@ -218,7 +221,7 @@ public class manoDeObra extends javax.swing.JPanel {
             txtPuesto.setText(puesto);
             txtSalario.setText(salario);
             lblID.setText(String.valueOf(id));
-            lblID.setVisible(false);
+            lblID.setVisible(true);
         }
     }//GEN-LAST:event_tablaManoObraMouseClicked
     public void tablemodelo() {
