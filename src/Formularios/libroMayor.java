@@ -17,8 +17,6 @@ import javax.swing.table.DefaultTableModel;
  */
 public class libroMayor extends javax.swing.JPanel {
 
-    double sumaCaja = 0;
-
     /**
      * Creates new form libroMayor
      */
@@ -116,6 +114,10 @@ public class libroMayor extends javax.swing.JPanel {
         jTextFieldSumaCajaCargo = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jTextFieldSumaTotalCaja = new javax.swing.JTextField();
+        jTextFieldSumaIvaCreditoCargo = new javax.swing.JTextField();
+        jTextFieldSumaIvaCreditoAbono = new javax.swing.JTextField();
+        jTextFieldSumaIvaCreditoTotal = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -162,8 +164,14 @@ public class libroMayor extends javax.swing.JPanel {
         jPanel1.add(jTextFieldSumaCajaCargo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 70, -1));
 
         jLabel4.setText("TOTAL");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 290, -1, 20));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 290, -1, 20));
         jPanel1.add(jTextFieldSumaTotalCaja, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, 70, -1));
+        jPanel1.add(jTextFieldSumaIvaCreditoCargo, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 260, 60, -1));
+        jPanel1.add(jTextFieldSumaIvaCreditoAbono, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 260, 60, -1));
+        jPanel1.add(jTextFieldSumaIvaCreditoTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 290, 60, -1));
+
+        jLabel6.setText("TOTAL");
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 290, -1, 20));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -183,6 +191,7 @@ public class libroMayor extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
@@ -190,6 +199,9 @@ public class libroMayor extends javax.swing.JPanel {
     private javax.swing.JTable jTableCredito;
     private javax.swing.JTextField jTextFieldSumaCajaAbono;
     private javax.swing.JTextField jTextFieldSumaCajaCargo;
+    private javax.swing.JTextField jTextFieldSumaIvaCreditoAbono;
+    private javax.swing.JTextField jTextFieldSumaIvaCreditoCargo;
+    private javax.swing.JTextField jTextFieldSumaIvaCreditoTotal;
     private javax.swing.JTextField jTextFieldSumaTotalCaja;
     // End of variables declaration//GEN-END:variables
 }
