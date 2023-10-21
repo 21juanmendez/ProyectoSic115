@@ -162,7 +162,7 @@ public class libroMayor extends javax.swing.JPanel {
                 // Actualizamos el valor de 'total' en la tabla 'mayorizacion'
                 PreparedStatement pst = cn.prepareStatement("UPDATE mayorizacion SET total = ? WHERE codigo = '1101'");
                 pst.setDouble(1, total); // Establecemos el valor de 'total' en la sentencia SQL.
-                pst.executeUpdate();
+                double a=pst.executeUpdate();// Ejecuta la sentencia y guarda el resultado
             }
         } catch (Exception e) {
         }
