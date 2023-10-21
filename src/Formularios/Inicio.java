@@ -253,7 +253,7 @@ public class Inicio extends javax.swing.JFrame {
 
     private void jMenuItemLibroMayorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemLibroMayorActionPerformed
         // TODO add your handling code here:
-        LibroMayor libroMayor = new LibroMayor();
+        libroMayor libroMayor = new libroMayor();
         libroMayor.setSize(1280, 660);
         libroMayor.setLocation(0, 0);
         jPanelInicio.removeAll();

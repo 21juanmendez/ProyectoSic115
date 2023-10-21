@@ -15,12 +15,12 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author juann
  */
-public class LibroMayor extends javax.swing.JPanel {
+public class libroMayor extends javax.swing.JPanel {
 
     /**
      * Creates new form libroMayor
      */
-    public LibroMayor() {
+    public libroMayor() {
         initComponents();
         mostrarCuentas();
         sumarCuentaCaja();
