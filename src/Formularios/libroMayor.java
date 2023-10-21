@@ -342,19 +342,19 @@ public class libroMayor extends javax.swing.JPanel {
         ));
         jScrollPane2.setViewportView(jTableCredito);
 
-        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 80, 150, 180));
+        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 80, 150, 180));
 
         jLabel3.setText("COMPRAS");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 60, -1, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 60, -1, -1));
         jPanel1.add(jTextFieldSumaCajaAbono, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 260, 70, -1));
         jPanel1.add(jTextFieldSumaCajaCargo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 70, -1));
 
         jLabel4.setText("TOTAL");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 290, -1, 20));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 290, -1, 20));
         jPanel1.add(jTextFieldSumaTotalCaja, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, 70, -1));
-        jPanel1.add(jTextFieldSumaIvaCreditoCargo, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 260, 70, -1));
-        jPanel1.add(jTextFieldSumaIvaCreditoAbono, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 260, 70, -1));
-        jPanel1.add(jTextFieldSumaIvaCreditoTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 290, 70, -1));
+        jPanel1.add(jTextFieldSumaIvaCreditoCargo, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 260, 70, -1));
+        jPanel1.add(jTextFieldSumaIvaCreditoAbono, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 260, 70, -1));
+        jPanel1.add(jTextFieldSumaIvaCreditoTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 290, 70, -1));
 
         jLabel6.setText("TOTAL");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 290, -1, 20));
@@ -372,16 +372,16 @@ public class libroMayor extends javax.swing.JPanel {
         ));
         jScrollPane3.setViewportView(jTableDebito);
 
-        jPanel1.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 80, 150, 180));
+        jPanel1.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 360, 150, 180));
 
         jLabel5.setText("IVA - CREDITO FISCAL");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 60, -1, -1));
-        jPanel1.add(jTextFieldSumaTotalVentas, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 290, 70, -1));
-        jPanel1.add(jTextFieldSumaAbonoDebito, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 260, 70, -1));
-        jPanel1.add(jTextFieldSumaTotalDebito, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 290, 70, -1));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 60, -1, -1));
+        jPanel1.add(jTextFieldSumaTotalVentas, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 570, 70, -1));
+        jPanel1.add(jTextFieldSumaAbonoDebito, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 540, 70, -1));
+        jPanel1.add(jTextFieldSumaTotalDebito, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 570, 70, -1));
 
         jLabel7.setText("TOTAL");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 290, -1, 20));
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 290, -1, 20));
 
         jTableVentas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -396,16 +396,16 @@ public class libroMayor extends javax.swing.JPanel {
         ));
         jScrollPane4.setViewportView(jTableVentas);
 
-        jPanel1.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 80, 150, 180));
+        jPanel1.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 360, 150, 180));
 
         jLabel8.setText("IVA - DEBITO FISCAL");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 60, -1, -1));
-        jPanel1.add(jTextFieldSumaCargoDebito, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 260, 70, -1));
-        jPanel1.add(jTextFieldSumaCargoVentas, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 260, 70, -1));
-        jPanel1.add(jTextFieldSumaAbonoVentas, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 260, 70, -1));
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 340, -1, -1));
+        jPanel1.add(jTextFieldSumaCargoDebito, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 540, 70, -1));
+        jPanel1.add(jTextFieldSumaCargoVentas, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 540, 70, -1));
+        jPanel1.add(jTextFieldSumaAbonoVentas, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 540, 70, -1));
 
         jLabel9.setText("TOTAL");
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 290, -1, 20));
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 570, -1, 20));
 
         jTableCompras.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -420,16 +420,16 @@ public class libroMayor extends javax.swing.JPanel {
         ));
         jScrollPane5.setViewportView(jTableCompras);
 
-        jPanel1.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 80, 150, 180));
+        jPanel1.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 80, 150, 180));
 
         jLabel10.setText("VENTAS");
-        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 60, -1, -1));
-        jPanel1.add(jTextFieldSumaCargoCompras, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 260, 70, -1));
-        jPanel1.add(jTextFieldSumaAbonoCompras, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 260, 70, -1));
-        jPanel1.add(jTextFieldSumaTotalCompras, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 290, 70, -1));
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 340, -1, -1));
+        jPanel1.add(jTextFieldSumaCargoCompras, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 260, 70, -1));
+        jPanel1.add(jTextFieldSumaAbonoCompras, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 260, 70, -1));
+        jPanel1.add(jTextFieldSumaTotalCompras, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 290, 70, -1));
 
         jLabel11.setText("TOTAL");
-        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 290, -1, 20));
+        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 570, -1, 20));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
