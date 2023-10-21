@@ -212,8 +212,10 @@ public class transaccion extends javax.swing.JPanel {
         jTextFieldFecha.setText("");
         jTextFieldCargo.setText("0");
         jTextFieldAbono.setText("0");
+        jTextFieldConcepto.setText("");
         jCheckBoxCredito.setVisible(true);
         jCheckBoxDebito.setVisible(true);
+        jButtonGuardarTransaccion.setEnabled(true);
     }
 
     private void jButtonGuardarTransaccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGuardarTransaccionActionPerformed
@@ -461,7 +463,7 @@ public class transaccion extends javax.swing.JPanel {
 
     private void jButtonLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLimpiarActionPerformed
         // TODO add your handling code here:
-        
+        valoresIniciales();
     }//GEN-LAST:event_jButtonLimpiarActionPerformed
 
     //MUESTRA LOS VALORES DE LA CUENTA EN EL COMBOBOS Y DEL CODIGO EN EL TEXTBOX
