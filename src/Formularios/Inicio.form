@@ -52,7 +52,7 @@
       <SubComponents>
         <Menu class="javax.swing.JMenu" name="jMenuInicio">
           <Properties>
-            <Property name="text" type="java.lang.String" value=" Inicio "/>
+            <Property name="text" type="java.lang.String" value="| Inicio |"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuInicioActionPerformed"/>
@@ -70,7 +70,7 @@
         </Menu>
         <Menu class="javax.swing.JMenu" name="jMenuCatalogo">
           <Properties>
-            <Property name="text" type="java.lang.String" value="| Catalogo de Cuentas |"/>
+            <Property name="text" type="java.lang.String" value="Catalogo de Cuentas "/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuCatalogoActionPerformed"/>
@@ -88,7 +88,7 @@
         </Menu>
         <Menu class="javax.swing.JMenu" name="jMenuManoObra">
           <Properties>
-            <Property name="text" type="java.lang.String" value=" Mano de Obra "/>
+            <Property name="text" type="java.lang.String" value="| Mano de Obra |"/>
           </Properties>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItemManoObra">
@@ -103,7 +103,7 @@
         </Menu>
         <Menu class="javax.swing.JMenu" name="jMenuTransaccion">
           <Properties>
-            <Property name="text" type="java.lang.String" value="| Transaccion |"/>
+            <Property name="text" type="java.lang.String" value=" Transaccion "/>
           </Properties>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItemTransaccion">
@@ -118,7 +118,7 @@
         </Menu>
         <Menu class="javax.swing.JMenu" name="jMenuLibroMayor">
           <Properties>
-            <Property name="text" type="java.lang.String" value=" Libro Mayor "/>
+            <Property name="text" type="java.lang.String" value="| Libro Mayor |"/>
           </Properties>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItemLibroMayor">
@@ -127,21 +127,6 @@
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItemLibroMayorActionPerformed"/>
-              </Events>
-            </MenuItem>
-          </SubComponents>
-        </Menu>
-        <Menu class="javax.swing.JMenu" name="jMenuCierreContable">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="| Cierre Contable |"/>
-          </Properties>
-          <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItemCierreContable">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Cierre Contable"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItemCierreContableActionPerformed"/>
               </Events>
             </MenuItem>
           </SubComponents>
@@ -172,6 +157,21 @@
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem3ActionPerformed"/>
+              </Events>
+            </MenuItem>
+          </SubComponents>
+        </Menu>
+        <Menu class="javax.swing.JMenu" name="jMenuCierreContable">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Cierre Contable"/>
+          </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItemCierreContable">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Cierre Contable"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItemCierreContableActionPerformed"/>
               </Events>
             </MenuItem>
           </SubComponents>
@@ -214,7 +214,7 @@
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPanelInicio" alignment="1" max="32767" attributes="0"/>
+          <Component id="jPanelInicio" alignment="0" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>

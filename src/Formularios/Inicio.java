@@ -59,12 +59,12 @@ public class Inicio extends javax.swing.JFrame {
         jMenuItemTransaccion = new javax.swing.JMenuItem();
         jMenuLibroMayor = new javax.swing.JMenu();
         jMenuItemLibroMayor = new javax.swing.JMenuItem();
-        jMenuCierreContable = new javax.swing.JMenu();
-        jMenuItemCierreContable = new javax.swing.JMenuItem();
         jMenuBalanceComprobacion = new javax.swing.JMenu();
         jMenuItemBalanceComprobacion = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
+        jMenuCierreContable = new javax.swing.JMenu();
+        jMenuItemCierreContable = new javax.swing.JMenuItem();
 
         jMenu1.setText("jMenu1");
 
@@ -97,7 +97,7 @@ public class Inicio extends javax.swing.JFrame {
             .addGap(0, 660, Short.MAX_VALUE)
         );
 
-        jMenuInicio.setText(" Inicio ");
+        jMenuInicio.setText("| Inicio |");
         jMenuInicio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuInicioActionPerformed(evt);
@@ -114,7 +114,7 @@ public class Inicio extends javax.swing.JFrame {
 
         jMenuBar2.add(jMenuInicio);
 
-        jMenuCatalogo.setText("| Catalogo de Cuentas |");
+        jMenuCatalogo.setText("Catalogo de Cuentas ");
         jMenuCatalogo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuCatalogoActionPerformed(evt);
@@ -131,7 +131,7 @@ public class Inicio extends javax.swing.JFrame {
 
         jMenuBar2.add(jMenuCatalogo);
 
-        jMenuManoObra.setText(" Mano de Obra ");
+        jMenuManoObra.setText("| Mano de Obra |");
 
         jMenuItemManoObra.setText("Mano de Obra");
         jMenuItemManoObra.addActionListener(new java.awt.event.ActionListener() {
@@ -143,7 +143,7 @@ public class Inicio extends javax.swing.JFrame {
 
         jMenuBar2.add(jMenuManoObra);
 
-        jMenuTransaccion.setText("| Transaccion |");
+        jMenuTransaccion.setText(" Transaccion ");
 
         jMenuItemTransaccion.setText("Transaccion");
         jMenuItemTransaccion.addActionListener(new java.awt.event.ActionListener() {
@@ -155,7 +155,7 @@ public class Inicio extends javax.swing.JFrame {
 
         jMenuBar2.add(jMenuTransaccion);
 
-        jMenuLibroMayor.setText(" Libro Mayor ");
+        jMenuLibroMayor.setText("| Libro Mayor |");
 
         jMenuItemLibroMayor.setText("Libro Mayor");
         jMenuItemLibroMayor.addActionListener(new java.awt.event.ActionListener() {
@@ -166,18 +166,6 @@ public class Inicio extends javax.swing.JFrame {
         jMenuLibroMayor.add(jMenuItemLibroMayor);
 
         jMenuBar2.add(jMenuLibroMayor);
-
-        jMenuCierreContable.setText("| Cierre Contable |");
-
-        jMenuItemCierreContable.setText("Cierre Contable");
-        jMenuItemCierreContable.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItemCierreContableActionPerformed(evt);
-            }
-        });
-        jMenuCierreContable.add(jMenuItemCierreContable);
-
-        jMenuBar2.add(jMenuCierreContable);
 
         jMenuBalanceComprobacion.setText("Balance de comprobacion");
 
@@ -203,6 +191,18 @@ public class Inicio extends javax.swing.JFrame {
 
         jMenuBar2.add(jMenu3);
 
+        jMenuCierreContable.setText("Cierre Contable");
+
+        jMenuItemCierreContable.setText("Cierre Contable");
+        jMenuItemCierreContable.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemCierreContableActionPerformed(evt);
+            }
+        });
+        jMenuCierreContable.add(jMenuItemCierreContable);
+
+        jMenuBar2.add(jMenuCierreContable);
+
         setJMenuBar(jMenuBar2);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -213,7 +213,7 @@ public class Inicio extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelInicio, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanelInicio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
