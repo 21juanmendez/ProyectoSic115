@@ -135,10 +135,11 @@ public class libroMayor extends javax.swing.JPanel {
         }
     }
 
+    //Sumamos los datos de la tabla para cajas
     public void sumarCuentaCaja() {
+        //Establecemos conexion con la DB
         ConexionDB db = new ConexionDB();
         Connection cn = db.conectar();
-
         try {
             DefaultTableModel modelo = (DefaultTableModel) jTableCaja.getModel();
             int rowCount = modelo.getRowCount();
@@ -150,15 +151,17 @@ public class libroMayor extends javax.swing.JPanel {
             }
             //mostramos la suma del debe en el textbox
             jTextFieldSumaCajaCargo.setText(String.valueOf(sumaCargo)); // Establece el resultado de la suma en el JTextField.
+            //sumamos la columna del haber
             for (int i = 0; i < rowCount; i++) {
                 sumaAbono += Double.parseDouble(modelo.getValueAt(i, 1).toString()); // Suma los valores de la columna 2 (índice 1).
             }
+            //mostramos la suma del haber en el textbox
             jTextFieldSumaCajaAbono.setText(String.valueOf(sumaAbono));
-
+            //como es activo, si el cargo es mayor que el abono que lo reste 
             if (sumaCargo > sumaAbono) {
                 double total = sumaCargo - sumaAbono;
+                //establece el valor total en el textbox
                 jTextFieldSumaTotalCaja.setText(String.valueOf(total));
-
                 // Actualizamos el valor de 'total' en la tabla 'mayorizacion'
                 PreparedStatement pst = cn.prepareStatement("UPDATE mayorizacion SET total = ? WHERE codigo = '1101'");
                 pst.setDouble(1, total); // Establecemos el valor de 'total' en la sentencia SQL.

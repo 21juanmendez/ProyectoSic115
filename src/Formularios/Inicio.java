@@ -59,12 +59,12 @@ public class Inicio extends javax.swing.JFrame {
         jMenuItemTransaccion = new javax.swing.JMenuItem();
         jMenuLibroMayor = new javax.swing.JMenu();
         jMenuItemLibroMayor = new javax.swing.JMenuItem();
+        jMenuCierreContable = new javax.swing.JMenu();
+        jMenuItemCierreContable = new javax.swing.JMenuItem();
         jMenuBalanceComprobacion = new javax.swing.JMenu();
         jMenuItemBalanceComprobacion = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
-        jMenuCierreContable = new javax.swing.JMenu();
-        jMenuItemCierreContable = new javax.swing.JMenuItem();
 
         jMenu1.setText("jMenu1");
 
@@ -167,6 +167,18 @@ public class Inicio extends javax.swing.JFrame {
 
         jMenuBar2.add(jMenuLibroMayor);
 
+        jMenuCierreContable.setText("Cierre Contable");
+
+        jMenuItemCierreContable.setText("Cierre Contable");
+        jMenuItemCierreContable.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemCierreContableActionPerformed(evt);
+            }
+        });
+        jMenuCierreContable.add(jMenuItemCierreContable);
+
+        jMenuBar2.add(jMenuCierreContable);
+
         jMenuBalanceComprobacion.setText("Balance de comprobacion");
 
         jMenuItemBalanceComprobacion.setText("Balance de comprobacion");
@@ -190,18 +202,6 @@ public class Inicio extends javax.swing.JFrame {
         jMenu3.add(jMenuItem3);
 
         jMenuBar2.add(jMenu3);
-
-        jMenuCierreContable.setText("Cierre Contable");
-
-        jMenuItemCierreContable.setText("Cierre Contable");
-        jMenuItemCierreContable.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItemCierreContableActionPerformed(evt);
-            }
-        });
-        jMenuCierreContable.add(jMenuItemCierreContable);
-
-        jMenuBar2.add(jMenuCierreContable);
 
         setJMenuBar(jMenuBar2);
 

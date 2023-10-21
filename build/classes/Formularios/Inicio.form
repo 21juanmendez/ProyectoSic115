@@ -131,6 +131,21 @@
             </MenuItem>
           </SubComponents>
         </Menu>
+        <Menu class="javax.swing.JMenu" name="jMenuCierreContable">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Cierre Contable"/>
+          </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItemCierreContable">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Cierre Contable"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItemCierreContableActionPerformed"/>
+              </Events>
+            </MenuItem>
+          </SubComponents>
+        </Menu>
         <Menu class="javax.swing.JMenu" name="jMenuBalanceComprobacion">
           <Properties>
             <Property name="text" type="java.lang.String" value="Balance de comprobacion"/>
@@ -157,21 +172,6 @@
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem3ActionPerformed"/>
-              </Events>
-            </MenuItem>
-          </SubComponents>
-        </Menu>
-        <Menu class="javax.swing.JMenu" name="jMenuCierreContable">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Cierre Contable"/>
-          </Properties>
-          <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItemCierreContable">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Cierre Contable"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItemCierreContableActionPerformed"/>
               </Events>
             </MenuItem>
           </SubComponents>
