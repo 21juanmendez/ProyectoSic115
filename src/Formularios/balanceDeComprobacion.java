@@ -32,7 +32,7 @@ public class balanceDeComprobacion extends javax.swing.JPanel {
         jPanel1.setPreferredSize(new java.awt.Dimension(1280, 680));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Ink Free", 1, 24)); // NOI18N
         jLabel1.setText("BALANCE DE COMPROBACION");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 50, -1, -1));
 
