@@ -91,6 +91,26 @@ public class libroMayor extends javax.swing.JPanel {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error: " + e);
         }
+        
+          //CUENTA VENTAS
+        try {
+            PreparedStatement pst = cn.prepareStatement("SELECT cargo,abono FROM transacciones WHERE codigo='5101'");
+            ResultSet resultado = pst.executeQuery();
+            DefaultTableModel modeloTabla = new DefaultTableModel();
+            //modeloTabla.addColumn("Cuenta");
+            modeloTabla.addColumn("Debe");
+            modeloTabla.addColumn("Haber");
+            while (resultado.next()) {
+                //String cuenta = resultado.getString("Cuenta");
+                String cargo = resultado.getString("Cargo");
+                String abono = resultado.getString("Abono");
+
+                modeloTabla.addRow(new Object[]{cargo, abono});//si se agrega la cuenta quedaria (cuenta,cargo,abono);
+                jTableVentas.setModel(modeloTabla); // Reemplaza "jTable1" con el nombre de tu JTable.
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error: " + e);
+        }
     }
 
     public void sumarCuentaCaja() {
@@ -145,7 +165,7 @@ public class libroMayor extends javax.swing.JPanel {
             sumaCargo += Double.parseDouble(modelo.getValueAt(i, 0).toString()); // Suma los valores de la columna 2 (índice 1).
         }
         //mostramos la suma del debe en el textbox
-        jTextFieldSumaCargoDebito.setText(String.valueOf(sumaCargo)); // Establece el resultado de la suma en el JTextField.
+        jTextFieldSumaTotalVentas.setText(String.valueOf(sumaCargo)); // Establece el resultado de la suma en el JTextField.
         for (int i = 0; i < rowCount; i++) {
             sumaAbono += Double.parseDouble(modelo.getValueAt(i, 1).toString()); // Suma los valores de la columna 2 (índice 1).
         }
@@ -184,10 +204,16 @@ public class libroMayor extends javax.swing.JPanel {
         jScrollPane3 = new javax.swing.JScrollPane();
         jTableDebito = new javax.swing.JTable();
         jLabel5 = new javax.swing.JLabel();
-        jTextFieldSumaCargoDebito = new javax.swing.JTextField();
+        jTextFieldSumaTotalVentas = new javax.swing.JTextField();
         jTextFieldSumaAbonoDebito = new javax.swing.JTextField();
         jTextFieldSumaTotalDebito = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jTableVentas = new javax.swing.JTable();
+        jLabel8 = new javax.swing.JLabel();
+        jTextFieldSumaCargoDebito1 = new javax.swing.JTextField();
+        jTextFieldSumaCargoVentas = new javax.swing.JTextField();
+        jTextFieldSumaAbonoVentas = new javax.swing.JTextField();
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -228,8 +254,8 @@ public class libroMayor extends javax.swing.JPanel {
 
         jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 80, 150, 180));
 
-        jLabel3.setText("IVA - DEBITO FISCAL");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 60, -1, -1));
+        jLabel3.setText("VENTAS");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 60, -1, -1));
         jPanel1.add(jTextFieldSumaCajaAbono, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 260, 70, -1));
         jPanel1.add(jTextFieldSumaCajaCargo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 70, -1));
 
@@ -260,12 +286,33 @@ public class libroMayor extends javax.swing.JPanel {
 
         jLabel5.setText("IVA - CREDITO FISCAL");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 60, -1, -1));
-        jPanel1.add(jTextFieldSumaCargoDebito, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 260, 70, -1));
+        jPanel1.add(jTextFieldSumaTotalVentas, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 290, 70, -1));
         jPanel1.add(jTextFieldSumaAbonoDebito, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 260, 70, -1));
         jPanel1.add(jTextFieldSumaTotalDebito, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 290, 70, -1));
 
         jLabel7.setText("TOTAL");
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 290, -1, 20));
+
+        jTableVentas.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane4.setViewportView(jTableVentas);
+
+        jPanel1.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 80, 150, 180));
+
+        jLabel8.setText("IVA - DEBITO FISCAL");
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 60, -1, -1));
+        jPanel1.add(jTextFieldSumaCargoDebito1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 260, 70, -1));
+        jPanel1.add(jTextFieldSumaCargoVentas, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 260, 70, -1));
+        jPanel1.add(jTextFieldSumaAbonoVentas, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 260, 70, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -288,21 +335,27 @@ public class libroMayor extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTable jTableCaja;
     private javax.swing.JTable jTableCredito;
     private javax.swing.JTable jTableDebito;
+    private javax.swing.JTable jTableVentas;
     private javax.swing.JTextField jTextFieldSumaAbonoDebito;
+    private javax.swing.JTextField jTextFieldSumaAbonoVentas;
     private javax.swing.JTextField jTextFieldSumaCajaAbono;
     private javax.swing.JTextField jTextFieldSumaCajaCargo;
-    private javax.swing.JTextField jTextFieldSumaCargoDebito;
+    private javax.swing.JTextField jTextFieldSumaCargoDebito1;
+    private javax.swing.JTextField jTextFieldSumaCargoVentas;
     private javax.swing.JTextField jTextFieldSumaIvaCreditoAbono;
     private javax.swing.JTextField jTextFieldSumaIvaCreditoCargo;
     private javax.swing.JTextField jTextFieldSumaIvaCreditoTotal;
     private javax.swing.JTextField jTextFieldSumaTotalCaja;
     private javax.swing.JTextField jTextFieldSumaTotalDebito;
+    private javax.swing.JTextField jTextFieldSumaTotalVentas;
     // End of variables declaration//GEN-END:variables
 }
