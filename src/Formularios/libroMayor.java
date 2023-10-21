@@ -136,24 +136,35 @@ public class libroMayor extends javax.swing.JPanel {
     }
 
     public void sumarCuentaCaja() {
-        DefaultTableModel modelo = (DefaultTableModel) jTableCaja.getModel();
-        int rowCount = modelo.getRowCount();
-        double sumaCargo = 0.0;
-        double sumaAbono = 0.0;
-        //sumamos la columna del debe
-        for (int i = 0; i < rowCount; i++) {
-            sumaCargo += Double.parseDouble(modelo.getValueAt(i, 0).toString()); // Suma los valores de la columna 2 (índice 1).
-        }
-        //mostramos la suma del debe en el textbox
-        jTextFieldSumaCajaCargo.setText(String.valueOf(sumaCargo)); // Establece el resultado de la suma en el JTextField.
-        for (int i = 0; i < rowCount; i++) {
-            sumaAbono += Double.parseDouble(modelo.getValueAt(i, 1).toString()); // Suma los valores de la columna 2 (índice 1).
-        }
-        jTextFieldSumaCajaAbono.setText(String.valueOf(sumaAbono));
+        ConexionDB db = new ConexionDB();
+        Connection cn = db.conectar();
 
-        if (sumaCargo > sumaAbono) {
-            double total = sumaCargo - sumaAbono;
-            jTextFieldSumaTotalCaja.setText(String.valueOf(total));
+        try {
+            DefaultTableModel modelo = (DefaultTableModel) jTableCaja.getModel();
+            int rowCount = modelo.getRowCount();
+            double sumaCargo = 0.0;
+            double sumaAbono = 0.0;
+            //sumamos la columna del debe
+            for (int i = 0; i < rowCount; i++) {
+                sumaCargo += Double.parseDouble(modelo.getValueAt(i, 0).toString()); // Suma los valores de la columna 2 (índice 1).
+            }
+            //mostramos la suma del debe en el textbox
+            jTextFieldSumaCajaCargo.setText(String.valueOf(sumaCargo)); // Establece el resultado de la suma en el JTextField.
+            for (int i = 0; i < rowCount; i++) {
+                sumaAbono += Double.parseDouble(modelo.getValueAt(i, 1).toString()); // Suma los valores de la columna 2 (índice 1).
+            }
+            jTextFieldSumaCajaAbono.setText(String.valueOf(sumaAbono));
+
+            if (sumaCargo > sumaAbono) {
+                double total = sumaCargo - sumaAbono;
+                jTextFieldSumaTotalCaja.setText(String.valueOf(total));
+
+                // Actualizamos el valor de 'total' en la tabla 'mayorizacion'
+                PreparedStatement pst = cn.prepareStatement("UPDATE mayorizacion SET total = ? WHERE codigo = '1101'");
+                pst.setDouble(1, total); // Establecemos el valor de 'total' en la sentencia SQL.
+                pst.executeUpdate();
+            }
+        } catch (Exception e) {
         }
     }
 
@@ -240,7 +251,7 @@ public class libroMayor extends javax.swing.JPanel {
         jTextFieldSumaAbonoCompras.setText(String.valueOf(sumaAbono));
 
         if (sumaCargo > sumaAbono) {
-            double total =  sumaCargo - sumaAbono ;
+            double total = sumaCargo - sumaAbono;
             jTextFieldSumaTotalCompras.setText(String.valueOf(total));
         }
     }
