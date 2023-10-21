@@ -33,7 +33,9 @@ public class transaccion extends javax.swing.JPanel {
         JcomboboxCuentas();
         libroDIario();
         valoresIniciales();
-
+        jButtonEditarTransaccion.setEnabled(false);
+        jButtonEliminarTransaccion.setEnabled(false);
+        jButtonLimpiar.setEnabled(false);
     }
 
     /**
@@ -427,7 +429,11 @@ public class transaccion extends javax.swing.JPanel {
             jTextFieldCargo.setText(cargo);
             jTextFieldAbono.setText(abono);
             jLabel1ID.setVisible(false);
+            //habilitamos o desabiltamos los botones segun nos parezca
             jButtonGuardarTransaccion.setEnabled(false);
+            jButtonEditarTransaccion.setEnabled(true);
+            jButtonEliminarTransaccion.setEnabled(true);
+            jButtonLimpiar.setEnabled(true);
         }
 
     }//GEN-LAST:event_jTableLibroDiarioMouseClicked
@@ -458,12 +464,23 @@ public class transaccion extends javax.swing.JPanel {
             e.printStackTrace();
             JOptionPane.showMessageDialog(null, "Error al eliminar la Transacción.");
         }
-        
+
     }//GEN-LAST:event_jButtonEliminarTransaccionActionPerformed
 
     private void jButtonLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLimpiarActionPerformed
         // TODO add your handling code here:
-        valoresIniciales();
+        jComboBoxCatalogo.setVisible(true);
+        jTextFieldCodigo.setText("");
+        jTextFieldFecha.setText("");
+        jTextFieldCargo.setText("0");
+        jTextFieldAbono.setText("0");
+        jTextFieldConcepto.setText("");
+        jCheckBoxCredito.setVisible(true);
+        jCheckBoxDebito.setVisible(true);
+        jButtonGuardarTransaccion.setEnabled(true);
+        jButtonEditarTransaccion.setEnabled(false);
+        jButtonEliminarTransaccion.setEnabled(false);
+        jButtonLimpiar.setEnabled(false);
     }//GEN-LAST:event_jButtonLimpiarActionPerformed
 
     //MUESTRA LOS VALORES DE LA CUENTA EN EL COMBOBOS Y DEL CODIGO EN EL TEXTBOX

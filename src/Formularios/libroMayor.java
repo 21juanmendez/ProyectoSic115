@@ -8,6 +8,7 @@ import Conexiones.ConexionDB;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -28,6 +29,7 @@ public class libroMayor extends javax.swing.JPanel {
         sumarCuentaDebito();
         sumaCuentaVentas();
         sumarCuentaCompras();
+        
     }
 
     public void mostrarCuentas() {
