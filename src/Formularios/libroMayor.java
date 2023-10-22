@@ -17,11 +17,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author juann
  */
-
 public class libroMayor extends javax.swing.JPanel {
-
-    
-
 
     /**
      * Creates new form libroMayor
@@ -40,7 +36,7 @@ public class libroMayor extends javax.swing.JPanel {
         sumarServicioConsultoria();
         sumarDescuentosVentas();
         sumarDevolucionesVentas();
-       
+
     }
 
     public void mostrarCuentas() {
@@ -49,7 +45,7 @@ public class libroMayor extends javax.swing.JPanel {
 
         //CUENTA CAJA
         try {
-            PreparedStatement pst = cn.prepareStatement("SELECT cuenta,cargo,abono FROM transacciones WHERE codigo='1101'");
+            PreparedStatement pst = cn.prepareStatement("SELECT cargo,abono FROM transacciones WHERE codigo='1101'");
             ResultSet resultado = pst.executeQuery();
             DefaultTableModel modeloTabla = new DefaultTableModel();
             //modeloTabla.addColumn("Cuenta");
@@ -236,7 +232,7 @@ public class libroMayor extends javax.swing.JPanel {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error: " + e);
         }
-        
+
         //CUENTA DEVOLUCIONES SOBRE VENTAS
         try {
             PreparedStatement pst = cn.prepareStatement("SELECT cargo,abono FROM transacciones WHERE codigo='4103'");
@@ -280,7 +276,7 @@ public class libroMayor extends javax.swing.JPanel {
             if (sumaCargo > sumaAbono) {
                 total = sumaCargo - sumaAbono;
                 // Actualizamos el valor de 'total' en la tabla 'mayorizacion'
-                PreparedStatement pst = cn.prepareStatement("UPDATE mayorizacion SET total = ? WHERE codigo = '1101'");
+                PreparedStatement pst = cn.prepareStatement("UPDATE mayorizacion SET totalDebe = ? WHERE codigo = '1101'");
                 pst.setDouble(1, total); // Establecemos el valor de 'total' en la sentencia SQL.
                 double a = pst.executeUpdate();// Ejecuta la sentencia y guarda el resultado
             }
@@ -313,7 +309,7 @@ public class libroMayor extends javax.swing.JPanel {
             if (sumaCargo > sumaAbono) {
                 total = sumaCargo - sumaAbono;
                 // Actualizamos el valor de 'total' en la tabla 'mayorizacion'
-                PreparedStatement pst = cn.prepareStatement("UPDATE mayorizacion SET total = ? WHERE codigo = '1107'");
+                PreparedStatement pst = cn.prepareStatement("UPDATE mayorizacion SET totalDebe = ? WHERE codigo = '1107'");
                 pst.setDouble(1, total); // Establecemos el valor de 'total' en la sentencia SQL.
                 double a = pst.executeUpdate();// Ejecuta la sentencia y guarda el resultado
             }
@@ -346,7 +342,7 @@ public class libroMayor extends javax.swing.JPanel {
             if (sumaAbono > sumaCargo) {
                 total = sumaAbono - sumaCargo;
                 // Actualizamos el valor de 'total' en la tabla 'mayorizacion'
-                PreparedStatement pst = cn.prepareStatement("UPDATE mayorizacion SET total = ? WHERE codigo = '2107'");
+                PreparedStatement pst = cn.prepareStatement("UPDATE mayorizacion SET totalHaber = ? WHERE codigo = '2107'");
                 pst.setDouble(1, total); // Establecemos el valor de 'total' en la sentencia SQL.
                 double a = pst.executeUpdate();// Ejecuta la sentencia y guarda el resultado
             }
@@ -379,7 +375,7 @@ public class libroMayor extends javax.swing.JPanel {
             if (sumaAbono > sumaCargo) {
                 total = sumaAbono - sumaCargo;
                 // Actualizamos el valor de 'total' en la tabla 'mayorizacion'
-                PreparedStatement pst = cn.prepareStatement("UPDATE mayorizacion SET total = ? WHERE codigo = '5101'");
+                PreparedStatement pst = cn.prepareStatement("UPDATE mayorizacion SET totalHaber = ? WHERE codigo = '5101'");
                 pst.setDouble(1, total); // Establecemos el valor de 'total' en la sentencia SQL.
                 double a = pst.executeUpdate();// Ejecuta la sentencia y guarda el resultado
             }
@@ -412,7 +408,7 @@ public class libroMayor extends javax.swing.JPanel {
             if (sumaCargo > sumaAbono) {
                 total = sumaCargo - sumaAbono;
                 // Actualizamos el valor de 'total' en la tabla 'mayorizacion'
-                PreparedStatement pst = cn.prepareStatement("UPDATE mayorizacion SET total = ? WHERE codigo = '4101'");
+                PreparedStatement pst = cn.prepareStatement("UPDATE mayorizacion SET totalDebe = ? WHERE codigo = '4101'");
                 pst.setDouble(1, total); // Establecemos el valor de 'total' en la sentencia SQL.
                 double a = pst.executeUpdate();// Ejecuta la sentencia y guarda el resultado
             }
@@ -445,7 +441,7 @@ public class libroMayor extends javax.swing.JPanel {
             if (sumaAbono > sumaCargo) {
                 total = sumaAbono - sumaCargo;
                 // Actualizamos el valor de 'total' en la tabla 'mayorizacion'
-                PreparedStatement pst = cn.prepareStatement("UPDATE mayorizacion SET total = ? WHERE codigo = '5102'");
+                PreparedStatement pst = cn.prepareStatement("UPDATE mayorizacion SET totalHaber = ? WHERE codigo = '5102'");
                 pst.setDouble(1, total); // Establecemos el valor de 'total' en la sentencia SQL.
                 double a = pst.executeUpdate();// Ejecuta la sentencia y guarda el resultado
             }
@@ -478,7 +474,7 @@ public class libroMayor extends javax.swing.JPanel {
             if (sumaAbono > sumaCargo) {
                 total = sumaAbono - sumaCargo;
                 // Actualizamos el valor de 'total' en la tabla 'mayorizacion'
-                PreparedStatement pst = cn.prepareStatement("UPDATE mayorizacion SET total = ? WHERE codigo = '5103'");
+                PreparedStatement pst = cn.prepareStatement("UPDATE mayorizacion SET totalHaber = ? WHERE codigo = '5103'");
                 pst.setDouble(1, total); // Establecemos el valor de 'total' en la sentencia SQL.
                 double a = pst.executeUpdate();// Ejecuta la sentencia y guarda el resultado
             }
@@ -544,7 +540,7 @@ public class libroMayor extends javax.swing.JPanel {
             if (sumaAbono > sumaCargo) {
                 total = sumaAbono - sumaCargo;
                 // Actualizamos el valor de 'total' en la tabla 'mayorizacion'
-                PreparedStatement pst = cn.prepareStatement("UPDATE mayorizacion SET total = ? WHERE codigo = '5104'");
+                PreparedStatement pst = cn.prepareStatement("UPDATE mayorizacion SET totalHaber = ? WHERE codigo = '5104'");
                 pst.setDouble(1, total); // Establecemos el valor de 'total' en la sentencia SQL.
                 double a = pst.executeUpdate();// Ejecuta la sentencia y guarda el resultado
             }
@@ -577,7 +573,7 @@ public class libroMayor extends javax.swing.JPanel {
             if (sumaCargo > sumaAbono) {
                 total = sumaCargo - sumaAbono;
                 // Actualizamos el valor de 'total' en la tabla 'mayorizacion'
-                PreparedStatement pst = cn.prepareStatement("UPDATE mayorizacion SET total = ? WHERE codigo = '4102'");
+                PreparedStatement pst = cn.prepareStatement("UPDATE mayorizacion SET totalDebe = ? WHERE codigo = '4102'");
                 pst.setDouble(1, total); // Establecemos el valor de 'total' en la sentencia SQL.
                 double a = pst.executeUpdate();// Ejecuta la sentencia y guarda el resultado
             }
@@ -586,9 +582,9 @@ public class libroMayor extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Error: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
-    
-     public void sumarDevolucionesVentas(){
-            ConexionDB db = new ConexionDB();
+
+    public void sumarDevolucionesVentas() {
+        ConexionDB db = new ConexionDB();
         Connection cn = db.conectar();
         try {
             DefaultTableModel modelo = (DefaultTableModel) jTableDevolucionesVentas.getModel();
@@ -610,7 +606,7 @@ public class libroMayor extends javax.swing.JPanel {
             if (sumaCargo > sumaAbono) {
                 total = sumaCargo - sumaAbono;
                 // Actualizamos el valor de 'total' en la tabla 'mayorizacion'
-                PreparedStatement pst = cn.prepareStatement("UPDATE mayorizacion SET total = ? WHERE codigo = '4103'");
+                PreparedStatement pst = cn.prepareStatement("UPDATE mayorizacion SET totalDebe = ? WHERE codigo = '4103'");
                 pst.setDouble(1, total); // Establecemos el valor de 'total' en la sentencia SQL.
                 double a = pst.executeUpdate();// Ejecuta la sentencia y guarda el resultado
             }
@@ -618,15 +614,15 @@ public class libroMayor extends javax.swing.JPanel {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
-            
-            
-        }
+
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
      * regenerated by the Form Editor.
      */
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -716,7 +712,7 @@ public class libroMayor extends javax.swing.JPanel {
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel1.setText("LIBRO MAYOR");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 10, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 20, -1, -1));
 
         jTableCaja.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -906,14 +902,14 @@ public class libroMayor extends javax.swing.JPanel {
         ));
         jScrollPane8.setViewportView(jTableCuentasPagar);
 
-        jPanel1.add(jScrollPane8, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 360, 140, 180));
+        jPanel1.add(jScrollPane8, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 360, 140, 180));
 
         jLabel16.setFont(new java.awt.Font("Segoe UI", 1, 8)); // NOI18N
         jLabel16.setText("CUENTAS POR PAGAR");
-        jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 340, -1, -1));
-        jPanel1.add(jTextFieldSumaAbonoCuentasPagar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 540, 70, -1));
-        jPanel1.add(jTextFieldSumaTotalCuentasPagar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 570, 70, -1));
-        jPanel1.add(jTextFieldSumaCargoCuentasPagar, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 540, 70, -1));
+        jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 340, -1, -1));
+        jPanel1.add(jTextFieldSumaAbonoCuentasPagar, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 540, 70, -1));
+        jPanel1.add(jTextFieldSumaTotalCuentasPagar, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 570, 70, -1));
+        jPanel1.add(jTextFieldSumaCargoCuentasPagar, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 540, 70, -1));
 
         jLabel17.setText("TOTAL");
         jPanel1.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 290, -1, 20));
@@ -941,7 +937,7 @@ public class libroMayor extends javax.swing.JPanel {
         jPanel1.add(jTextFieldSumaCargoConsultoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 540, 70, -1));
 
         jLabel19.setText("TOTAL");
-        jPanel1.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 570, -1, 20));
+        jPanel1.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 570, -1, 20));
 
         jTableDescuentosVentas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
