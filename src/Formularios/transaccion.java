@@ -383,8 +383,8 @@ public class transaccion extends javax.swing.JPanel {
         try {
             ConexionDB db = new ConexionDB();
             Connection cn = db.conectar();
-            PreparedStatement pst = cn.prepareStatement("UPDATE transacciones SET fecha=?, codigo=?, cuenta=?, concepto=?, cargo=?, abono=? WHERE id=?");
-
+            PreparedStatement pst = cn.prepareStatement("UPDATE transacciones SET fecha=?, codigo=?, "
+                    + "cuenta=?, concepto=?, cargo=?, abono=? WHERE id=?");
             pst.setString(1, fecha);
             pst.setString(2, codigo);
             pst.setString(3, cuenta);
@@ -392,7 +392,6 @@ public class transaccion extends javax.swing.JPanel {
             pst.setDouble(5, cargo);
             pst.setDouble(6, abono);
             pst.setInt(7, id);
-
             pst.executeUpdate();
             pst.close();
             cn.close();
