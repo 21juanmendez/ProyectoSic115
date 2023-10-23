@@ -210,8 +210,8 @@ public class transaccion extends javax.swing.JPanel {
         jComboBoxCatalogo.setVisible(true);
         jTextFieldCodigo.setText("");
         jTextFieldFecha.setText("");
-        jTextFieldCargo.setText("0");
-        jTextFieldAbono.setText("0");
+        jTextFieldCargo.setText("0.0");
+        jTextFieldAbono.setText("0.0");
         jTextFieldConcepto.setText("");
         jCheckBoxCredito.setVisible(true);
         jCheckBoxDebito.setVisible(true);
@@ -468,8 +468,8 @@ public class transaccion extends javax.swing.JPanel {
         jComboBoxCatalogo.setVisible(true);
         jTextFieldCodigo.setText("");
         jTextFieldFecha.setText("");
-        jTextFieldCargo.setText("0");
-        jTextFieldAbono.setText("0");
+        jTextFieldCargo.setText("0.0");
+        jTextFieldAbono.setText("0.0");
         jTextFieldConcepto.setText("");
         jCheckBoxCredito.setVisible(true);
         jCheckBoxDebito.setVisible(true);

@@ -22,10 +22,10 @@ public class balanceDeComprobacion extends javax.swing.JPanel {
      */
     public balanceDeComprobacion() {
         initComponents();
+        libroMayor libro=new libroMayor();
         mostrarBalance();
         sumarBalance();
     }
-
     public void mostrarBalance() {
         ConexionDB db = new ConexionDB();
         Connection cn = db.conectar();

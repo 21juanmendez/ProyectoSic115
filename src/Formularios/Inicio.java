@@ -59,6 +59,7 @@ public class Inicio extends javax.swing.JFrame {
         jMenuItemTransaccion = new javax.swing.JMenuItem();
         jMenuLibroMayor = new javax.swing.JMenu();
         jMenuItemLibroMayor1 = new javax.swing.JMenuItem();
+        jMenuItemLibroMayor2 = new javax.swing.JMenuItem();
         jMenuBalanceComprobacion = new javax.swing.JMenu();
         jMenuItemBalanceComprobacion = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
@@ -156,13 +157,21 @@ public class Inicio extends javax.swing.JFrame {
 
         jMenuLibroMayor.setText("| Libro Mayor |");
 
-        jMenuItemLibroMayor1.setText("Mayorizacion");
+        jMenuItemLibroMayor1.setText("Pagina 1");
         jMenuItemLibroMayor1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItemLibroMayor1ActionPerformed(evt);
             }
         });
         jMenuLibroMayor.add(jMenuItemLibroMayor1);
+
+        jMenuItemLibroMayor2.setText("Pagina 2");
+        jMenuItemLibroMayor2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemLibroMayor2ActionPerformed(evt);
+            }
+        });
+        jMenuLibroMayor.add(jMenuItemLibroMayor2);
 
         jMenuBar2.add(jMenuLibroMayor);
 
@@ -212,7 +221,7 @@ public class Inicio extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelInicio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanelInicio, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -252,7 +261,7 @@ public class Inicio extends javax.swing.JFrame {
 
     private void jMenuItemLibroMayor1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemLibroMayor1ActionPerformed
         // TODO add your handling code here:
-        libroMayor1 libroMayor = new libroMayor1();
+        libroMayor libroMayor = new libroMayor();
         libroMayor.setSize(1280, 660);
         libroMayor.setLocation(0, 0);
         jPanelInicio.removeAll();
@@ -316,6 +325,17 @@ public class Inicio extends javax.swing.JFrame {
         jPanelInicio.repaint();
     }//GEN-LAST:event_jMenuItemCierreContableActionPerformed
 
+    private void jMenuItemLibroMayor2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemLibroMayor2ActionPerformed
+        // TODO add your handling code here:
+         libroMayor1 libroMayor1 = new libroMayor1();
+        libroMayor1.setSize(1280, 660);
+        libroMayor1.setLocation(0, 0);
+        jPanelInicio.removeAll();
+        jPanelInicio.add(libroMayor1, BorderLayout.CENTER);
+        jPanelInicio.revalidate();
+        jPanelInicio.repaint();
+    }//GEN-LAST:event_jMenuItemLibroMayor2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -378,6 +398,7 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItemCierreContable;
     private javax.swing.JMenuItem jMenuItemInicio;
     private javax.swing.JMenuItem jMenuItemLibroMayor1;
+    private javax.swing.JMenuItem jMenuItemLibroMayor2;
     private javax.swing.JMenuItem jMenuItemManoObra;
     private javax.swing.JMenuItem jMenuItemTransaccion;
     private javax.swing.JMenu jMenuLibroMayor;
