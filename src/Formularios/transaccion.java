@@ -132,9 +132,7 @@ public class transaccion extends javax.swing.JPanel {
 
         jLabel10.setText("Codigo:");
         jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 30, -1, -1));
-
-        jTextFieldCodigo.setEnabled(false);
-        jPanel1.add(jTextFieldCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 30, 90, -1));
+        jPanel1.add(jTextFieldCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 30, 110, -1));
 
         jButtonEditarTransaccion.setText("Modificar");
         jButtonEditarTransaccion.addActionListener(new java.awt.event.ActionListener() {
@@ -222,7 +220,6 @@ public class transaccion extends javax.swing.JPanel {
 
     private void jButtonGuardarTransaccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGuardarTransaccionActionPerformed
         // TODO add your handling code here:  
-
         String fecha = jTextFieldFecha.getText();
         String codigo = jTextFieldCodigo.getText();
         String cuenta = (String) jComboBoxCatalogo.getSelectedItem();
@@ -266,8 +263,8 @@ public class transaccion extends javax.swing.JPanel {
                 PreparedStatement pst = cn.prepareStatement("INSERT INTO transacciones (fecha, codigo, cuenta, concepto, cargo, abono) "
                         + "VALUES (?, ?, ?, ?, ?, ?)");
                 pst.setString(1, transaccion.getFecha());
-                pst.setString(2, "1107");
-                pst.setString(3, "IVA-CREDITO FISCAL");
+                pst.setString(2, "1105");
+                pst.setString(3, "Crédito fiscal - IVA");
                 pst.setString(4, transaccion.getConcepto());
                 double ivaCreditoCargo = transaccion.getCargo() * 0.13;
                 pst.setDouble(5, ivaCreditoCargo);
@@ -298,8 +295,8 @@ public class transaccion extends javax.swing.JPanel {
                 PreparedStatement pst = cn.prepareStatement("INSERT INTO transacciones (fecha, codigo, cuenta, concepto, cargo, abono) "
                         + "VALUES (?, ?, ?, ?, ?, ?)");
                 pst.setString(1, transaccion.getFecha());
-                pst.setString(2, "2107");
-                pst.setString(3, "IVA-DEBITO FISCAL");
+                pst.setString(2, "2108");
+                pst.setString(3, "Débito fiscal - IVA");
                 pst.setString(4, transaccion.getConcepto());
                 double ivaDebitoCargo = transaccion.getCargo() * 0.13;
                 pst.setDouble(5, ivaDebitoCargo);
@@ -330,8 +327,8 @@ public class transaccion extends javax.swing.JPanel {
                     + "VALUES (?, ?, ?, ?, ?, ?)");
             if (sumaCargo != 0) {
                 pst.setString(1, transaccion.getFecha());
-                pst.setString(2, "1101");
-                pst.setString(3, "CAJA");
+                pst.setString(2, "110101");
+                pst.setString(3, "Caja");
                 pst.setString(4, transaccion.getConcepto());
                 pst.setDouble(5, 0);
                 pst.setDouble(6, sumaCargo);
@@ -347,8 +344,8 @@ public class transaccion extends javax.swing.JPanel {
                 libroDIario();
             } else {
                 pst.setString(1, transaccion.getFecha());
-                pst.setString(2, "1101");
-                pst.setString(3, "CAJA");
+                pst.setString(2, "110101");
+                pst.setString(3, "Caja");
                 pst.setString(4, transaccion.getConcepto());
                 pst.setDouble(5, sumaAbono);
                 pst.setDouble(6, 0);
@@ -480,6 +477,7 @@ public class transaccion extends javax.swing.JPanel {
         jButtonEditarTransaccion.setEnabled(false);
         jButtonEliminarTransaccion.setEnabled(false);
         jButtonLimpiar.setEnabled(false);
+        jTableLibroDiario.clearSelection();
     }//GEN-LAST:event_jButtonLimpiarActionPerformed
 
     //MUESTRA LOS VALORES DE LA CUENTA EN EL COMBOBOS Y DEL CODIGO EN EL TEXTBOX
@@ -498,6 +496,7 @@ public class transaccion extends javax.swing.JPanel {
             while (resultado.next()) {
                 String cuenta = resultado.getString("cuenta");
                 String codigo = resultado.getString("codigo");
+                
                 items.add(cuenta);
 
                 // Mapea la cuenta con su código.
@@ -555,7 +554,7 @@ public class transaccion extends javax.swing.JPanel {
                 String cargo = resultado.getString("Cargo");
                 String abono = resultado.getString("Abono");
 
-                modeloTabla.addRow(new Object[]{id, fecha, codigo, cuenta, concepto, cargo, abono});
+                modeloTabla.addRow(new Object[]{id,fecha, codigo, cuenta, concepto, cargo, abono});
                 jTableLibroDiario.setModel(modeloTabla); // Reemplaza "jTable1" con el nombre de tu JTable.
             }
         } catch (Exception e) {
