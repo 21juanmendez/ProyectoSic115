@@ -58,7 +58,8 @@ public class Inicio extends javax.swing.JFrame {
         jMenuTransaccion = new javax.swing.JMenu();
         jMenuItemTransaccion = new javax.swing.JMenuItem();
         jMenuLibroMayor = new javax.swing.JMenu();
-        jMenuItemLibroMayor = new javax.swing.JMenuItem();
+        jMenuItemLibroMayor1 = new javax.swing.JMenuItem();
+        jMenuItemPagina3 = new javax.swing.JMenuItem();
         jMenuBalanceComprobacion = new javax.swing.JMenu();
         jMenuItemBalanceComprobacion = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
@@ -81,7 +82,6 @@ public class Inicio extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("AGORA S.A");
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        setPreferredSize(new java.awt.Dimension(1280, 660));
 
         jPanelInicio.setToolTipText("");
         jPanelInicio.setPreferredSize(new java.awt.Dimension(1280, 660));
@@ -157,13 +157,21 @@ public class Inicio extends javax.swing.JFrame {
 
         jMenuLibroMayor.setText("| Libro Mayor |");
 
-        jMenuItemLibroMayor.setText("Libro Mayor");
-        jMenuItemLibroMayor.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItemLibroMayor1.setText("Pagina 1");
+        jMenuItemLibroMayor1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItemLibroMayorActionPerformed(evt);
+                jMenuItemLibroMayor1ActionPerformed(evt);
             }
         });
-        jMenuLibroMayor.add(jMenuItemLibroMayor);
+        jMenuLibroMayor.add(jMenuItemLibroMayor1);
+
+        jMenuItemPagina3.setText("Pagina 2");
+        jMenuItemPagina3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemPagina3ActionPerformed(evt);
+            }
+        });
+        jMenuLibroMayor.add(jMenuItemPagina3);
 
         jMenuBar2.add(jMenuLibroMayor);
 
@@ -251,7 +259,7 @@ public class Inicio extends javax.swing.JFrame {
         jPanelInicio.repaint();
     }//GEN-LAST:event_jMenuItemCatalogoActionPerformed
 
-    private void jMenuItemLibroMayorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemLibroMayorActionPerformed
+    private void jMenuItemLibroMayor1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemLibroMayor1ActionPerformed
         // TODO add your handling code here:
         libroMayor libroMayor = new libroMayor();
         libroMayor.setSize(1280, 660);
@@ -260,7 +268,7 @@ public class Inicio extends javax.swing.JFrame {
         jPanelInicio.add(libroMayor, BorderLayout.CENTER);
         jPanelInicio.revalidate();
         jPanelInicio.repaint();
-    }//GEN-LAST:event_jMenuItemLibroMayorActionPerformed
+    }//GEN-LAST:event_jMenuItemLibroMayor1ActionPerformed
 
     private void jMenuItemManoObraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemManoObraActionPerformed
         // TODO add your handling code here:
@@ -316,6 +324,17 @@ public class Inicio extends javax.swing.JFrame {
         jPanelInicio.revalidate();
         jPanelInicio.repaint();
     }//GEN-LAST:event_jMenuItemCierreContableActionPerformed
+
+    private void jMenuItemPagina3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemPagina3ActionPerformed
+        // TODO add your handling code here:
+        libroMayor1 libro = new libroMayor1();
+        libro.setSize(1280, 660);
+        libro.setLocation(0, 0);
+        jPanelInicio.removeAll();
+        jPanelInicio.add(libro, BorderLayout.CENTER);
+        jPanelInicio.revalidate();
+        jPanelInicio.repaint();
+    }//GEN-LAST:event_jMenuItemPagina3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -378,8 +397,9 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItemCatalogo;
     private javax.swing.JMenuItem jMenuItemCierreContable;
     private javax.swing.JMenuItem jMenuItemInicio;
-    private javax.swing.JMenuItem jMenuItemLibroMayor;
+    private javax.swing.JMenuItem jMenuItemLibroMayor1;
     private javax.swing.JMenuItem jMenuItemManoObra;
+    private javax.swing.JMenuItem jMenuItemPagina3;
     private javax.swing.JMenuItem jMenuItemTransaccion;
     private javax.swing.JMenu jMenuLibroMayor;
     private javax.swing.JMenu jMenuManoObra;

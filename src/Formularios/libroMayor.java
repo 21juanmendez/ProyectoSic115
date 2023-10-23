@@ -5,10 +5,12 @@
 package Formularios;
 
 import Conexiones.ConexionDB;
+import java.awt.BorderLayout;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -41,6 +43,22 @@ public class libroMayor extends javax.swing.JPanel {
         sumarCuentaDocumentosPorCobrar();
         //inventario de software
         sumarCuentaInventarioDeSoftware();
+        //gastos pagados x anticipados
+        sumarCuentaGastosPagadosXAnticipado();
+        //alquileres pagados x anticipados
+        sumarCuentaAlquilerPagados();
+        //seguros pagados x anticipado
+        sumarCuentaSegurosPagadosXAnticipados();
+        //papeleria y utiles
+        sumarCuentaPapeleria();
+        //propaganda
+        sumarCuentaPropaganda();
+        //servicios
+        sumarCuentaServicios();
+        //impuestos
+        sumarCuentaImpuestoSobreRenta();
+        //suministros
+        sumarCuentaSuministro();
 
     }
 
@@ -199,6 +217,157 @@ public class libroMayor extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Error: " + e);
         }
 
+        //CUENTA GASTOS PAGADOS POR ANTICIPADO
+        try {
+            PreparedStatement pst = cn.prepareStatement("SELECT cargo,abono FROM transacciones WHERE codigo='1104'");
+            ResultSet resultado = pst.executeQuery();
+            DefaultTableModel modeloTabla = new DefaultTableModel();
+            //modeloTabla.addColumn("Cuenta");
+            modeloTabla.addColumn("Debe");
+            modeloTabla.addColumn("Haber");
+            while (resultado.next()) {
+                //String cuenta = resultado.getString("Cuenta");
+                String cargo = resultado.getString("cargo");
+                String abono = resultado.getString("abono");
+                modeloTabla.addRow(new Object[]{cargo, abono});//si se agrega la cuenta quedaria (cuenta,cargo,abono);
+            }
+            jTableGastosPagadosXAnticipado.setModel(modeloTabla); // Reemplaza "jTable1" con el nombre de tu JTable.          
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error: " + e);
+        }
+
+        //CUENTA ALQUILERES PAGADOS X ANTICIPADO
+        try {
+            PreparedStatement pst = cn.prepareStatement("SELECT cargo,abono FROM transacciones WHERE codigo='110401'");
+            ResultSet resultado = pst.executeQuery();
+            DefaultTableModel modeloTabla = new DefaultTableModel();
+            //modeloTabla.addColumn("Cuenta");
+            modeloTabla.addColumn("Debe");
+            modeloTabla.addColumn("Haber");
+            while (resultado.next()) {
+                //String cuenta = resultado.getString("Cuenta");
+                String cargo = resultado.getString("cargo");
+                String abono = resultado.getString("abono");
+                modeloTabla.addRow(new Object[]{cargo, abono});//si se agrega la cuenta quedaria (cuenta,cargo,abono);
+            }
+            jTableALquileresPagados.setModel(modeloTabla); // Reemplaza "jTable1" con el nombre de tu JTable.          
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error: " + e);
+        }
+
+        //CUENTA SEGUROS PAGADOS X ANTICIPADO
+        try {
+            PreparedStatement pst = cn.prepareStatement("SELECT cargo,abono FROM transacciones WHERE codigo='110402'");
+            ResultSet resultado = pst.executeQuery();
+            DefaultTableModel modeloTabla = new DefaultTableModel();
+            //modeloTabla.addColumn("Cuenta");
+            modeloTabla.addColumn("Debe");
+            modeloTabla.addColumn("Haber");
+            while (resultado.next()) {
+                //String cuenta = resultado.getString("Cuenta");
+                String cargo = resultado.getString("cargo");
+                String abono = resultado.getString("abono");
+                modeloTabla.addRow(new Object[]{cargo, abono});//si se agrega la cuenta quedaria (cuenta,cargo,abono);
+            }
+            jTableSegurosPagados.setModel(modeloTabla); // Reemplaza "jTable1" con el nombre de tu JTable.          
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error: " + e);
+        }
+
+        //CUENTA PAPELERIA Y UTILES
+        try {
+            PreparedStatement pst = cn.prepareStatement("SELECT cargo,abono FROM transacciones WHERE codigo='110403'");
+            ResultSet resultado = pst.executeQuery();
+            DefaultTableModel modeloTabla = new DefaultTableModel();
+            //modeloTabla.addColumn("Cuenta");
+            modeloTabla.addColumn("Debe");
+            modeloTabla.addColumn("Haber");
+            while (resultado.next()) {
+                //String cuenta = resultado.getString("Cuenta");
+                String cargo = resultado.getString("cargo");
+                String abono = resultado.getString("abono");
+                modeloTabla.addRow(new Object[]{cargo, abono});//si se agrega la cuenta quedaria (cuenta,cargo,abono);
+            }
+            jTablePapeleriasYUtiles.setModel(modeloTabla); // Reemplaza "jTable1" con el nombre de tu JTable.          
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error: " + e);
+        }
+
+        //CUENTA PROPAGANDA
+        try {
+            PreparedStatement pst = cn.prepareStatement("SELECT cargo,abono FROM transacciones WHERE codigo='110404'");
+            ResultSet resultado = pst.executeQuery();
+            DefaultTableModel modeloTabla = new DefaultTableModel();
+            //modeloTabla.addColumn("Cuenta");
+            modeloTabla.addColumn("Debe");
+            modeloTabla.addColumn("Haber");
+            while (resultado.next()) {
+                //String cuenta = resultado.getString("Cuenta");
+                String cargo = resultado.getString("cargo");
+                String abono = resultado.getString("abono");
+                modeloTabla.addRow(new Object[]{cargo, abono});//si se agrega la cuenta quedaria (cuenta,cargo,abono);
+            }
+            jTablePropaganda.setModel(modeloTabla); // Reemplaza "jTable1" con el nombre de tu JTable.          
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error: " + e);
+        }
+
+        //CUENTA SERVICIOS
+        try {
+            PreparedStatement pst = cn.prepareStatement("SELECT cargo,abono FROM transacciones WHERE codigo='110405'");
+            ResultSet resultado = pst.executeQuery();
+            DefaultTableModel modeloTabla = new DefaultTableModel();
+            //modeloTabla.addColumn("Cuenta");
+            modeloTabla.addColumn("Debe");
+            modeloTabla.addColumn("Haber");
+            while (resultado.next()) {
+                //String cuenta = resultado.getString("Cuenta");
+                String cargo = resultado.getString("cargo");
+                String abono = resultado.getString("abono");
+                modeloTabla.addRow(new Object[]{cargo, abono});//si se agrega la cuenta quedaria (cuenta,cargo,abono);
+            }
+            jTableServicios.setModel(modeloTabla); // Reemplaza "jTable1" con el nombre de tu JTable.          
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error: " + e);
+        }
+
+        //CUENTA IMPUESTO SOBRE LA RENTA
+        try {
+            PreparedStatement pst = cn.prepareStatement("SELECT cargo,abono FROM transacciones WHERE codigo='110406'");
+            ResultSet resultado = pst.executeQuery();
+            DefaultTableModel modeloTabla = new DefaultTableModel();
+            //modeloTabla.addColumn("Cuenta");
+            modeloTabla.addColumn("Debe");
+            modeloTabla.addColumn("Haber");
+            while (resultado.next()) {
+                //String cuenta = resultado.getString("Cuenta");
+                String cargo = resultado.getString("cargo");
+                String abono = resultado.getString("abono");
+                modeloTabla.addRow(new Object[]{cargo, abono});//si se agrega la cuenta quedaria (cuenta,cargo,abono);
+            }
+            jTableImpuestosSobreRenta.setModel(modeloTabla); // Reemplaza "jTable1" con el nombre de tu JTable.          
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error: " + e);
+        }
+
+        //CUENTA SUMINISTROS
+        try {
+            PreparedStatement pst = cn.prepareStatement("SELECT cargo,abono FROM transacciones WHERE codigo='110407'");
+            ResultSet resultado = pst.executeQuery();
+            DefaultTableModel modeloTabla = new DefaultTableModel();
+            //modeloTabla.addColumn("Cuenta");
+            modeloTabla.addColumn("Debe");
+            modeloTabla.addColumn("Haber");
+            while (resultado.next()) {
+                //String cuenta = resultado.getString("Cuenta");
+                String cargo = resultado.getString("cargo");
+                String abono = resultado.getString("abono");
+                modeloTabla.addRow(new Object[]{cargo, abono});//si se agrega la cuenta quedaria (cuenta,cargo,abono);
+            }
+            jTableSuministro.setModel(modeloTabla); // Reemplaza "jTable1" con el nombre de tu JTable.          
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error: " + e);
+        }
     }
 
     public void sumarCuentaEfectivoYEquivalentes() {
@@ -429,7 +598,7 @@ public class libroMayor extends javax.swing.JPanel {
             jTextFieldSumaTotalDocumentosXCobrar.setText(String.valueOf(total));
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-        }   
+        }
     }
 
     public void sumarCuentaInventarioDeSoftware() {
@@ -460,6 +629,270 @@ public class libroMayor extends javax.swing.JPanel {
                 double a = pst.executeUpdate();// Ejecuta la sentencia y guarda el resultado
             }
             jTextFieldSumaTotalInventarioSoftware.setText(String.valueOf(total));
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+    public void sumarCuentaGastosPagadosXAnticipado() {
+        ConexionDB db = new ConexionDB();
+        Connection cn = db.conectar();
+        try {
+            DefaultTableModel modelo = (DefaultTableModel) jTableGastosPagadosXAnticipado.getModel();
+            int rowCount = modelo.getRowCount();
+            double sumaCargo = 0.0;
+            double sumaAbono = 0.0;
+            double total = 0.0;
+            //sumamos la columna del debe
+            for (int i = 0; i < rowCount; i++) {
+                sumaCargo += Double.parseDouble(modelo.getValueAt(i, 0).toString()); // Suma los valores de la columna 2 (índice 1).
+            }
+            //mostramos la suma del debe en el textbox
+            jTextFieldSumaCargoGastosPagados.setText(String.valueOf(sumaCargo)); // Establece el resultado de la suma en el JTextField.
+            for (int i = 0; i < rowCount; i++) {
+                sumaAbono += Double.parseDouble(modelo.getValueAt(i, 1).toString()); // Suma los valores de la columna 2 (índice 1).
+            }
+            jTextFieldSumaAbonoGastosPagados.setText(String.valueOf(sumaAbono));
+            //Ya que es activo cargo tiene que ser mayor para que la resta no quede negativa
+            if (sumaCargo > sumaAbono) {
+                total = sumaCargo - sumaAbono;
+                // Actualizamos el valor de 'total' en la tabla 'mayorizacion'
+                PreparedStatement pst = cn.prepareStatement("UPDATE mayorizacion SET totalDebe = ? WHERE codigo = '1104'");
+                pst.setDouble(1, total); // Establecemos el valor de 'total' en la sentencia SQL.
+                double a = pst.executeUpdate();// Ejecuta la sentencia y guarda el resultado
+            }
+            jTextFieldSumaTotalGastosPagados.setText(String.valueOf(total));
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+    public void sumarCuentaAlquilerPagados() {
+        ConexionDB db = new ConexionDB();
+        Connection cn = db.conectar();
+        try {
+            DefaultTableModel modelo = (DefaultTableModel) jTableALquileresPagados.getModel();
+            int rowCount = modelo.getRowCount();
+            double sumaCargo = 0.0;
+            double sumaAbono = 0.0;
+            double total = 0.0;
+            //sumamos la columna del debe
+            for (int i = 0; i < rowCount; i++) {
+                sumaCargo += Double.parseDouble(modelo.getValueAt(i, 0).toString()); // Suma los valores de la columna 2 (índice 1).
+            }
+            //mostramos la suma del debe en el textbox
+            jTextFieldSumaCargoAlquileresPagados.setText(String.valueOf(sumaCargo)); // Establece el resultado de la suma en el JTextField.
+            for (int i = 0; i < rowCount; i++) {
+                sumaAbono += Double.parseDouble(modelo.getValueAt(i, 1).toString()); // Suma los valores de la columna 2 (índice 1).
+            }
+            jTextFieldSumaAbonoAlquileresPagados.setText(String.valueOf(sumaAbono));
+            //Ya que es activo cargo tiene que ser mayor para que la resta no quede negativa
+            if (sumaCargo > sumaAbono) {
+                total = sumaCargo - sumaAbono;
+                // Actualizamos el valor de 'total' en la tabla 'mayorizacion'
+                PreparedStatement pst = cn.prepareStatement("UPDATE mayorizacion SET totalDebe = ? WHERE codigo = '110401'");
+                pst.setDouble(1, total); // Establecemos el valor de 'total' en la sentencia SQL.
+                double a = pst.executeUpdate();// Ejecuta la sentencia y guarda el resultado
+            }
+            jTextFieldSumaTotalAlquileresPagados.setText(String.valueOf(total));
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+    public void sumarCuentaSegurosPagadosXAnticipados() {
+        ConexionDB db = new ConexionDB();
+        Connection cn = db.conectar();
+        try {
+            DefaultTableModel modelo = (DefaultTableModel) jTableSegurosPagados.getModel();
+            int rowCount = modelo.getRowCount();
+            double sumaCargo = 0.0;
+            double sumaAbono = 0.0;
+            double total = 0.0;
+            //sumamos la columna del debe
+            for (int i = 0; i < rowCount; i++) {
+                sumaCargo += Double.parseDouble(modelo.getValueAt(i, 0).toString()); // Suma los valores de la columna 2 (índice 1).
+            }
+            //mostramos la suma del debe en el textbox
+            jTextFieldSumaCargoSegurosPagados.setText(String.valueOf(sumaCargo)); // Establece el resultado de la suma en el JTextField.
+            for (int i = 0; i < rowCount; i++) {
+                sumaAbono += Double.parseDouble(modelo.getValueAt(i, 1).toString()); // Suma los valores de la columna 2 (índice 1).
+            }
+            jTextFieldSumaAbonoSegurosPagados.setText(String.valueOf(sumaAbono));
+            //Ya que es activo cargo tiene que ser mayor para que la resta no quede negativa
+            if (sumaCargo > sumaAbono) {
+                total = sumaCargo - sumaAbono;
+                // Actualizamos el valor de 'total' en la tabla 'mayorizacion'
+                PreparedStatement pst = cn.prepareStatement("UPDATE mayorizacion SET totalDebe = ? WHERE codigo = '110402'");
+                pst.setDouble(1, total); // Establecemos el valor de 'total' en la sentencia SQL.
+                double a = pst.executeUpdate();// Ejecuta la sentencia y guarda el resultado
+            }
+            jTextFieldSumaTotalSegurosPagados.setText(String.valueOf(total));
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+    public void sumarCuentaPapeleria() {
+        ConexionDB db = new ConexionDB();
+        Connection cn = db.conectar();
+        try {
+            DefaultTableModel modelo = (DefaultTableModel) jTablePapeleriasYUtiles.getModel();
+            int rowCount = modelo.getRowCount();
+            double sumaCargo = 0.0;
+            double sumaAbono = 0.0;
+            double total = 0.0;
+            //sumamos la columna del debe
+            for (int i = 0; i < rowCount; i++) {
+                sumaCargo += Double.parseDouble(modelo.getValueAt(i, 0).toString()); // Suma los valores de la columna 2 (índice 1).
+            }
+            //mostramos la suma del debe en el textbox
+            jTextFieldSumaCargoPapeleria.setText(String.valueOf(sumaCargo)); // Establece el resultado de la suma en el JTextField.
+            for (int i = 0; i < rowCount; i++) {
+                sumaAbono += Double.parseDouble(modelo.getValueAt(i, 1).toString()); // Suma los valores de la columna 2 (índice 1).
+            }
+            jTextFieldSumaAbonoPapeleria.setText(String.valueOf(sumaAbono));
+            //Ya que es activo cargo tiene que ser mayor para que la resta no quede negativa
+            if (sumaCargo > sumaAbono) {
+                total = sumaCargo - sumaAbono;
+                // Actualizamos el valor de 'total' en la tabla 'mayorizacion'
+                PreparedStatement pst = cn.prepareStatement("UPDATE mayorizacion SET totalDebe = ? WHERE codigo = '110403'");
+                pst.setDouble(1, total); // Establecemos el valor de 'total' en la sentencia SQL.
+                double a = pst.executeUpdate();// Ejecuta la sentencia y guarda el resultado
+            }
+            jTextFieldSumaTotalPapeleria.setText(String.valueOf(total));
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+    public void sumarCuentaPropaganda() {
+        ConexionDB db = new ConexionDB();
+        Connection cn = db.conectar();
+        try {
+            DefaultTableModel modelo = (DefaultTableModel) jTablePropaganda.getModel();
+            int rowCount = modelo.getRowCount();
+            double sumaCargo = 0.0;
+            double sumaAbono = 0.0;
+            double total = 0.0;
+            //sumamos la columna del debe
+            for (int i = 0; i < rowCount; i++) {
+                sumaCargo += Double.parseDouble(modelo.getValueAt(i, 0).toString()); // Suma los valores de la columna 2 (índice 1).
+            }
+            //mostramos la suma del debe en el textbox
+            jTextFieldSumaCargoPropaganda.setText(String.valueOf(sumaCargo)); // Establece el resultado de la suma en el JTextField.
+            for (int i = 0; i < rowCount; i++) {
+                sumaAbono += Double.parseDouble(modelo.getValueAt(i, 1).toString()); // Suma los valores de la columna 2 (índice 1).
+            }
+            jTextFieldSumaAbonoPropaganda.setText(String.valueOf(sumaAbono));
+            //Ya que es activo cargo tiene que ser mayor para que la resta no quede negativa
+            if (sumaCargo > sumaAbono) {
+                total = sumaCargo - sumaAbono;
+                // Actualizamos el valor de 'total' en la tabla 'mayorizacion'
+                PreparedStatement pst = cn.prepareStatement("UPDATE mayorizacion SET totalDebe = ? WHERE codigo = '110404'");
+                pst.setDouble(1, total); // Establecemos el valor de 'total' en la sentencia SQL.
+                double a = pst.executeUpdate();// Ejecuta la sentencia y guarda el resultado
+            }
+            jTextFieldSumaTotalPropaganda.setText(String.valueOf(total));
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+    public void sumarCuentaServicios() {
+        ConexionDB db = new ConexionDB();
+        Connection cn = db.conectar();
+        try {
+            DefaultTableModel modelo = (DefaultTableModel) jTableServicios.getModel();
+            int rowCount = modelo.getRowCount();
+            double sumaCargo = 0.0;
+            double sumaAbono = 0.0;
+            double total = 0.0;
+            //sumamos la columna del debe
+            for (int i = 0; i < rowCount; i++) {
+                sumaCargo += Double.parseDouble(modelo.getValueAt(i, 0).toString()); // Suma los valores de la columna 2 (índice 1).
+            }
+            //mostramos la suma del debe en el textbox
+            jTextFieldSumaCargoServicios.setText(String.valueOf(sumaCargo)); // Establece el resultado de la suma en el JTextField.
+            for (int i = 0; i < rowCount; i++) {
+                sumaAbono += Double.parseDouble(modelo.getValueAt(i, 1).toString()); // Suma los valores de la columna 2 (índice 1).
+            }
+            jTextFieldSumaAbonoServicios.setText(String.valueOf(sumaAbono));
+            //Ya que es activo cargo tiene que ser mayor para que la resta no quede negativa
+            if (sumaCargo > sumaAbono) {
+                total = sumaCargo - sumaAbono;
+                // Actualizamos el valor de 'total' en la tabla 'mayorizacion'
+                PreparedStatement pst = cn.prepareStatement("UPDATE mayorizacion SET totalDebe = ? WHERE codigo = '110405'");
+                pst.setDouble(1, total); // Establecemos el valor de 'total' en la sentencia SQL.
+                double a = pst.executeUpdate();// Ejecuta la sentencia y guarda el resultado
+            }
+            jTextFieldSumaTotalServicios.setText(String.valueOf(total));
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+    public void sumarCuentaImpuestoSobreRenta() {
+        ConexionDB db = new ConexionDB();
+        Connection cn = db.conectar();
+        try {
+            DefaultTableModel modelo = (DefaultTableModel) jTableImpuestosSobreRenta.getModel();
+            int rowCount = modelo.getRowCount();
+            double sumaCargo = 0.0;
+            double sumaAbono = 0.0;
+            double total = 0.0;
+            //sumamos la columna del debe
+            for (int i = 0; i < rowCount; i++) {
+                sumaCargo += Double.parseDouble(modelo.getValueAt(i, 0).toString()); // Suma los valores de la columna 2 (índice 1).
+            }
+            //mostramos la suma del debe en el textbox
+            jTextFieldSumaCargoImpuestos.setText(String.valueOf(sumaCargo)); // Establece el resultado de la suma en el JTextField.
+            for (int i = 0; i < rowCount; i++) {
+                sumaAbono += Double.parseDouble(modelo.getValueAt(i, 1).toString()); // Suma los valores de la columna 2 (índice 1).
+            }
+            jTextFieldSumaAbonoImpuestos.setText(String.valueOf(sumaAbono));
+            //Ya que es activo cargo tiene que ser mayor para que la resta no quede negativa
+            if (sumaCargo > sumaAbono) {
+                total = sumaCargo - sumaAbono;
+                // Actualizamos el valor de 'total' en la tabla 'mayorizacion'
+                PreparedStatement pst = cn.prepareStatement("UPDATE mayorizacion SET totalDebe = ? WHERE codigo = '110406'");
+                pst.setDouble(1, total); // Establecemos el valor de 'total' en la sentencia SQL.
+                double a = pst.executeUpdate();// Ejecuta la sentencia y guarda el resultado
+            }
+            jTextFieldSumaTotalImpuestos.setText(String.valueOf(total));
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+    public void sumarCuentaSuministro() {
+        ConexionDB db = new ConexionDB();
+        Connection cn = db.conectar();
+        try {
+            DefaultTableModel modelo = (DefaultTableModel) jTableSuministro.getModel();
+            int rowCount = modelo.getRowCount();
+            double sumaCargo = 0.0;
+            double sumaAbono = 0.0;
+            double total = 0.0;
+            //sumamos la columna del debe
+            for (int i = 0; i < rowCount; i++) {
+                sumaCargo += Double.parseDouble(modelo.getValueAt(i, 0).toString()); // Suma los valores de la columna 2 (índice 1).
+            }
+            //mostramos la suma del debe en el textbox
+            jTextFieldSumaCargoSuministro.setText(String.valueOf(sumaCargo)); // Establece el resultado de la suma en el JTextField.
+            for (int i = 0; i < rowCount; i++) {
+                sumaAbono += Double.parseDouble(modelo.getValueAt(i, 1).toString()); // Suma los valores de la columna 2 (índice 1).
+            }
+            jTextFieldSumaAbonoSuministro.setText(String.valueOf(sumaAbono));
+            //Ya que es activo cargo tiene que ser mayor para que la resta no quede negativa
+            if (sumaCargo > sumaAbono) {
+                total = sumaCargo - sumaAbono;
+                // Actualizamos el valor de 'total' en la tabla 'mayorizacion'
+                PreparedStatement pst = cn.prepareStatement("UPDATE mayorizacion SET totalDebe = ? WHERE codigo = '110407'");
+                pst.setDouble(1, total); // Establecemos el valor de 'total' en la sentencia SQL.
+                double a = pst.executeUpdate();// Ejecuta la sentencia y guarda el resultado
+            }
+            jTextFieldSumaTotalSuministro.setText(String.valueOf(total));
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
@@ -533,7 +966,7 @@ public class libroMayor extends javax.swing.JPanel {
         jTextFieldSumaCargoSegurosPagados = new javax.swing.JTextField();
         jLabel17 = new javax.swing.JLabel();
         jScrollPane9 = new javax.swing.JScrollPane();
-        jTableServicioALquileresPagados = new javax.swing.JTable();
+        jTableALquileresPagados = new javax.swing.JTable();
         jLabel18 = new javax.swing.JLabel();
         jTextFieldSumaAbonoAlquileresPagados = new javax.swing.JTextField();
         jTextFieldSumaTotalAlquileresPagados = new javax.swing.JTextField();
@@ -553,7 +986,36 @@ public class libroMayor extends javax.swing.JPanel {
         jTextFieldSumaAbonoCuentasYDocumentos = new javax.swing.JTextField();
         jTextFieldSumaTotalCuentasYDocumentos = new javax.swing.JTextField();
         jLabel23 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        jScrollPane12 = new javax.swing.JScrollPane();
+        jTableSuministro = new javax.swing.JTable();
+        jScrollPane13 = new javax.swing.JScrollPane();
+        jTablePapeleriasYUtiles = new javax.swing.JTable();
+        jScrollPane14 = new javax.swing.JScrollPane();
+        jTablePropaganda = new javax.swing.JTable();
+        jScrollPane15 = new javax.swing.JScrollPane();
+        jTableServicios = new javax.swing.JTable();
+        jScrollPane16 = new javax.swing.JScrollPane();
+        jTableImpuestosSobreRenta = new javax.swing.JTable();
+        jTextFieldSumaAbonoPapeleria = new javax.swing.JTextField();
+        jTextFieldSumaTotalPapeleria = new javax.swing.JTextField();
+        jTextFieldSumaCargoPapeleria = new javax.swing.JTextField();
+        jLabel24 = new javax.swing.JLabel();
+        jLabel25 = new javax.swing.JLabel();
+        jTextFieldSumaCargoPropaganda = new javax.swing.JTextField();
+        jTextFieldSumaTotalPropaganda = new javax.swing.JTextField();
+        jTextFieldSumaAbonoPropaganda = new javax.swing.JTextField();
+        jLabel26 = new javax.swing.JLabel();
+        jTextFieldSumaCargoServicios = new javax.swing.JTextField();
+        jTextFieldSumaAbonoServicios = new javax.swing.JTextField();
+        jTextFieldSumaTotalServicios = new javax.swing.JTextField();
+        jLabelImpuestoSobreRenta = new javax.swing.JLabel();
+        jTextFieldSumaCargoImpuestos = new javax.swing.JTextField();
+        jTextFieldSumaAbonoImpuestos = new javax.swing.JTextField();
+        jTextFieldSumaTotalImpuestos = new javax.swing.JTextField();
+        jTextFieldSumaTotalSuministro = new javax.swing.JTextField();
+        jTextFieldSumaAbonoSuministro = new javax.swing.JTextField();
+        jTextFieldSumaCargoSuministro = new javax.swing.JTextField();
+        jLabel27 = new javax.swing.JLabel();
 
         jPanel1.setToolTipText("");
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -762,7 +1224,7 @@ public class libroMayor extends javax.swing.JPanel {
         jLabel17.setText("TOTAL");
         jPanel1.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 290, -1, 20));
 
-        jTableServicioALquileresPagados.setModel(new javax.swing.table.DefaultTableModel(
+        jTableALquileresPagados.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
                 {},
@@ -773,7 +1235,7 @@ public class libroMayor extends javax.swing.JPanel {
 
             }
         ));
-        jScrollPane9.setViewportView(jTableServicioALquileresPagados);
+        jScrollPane9.setViewportView(jTableALquileresPagados);
 
         jPanel1.add(jScrollPane9, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 370, 140, 180));
 
@@ -837,16 +1299,121 @@ public class libroMayor extends javax.swing.JPanel {
         jLabel23.setText("TOTAL");
         jPanel1.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 290, -1, 20));
 
-        jButton1.setBackground(new java.awt.Color(0, 255, 255));
-        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton1.setText("SIGUIENTE -->");
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1130, 10, 140, -1));
+        jTableSuministro.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane12.setViewportView(jTableSuministro);
+
+        jPanel1.add(jScrollPane12, new org.netbeans.lib.awtextra.AbsoluteConstraints(1130, 370, 140, 180));
+
+        jTablePapeleriasYUtiles.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane13.setViewportView(jTablePapeleriasYUtiles);
+
+        jPanel1.add(jScrollPane13, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 370, 140, 180));
+
+        jTablePropaganda.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane14.setViewportView(jTablePropaganda);
+
+        jPanel1.add(jScrollPane14, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 370, 140, 180));
+
+        jTableServicios.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane15.setViewportView(jTableServicios);
+
+        jPanel1.add(jScrollPane15, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 370, 140, 180));
+
+        jTableImpuestosSobreRenta.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane16.setViewportView(jTableImpuestosSobreRenta);
+
+        jPanel1.add(jScrollPane16, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 370, 140, 180));
+        jPanel1.add(jTextFieldSumaAbonoPapeleria, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 550, 70, -1));
+        jPanel1.add(jTextFieldSumaTotalPapeleria, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 580, 70, -1));
+        jPanel1.add(jTextFieldSumaCargoPapeleria, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 550, 70, -1));
+
+        jLabel24.setFont(new java.awt.Font("Segoe UI", 1, 8)); // NOI18N
+        jLabel24.setText("SERVICIOS");
+        jPanel1.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 350, -1, -1));
+
+        jLabel25.setFont(new java.awt.Font("Segoe UI", 1, 8)); // NOI18N
+        jLabel25.setText("PAPELERIA Y UTILES");
+        jPanel1.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 350, -1, -1));
+        jPanel1.add(jTextFieldSumaCargoPropaganda, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 550, 70, -1));
+        jPanel1.add(jTextFieldSumaTotalPropaganda, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 580, 70, -1));
+        jPanel1.add(jTextFieldSumaAbonoPropaganda, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 550, 70, -1));
+
+        jLabel26.setFont(new java.awt.Font("Segoe UI", 1, 8)); // NOI18N
+        jLabel26.setText("PROPAGANDA Y PUBLICIDAD");
+        jPanel1.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 350, -1, -1));
+        jPanel1.add(jTextFieldSumaCargoServicios, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 550, 70, -1));
+        jPanel1.add(jTextFieldSumaAbonoServicios, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 550, 70, -1));
+        jPanel1.add(jTextFieldSumaTotalServicios, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 580, 70, -1));
+
+        jLabelImpuestoSobreRenta.setFont(new java.awt.Font("Segoe UI", 1, 8)); // NOI18N
+        jLabelImpuestoSobreRenta.setText("IMPUESTOS SOBRE LA RENTA");
+        jPanel1.add(jLabelImpuestoSobreRenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 350, -1, -1));
+        jPanel1.add(jTextFieldSumaCargoImpuestos, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 550, 70, -1));
+        jPanel1.add(jTextFieldSumaAbonoImpuestos, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 550, 70, -1));
+        jPanel1.add(jTextFieldSumaTotalImpuestos, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 580, 70, -1));
+        jPanel1.add(jTextFieldSumaTotalSuministro, new org.netbeans.lib.awtextra.AbsoluteConstraints(1130, 580, 70, -1));
+        jPanel1.add(jTextFieldSumaAbonoSuministro, new org.netbeans.lib.awtextra.AbsoluteConstraints(1200, 550, 70, -1));
+        jPanel1.add(jTextFieldSumaCargoSuministro, new org.netbeans.lib.awtextra.AbsoluteConstraints(1130, 550, 70, -1));
+
+        jLabel27.setFont(new java.awt.Font("Segoe UI", 1, 8)); // NOI18N
+        jLabel27.setText("SUMINISTRO DE LIMPIEZA");
+        jPanel1.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(1150, 350, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1280, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -858,7 +1425,6 @@ public class libroMayor extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -875,6 +1441,10 @@ public class libroMayor extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -882,10 +1452,16 @@ public class libroMayor extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel jLabelImpuestoSobreRenta;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane11;
+    private javax.swing.JScrollPane jScrollPane12;
+    private javax.swing.JScrollPane jScrollPane13;
+    private javax.swing.JScrollPane jScrollPane14;
+    private javax.swing.JScrollPane jScrollPane15;
+    private javax.swing.JScrollPane jScrollPane16;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
@@ -894,6 +1470,7 @@ public class libroMayor extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
+    private javax.swing.JTable jTableALquileresPagados;
     private javax.swing.JTable jTableBanco;
     private javax.swing.JTable jTableCAJA;
     private javax.swing.JTable jTableCuentaCorriente;
@@ -902,9 +1479,13 @@ public class libroMayor extends javax.swing.JPanel {
     private javax.swing.JTable jTableDocumentosXCobrar;
     private javax.swing.JTable jTableEfectivoYEquivalentes;
     private javax.swing.JTable jTableGastosPagadosXAnticipado;
+    private javax.swing.JTable jTableImpuestosSobreRenta;
     private javax.swing.JTable jTableInventarioSoftware;
+    private javax.swing.JTable jTablePapeleriasYUtiles;
+    private javax.swing.JTable jTablePropaganda;
     private javax.swing.JTable jTableSegurosPagados;
-    private javax.swing.JTable jTableServicioALquileresPagados;
+    private javax.swing.JTable jTableServicios;
+    private javax.swing.JTable jTableSuministro;
     private javax.swing.JTextField jTextFieldSumaAbonoAlquileresPagados;
     private javax.swing.JTextField jTextFieldSumaAbonoBanco;
     private javax.swing.JTextField jTextFieldSumaAbonoCaja;
@@ -914,8 +1495,13 @@ public class libroMayor extends javax.swing.JPanel {
     private javax.swing.JTextField jTextFieldSumaAbonoDocumentosXCobrar;
     private javax.swing.JTextField jTextFieldSumaAbonoEfectivo;
     private javax.swing.JTextField jTextFieldSumaAbonoGastosPagados;
+    private javax.swing.JTextField jTextFieldSumaAbonoImpuestos;
     private javax.swing.JTextField jTextFieldSumaAbonoInventarioSoftware;
+    private javax.swing.JTextField jTextFieldSumaAbonoPapeleria;
+    private javax.swing.JTextField jTextFieldSumaAbonoPropaganda;
     private javax.swing.JTextField jTextFieldSumaAbonoSegurosPagados;
+    private javax.swing.JTextField jTextFieldSumaAbonoServicios;
+    private javax.swing.JTextField jTextFieldSumaAbonoSuministro;
     private javax.swing.JTextField jTextFieldSumaCargoAlquileresPagados;
     private javax.swing.JTextField jTextFieldSumaCargoBanco;
     private javax.swing.JTextField jTextFieldSumaCargoCaja;
@@ -925,8 +1511,13 @@ public class libroMayor extends javax.swing.JPanel {
     private javax.swing.JTextField jTextFieldSumaCargoDocumentosXCobrar;
     private javax.swing.JTextField jTextFieldSumaCargoEfectivo;
     private javax.swing.JTextField jTextFieldSumaCargoGastosPagados;
+    private javax.swing.JTextField jTextFieldSumaCargoImpuestos;
     private javax.swing.JTextField jTextFieldSumaCargoInventarioSoftware;
+    private javax.swing.JTextField jTextFieldSumaCargoPapeleria;
+    private javax.swing.JTextField jTextFieldSumaCargoPropaganda;
     private javax.swing.JTextField jTextFieldSumaCargoSegurosPagados;
+    private javax.swing.JTextField jTextFieldSumaCargoServicios;
+    private javax.swing.JTextField jTextFieldSumaCargoSuministro;
     private javax.swing.JTextField jTextFieldSumaTotalAlquileresPagados;
     private javax.swing.JTextField jTextFieldSumaTotalBanco;
     private javax.swing.JTextField jTextFieldSumaTotalCaja;
@@ -936,7 +1527,12 @@ public class libroMayor extends javax.swing.JPanel {
     private javax.swing.JTextField jTextFieldSumaTotalDocumentosXCobrar;
     private javax.swing.JTextField jTextFieldSumaTotalEfectivo;
     private javax.swing.JTextField jTextFieldSumaTotalGastosPagados;
+    private javax.swing.JTextField jTextFieldSumaTotalImpuestos;
     private javax.swing.JTextField jTextFieldSumaTotalInventarioSoftware;
+    private javax.swing.JTextField jTextFieldSumaTotalPapeleria;
+    private javax.swing.JTextField jTextFieldSumaTotalPropaganda;
     private javax.swing.JTextField jTextFieldSumaTotalSegurosPagados;
+    private javax.swing.JTextField jTextFieldSumaTotalServicios;
+    private javax.swing.JTextField jTextFieldSumaTotalSuministro;
     // End of variables declaration//GEN-END:variables
 }

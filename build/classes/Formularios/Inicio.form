@@ -121,12 +121,20 @@
             <Property name="text" type="java.lang.String" value="| Libro Mayor |"/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItemLibroMayor">
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItemLibroMayor1">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Libro Mayor"/>
+                <Property name="text" type="java.lang.String" value="Pagina 1"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItemLibroMayorActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItemLibroMayor1ActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItemPagina3">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Pagina 2"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItemPagina3ActionPerformed"/>
               </Events>
             </MenuItem>
           </SubComponents>
