@@ -1047,7 +1047,7 @@ public class libroMayor1 extends javax.swing.JPanel {
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 8)); // NOI18N
         jLabel2.setText("COMISIONES POR PAGAR A PERSONAL");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1130, 350, -1, 10));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1120, 350, -1, 10));
 
         jTablePropiedades.setBackground(new java.awt.Color(204, 255, 255));
         jTablePropiedades.setModel(new javax.swing.table.DefaultTableModel(

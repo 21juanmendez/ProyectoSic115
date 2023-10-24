@@ -58,6 +58,7 @@ public class Inicio extends javax.swing.JFrame {
         jMenuTransaccion = new javax.swing.JMenu();
         jMenuItemTransaccion = new javax.swing.JMenuItem();
         jMenuLibroMayor = new javax.swing.JMenu();
+        jMenuItemLibroMayor = new javax.swing.JMenuItem();
         jMenuItemLibroMayor1 = new javax.swing.JMenuItem();
         jMenuItemLibroMayor2 = new javax.swing.JMenuItem();
         jMenuBalanceComprobacion = new javax.swing.JMenu();
@@ -156,8 +157,21 @@ public class Inicio extends javax.swing.JFrame {
         jMenuBar2.add(jMenuTransaccion);
 
         jMenuLibroMayor.setText("| Libro Mayor |");
+        jMenuLibroMayor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuLibroMayorActionPerformed(evt);
+            }
+        });
 
-        jMenuItemLibroMayor1.setText("Pagina 1");
+        jMenuItemLibroMayor.setText("Pagina 1");
+        jMenuItemLibroMayor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemLibroMayorActionPerformed(evt);
+            }
+        });
+        jMenuLibroMayor.add(jMenuItemLibroMayor);
+
+        jMenuItemLibroMayor1.setText("Pagina 2");
         jMenuItemLibroMayor1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItemLibroMayor1ActionPerformed(evt);
@@ -165,7 +179,7 @@ public class Inicio extends javax.swing.JFrame {
         });
         jMenuLibroMayor.add(jMenuItemLibroMayor1);
 
-        jMenuItemLibroMayor2.setText("Pagina 2");
+        jMenuItemLibroMayor2.setText("Pagina 3");
         jMenuItemLibroMayor2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItemLibroMayor2ActionPerformed(evt);
@@ -259,7 +273,7 @@ public class Inicio extends javax.swing.JFrame {
         jPanelInicio.repaint();
     }//GEN-LAST:event_jMenuItemCatalogoActionPerformed
 
-    private void jMenuItemLibroMayor1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemLibroMayor1ActionPerformed
+    private void jMenuItemLibroMayorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemLibroMayorActionPerformed
         // TODO add your handling code here:
         libroMayor libroMayor = new libroMayor();
         libroMayor.setSize(1280, 660);
@@ -268,7 +282,7 @@ public class Inicio extends javax.swing.JFrame {
         jPanelInicio.add(libroMayor, BorderLayout.CENTER);
         jPanelInicio.revalidate();
         jPanelInicio.repaint();
-    }//GEN-LAST:event_jMenuItemLibroMayor1ActionPerformed
+    }//GEN-LAST:event_jMenuItemLibroMayorActionPerformed
 
     private void jMenuItemManoObraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemManoObraActionPerformed
         // TODO add your handling code here:
@@ -325,13 +339,28 @@ public class Inicio extends javax.swing.JFrame {
         jPanelInicio.repaint();
     }//GEN-LAST:event_jMenuItemCierreContableActionPerformed
 
-    private void jMenuItemLibroMayor2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemLibroMayor2ActionPerformed
+    private void jMenuItemLibroMayor1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemLibroMayor1ActionPerformed
         // TODO add your handling code here:
          libroMayor1 libroMayor1 = new libroMayor1();
         libroMayor1.setSize(1280, 660);
         libroMayor1.setLocation(0, 0);
         jPanelInicio.removeAll();
         jPanelInicio.add(libroMayor1, BorderLayout.CENTER);
+        jPanelInicio.revalidate();
+        jPanelInicio.repaint();
+    }//GEN-LAST:event_jMenuItemLibroMayor1ActionPerformed
+
+    private void jMenuLibroMayorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuLibroMayorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuLibroMayorActionPerformed
+
+    private void jMenuItemLibroMayor2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemLibroMayor2ActionPerformed
+        // TODO add your handling code here:
+        libroMayor2 libroMayor2 = new libroMayor2();
+        libroMayor2.setSize(1280, 660);
+        libroMayor2.setLocation(0, 0);
+        jPanelInicio.removeAll();
+        jPanelInicio.add(libroMayor2, BorderLayout.CENTER);
         jPanelInicio.revalidate();
         jPanelInicio.repaint();
     }//GEN-LAST:event_jMenuItemLibroMayor2ActionPerformed
@@ -397,6 +426,7 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItemCatalogo;
     private javax.swing.JMenuItem jMenuItemCierreContable;
     private javax.swing.JMenuItem jMenuItemInicio;
+    private javax.swing.JMenuItem jMenuItemLibroMayor;
     private javax.swing.JMenuItem jMenuItemLibroMayor1;
     private javax.swing.JMenuItem jMenuItemLibroMayor2;
     private javax.swing.JMenuItem jMenuItemManoObra;
