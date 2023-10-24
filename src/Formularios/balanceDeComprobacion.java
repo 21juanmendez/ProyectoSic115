@@ -99,7 +99,7 @@ public class balanceDeComprobacion extends javax.swing.JPanel {
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel1.setText("Balance de Comprobacion");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 30, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 30, -1, -1));
 
         jTableBalance.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {

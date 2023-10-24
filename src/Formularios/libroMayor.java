@@ -1024,7 +1024,7 @@ public class libroMayor extends javax.swing.JPanel {
         jLabel1.setText("Pagina 1");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 20, -1, -1));
 
-        jTableEfectivoYEquivalentes.setBackground(new java.awt.Color(0, 204, 204));
+        jTableEfectivoYEquivalentes.setBackground(new java.awt.Color(153, 255, 255));
         jTableEfectivoYEquivalentes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
@@ -1044,7 +1044,7 @@ public class libroMayor extends javax.swing.JPanel {
         jLabel2.setText("EFECTIVO Y EQUIVALENTES DE EFECTIVO");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, -1, -1));
 
-        jTableCAJA.setBackground(new java.awt.Color(0, 204, 204));
+        jTableCAJA.setBackground(new java.awt.Color(153, 255, 255));
         jTableCAJA.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
@@ -1076,7 +1076,7 @@ public class libroMayor extends javax.swing.JPanel {
         jLabel6.setText("TOTAL");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 290, -1, 20));
 
-        jTableCuentasXCobrar.setBackground(new java.awt.Color(0, 204, 204));
+        jTableCuentasXCobrar.setBackground(new java.awt.Color(153, 255, 255));
         jTableCuentasXCobrar.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
@@ -1102,7 +1102,7 @@ public class libroMayor extends javax.swing.JPanel {
         jLabel7.setText("TOTAL");
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 290, -1, 20));
 
-        jTableGastosPagadosXAnticipado.setBackground(new java.awt.Color(0, 204, 204));
+        jTableGastosPagadosXAnticipado.setBackground(new java.awt.Color(153, 255, 255));
         jTableGastosPagadosXAnticipado.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
@@ -1128,7 +1128,7 @@ public class libroMayor extends javax.swing.JPanel {
         jLabel9.setText("TOTAL");
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 290, -1, 20));
 
-        jTableBanco.setBackground(new java.awt.Color(0, 204, 204));
+        jTableBanco.setBackground(new java.awt.Color(153, 255, 255));
         jTableBanco.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
@@ -1154,7 +1154,7 @@ public class libroMayor extends javax.swing.JPanel {
         jLabel11.setText("TOTAL");
         jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(1210, 290, -1, 20));
 
-        jTableDocumentosXCobrar.setBackground(new java.awt.Color(0, 204, 204));
+        jTableDocumentosXCobrar.setBackground(new java.awt.Color(153, 255, 255));
         jTableDocumentosXCobrar.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
@@ -1180,7 +1180,7 @@ public class libroMayor extends javax.swing.JPanel {
         jLabel13.setText("TOTAL");
         jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 290, -1, 20));
 
-        jTableInventarioSoftware.setBackground(new java.awt.Color(0, 204, 204));
+        jTableInventarioSoftware.setBackground(new java.awt.Color(153, 255, 255));
         jTableInventarioSoftware.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
@@ -1206,7 +1206,7 @@ public class libroMayor extends javax.swing.JPanel {
         jLabel15.setText("TOTAL");
         jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 580, -1, 20));
 
-        jTableSegurosPagados.setBackground(new java.awt.Color(0, 204, 204));
+        jTableSegurosPagados.setBackground(new java.awt.Color(153, 255, 255));
         jTableSegurosPagados.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
@@ -1232,7 +1232,7 @@ public class libroMayor extends javax.swing.JPanel {
         jLabel17.setText("TOTAL");
         jPanel1.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 290, -1, 20));
 
-        jTableALquileresPagados.setBackground(new java.awt.Color(0, 204, 204));
+        jTableALquileresPagados.setBackground(new java.awt.Color(153, 255, 255));
         jTableALquileresPagados.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
@@ -1258,7 +1258,7 @@ public class libroMayor extends javax.swing.JPanel {
         jLabel19.setText("TOTAL");
         jPanel1.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 580, -1, 20));
 
-        jTableCuentaCorriente.setBackground(new java.awt.Color(0, 204, 204));
+        jTableCuentaCorriente.setBackground(new java.awt.Color(153, 255, 255));
         jTableCuentaCorriente.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
@@ -1278,7 +1278,7 @@ public class libroMayor extends javax.swing.JPanel {
         jLabel20.setText("CUENTA CORRIENTE");
         jPanel1.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 60, -1, -1));
 
-        jTableCuentasYDocumentosPorCobrar.setBackground(new java.awt.Color(0, 204, 204));
+        jTableCuentasYDocumentosPorCobrar.setBackground(new java.awt.Color(153, 255, 255));
         jTableCuentasYDocumentosPorCobrar.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
@@ -1310,7 +1310,7 @@ public class libroMayor extends javax.swing.JPanel {
         jLabel23.setText("TOTAL");
         jPanel1.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 290, -1, 20));
 
-        jTableSuministro.setBackground(new java.awt.Color(0, 204, 204));
+        jTableSuministro.setBackground(new java.awt.Color(153, 255, 255));
         jTableSuministro.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
@@ -1326,7 +1326,7 @@ public class libroMayor extends javax.swing.JPanel {
 
         jPanel1.add(jScrollPane12, new org.netbeans.lib.awtextra.AbsoluteConstraints(1130, 370, 140, 180));
 
-        jTablePapeleriasYUtiles.setBackground(new java.awt.Color(0, 204, 204));
+        jTablePapeleriasYUtiles.setBackground(new java.awt.Color(153, 255, 255));
         jTablePapeleriasYUtiles.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
@@ -1342,7 +1342,7 @@ public class libroMayor extends javax.swing.JPanel {
 
         jPanel1.add(jScrollPane13, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 370, 140, 180));
 
-        jTablePropaganda.setBackground(new java.awt.Color(0, 204, 204));
+        jTablePropaganda.setBackground(new java.awt.Color(153, 255, 255));
         jTablePropaganda.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
@@ -1358,7 +1358,7 @@ public class libroMayor extends javax.swing.JPanel {
 
         jPanel1.add(jScrollPane14, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 370, 140, 180));
 
-        jTableServicios.setBackground(new java.awt.Color(0, 204, 204));
+        jTableServicios.setBackground(new java.awt.Color(153, 255, 255));
         jTableServicios.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
@@ -1374,7 +1374,7 @@ public class libroMayor extends javax.swing.JPanel {
 
         jPanel1.add(jScrollPane15, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 370, 140, 180));
 
-        jTableImpuestosSobreRenta.setBackground(new java.awt.Color(0, 204, 204));
+        jTableImpuestosSobreRenta.setBackground(new java.awt.Color(153, 255, 255));
         jTableImpuestosSobreRenta.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
