@@ -69,9 +69,9 @@ public class manoDeObra extends javax.swing.JPanel {
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Ink Free", 1, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel1.setText("MANO DE OBRA");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 30, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 30, -1, -1));
 
         jPanel2.setBackground(new java.awt.Color(204, 204, 204));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -100,7 +100,7 @@ public class manoDeObra extends javax.swing.JPanel {
                 btnGuardarActionPerformed(evt);
             }
         });
-        jPanel2.add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 70, -1, -1));
+        jPanel2.add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 60, -1, -1));
 
         btnModificar.setText("Modificar");
         btnModificar.addActionListener(new java.awt.event.ActionListener() {
@@ -108,7 +108,7 @@ public class manoDeObra extends javax.swing.JPanel {
                 btnModificarActionPerformed(evt);
             }
         });
-        jPanel2.add(btnModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 70, -1, -1));
+        jPanel2.add(btnModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 60, -1, -1));
 
         btnEliminar.setText("Eliminar");
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
@@ -116,9 +116,9 @@ public class manoDeObra extends javax.swing.JPanel {
                 btnEliminarActionPerformed(evt);
             }
         });
-        jPanel2.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 70, -1, -1));
+        jPanel2.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 60, -1, -1));
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, 1180, 110));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, 1180, 100));
 
         tablaManoObra.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -138,7 +138,7 @@ public class manoDeObra extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tablaManoObra);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, 1180, 240));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 200, 1180, 270));
 
         jLabel5.setFont(new java.awt.Font("Ink Free", 1, 24)); // NOI18N
         jLabel5.setText("Total del costo real de mano de obra:");
@@ -155,9 +155,8 @@ public class manoDeObra extends javax.swing.JPanel {
                 btnTotalActionPerformed(evt);
             }
         });
-        jPanel1.add(btnTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 480, -1, -1));
+        jPanel1.add(btnTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 480, -1, -1));
 
-        lblID.setText("oo");
         lblID.setEnabled(false);
         jPanel1.add(lblID, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 480, 90, 30));
 

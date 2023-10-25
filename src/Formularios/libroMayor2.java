@@ -388,13 +388,13 @@ public class libroMayor2 extends javax.swing.JPanel {
             }
             jTextFieldSumaAbonoVacaciones.setText(String.valueOf(sumaAbono));
             //Ya que es activo cargo tiene que ser mayor para que la resta no quede negativa
-            if (sumaAbono > sumaCargo) {
+           
                 total = sumaAbono - sumaCargo;
                 // Actualizamos el valor de 'total' en la tabla 'mayorizacion'
                 PreparedStatement pst = cn.prepareStatement("UPDATE mayorizacion SET totalHaber = ? WHERE codigo = '210703'");
                 pst.setDouble(1, total); // Establecemos el valor de 'total' en la sentencia SQL.
                 double a = pst.executeUpdate();// Ejecuta la sentencia y guarda el resultado
-            }
+            
             jTextFieldSumaTotalVacaciones.setText(String.valueOf(total));
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
@@ -421,13 +421,13 @@ public class libroMayor2 extends javax.swing.JPanel {
             }
             jTextFieldSumaAbonoAguinaldos.setText(String.valueOf(sumaAbono));
             //Ya que es activo cargo tiene que ser mayor para que la resta no quede negativa
-            if (sumaAbono > sumaCargo) {
+           
                 total = sumaAbono - sumaCargo;
                 // Actualizamos el valor de 'total' en la tabla 'mayorizacion'
                 PreparedStatement pst = cn.prepareStatement("UPDATE mayorizacion SET totalHaber = ? WHERE codigo = '210704'");
                 pst.setDouble(1, total); // Establecemos el valor de 'total' en la sentencia SQL.
                 double a = pst.executeUpdate();// Ejecuta la sentencia y guarda el resultado
-            }
+            
             jTextFieldSumaTotalAguinaldos.setText(String.valueOf(total));
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
@@ -454,13 +454,13 @@ public class libroMayor2 extends javax.swing.JPanel {
             }
             jTextFieldSumaAbonoDebito.setText(String.valueOf(sumaAbono));
             //Ya que es activo cargo tiene que ser mayor para que la resta no quede negativa
-            if (sumaAbono > sumaCargo) {
+           
                 total = sumaAbono - sumaCargo;
                 // Actualizamos el valor de 'total' en la tabla 'mayorizacion'
                 PreparedStatement pst = cn.prepareStatement("UPDATE mayorizacion SET totalHaber = ? WHERE codigo = '2108'");
                 pst.setDouble(1, total); // Establecemos el valor de 'total' en la sentencia SQL.
                 double a = pst.executeUpdate();// Ejecuta la sentencia y guarda el resultado
-            }
+            
             jTextFieldSumaTotalDebito.setText(String.valueOf(total));
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
@@ -487,13 +487,13 @@ public class libroMayor2 extends javax.swing.JPanel {
             }
             jTextFieldSumaAbonoImpuestos.setText(String.valueOf(sumaAbono));
             //Ya que es activo cargo tiene que ser mayor para que la resta no quede negativa
-            if (sumaAbono > sumaCargo) {
+            
                 total = sumaAbono - sumaCargo;
                 // Actualizamos el valor de 'total' en la tabla 'mayorizacion'
                 PreparedStatement pst = cn.prepareStatement("UPDATE mayorizacion SET totalHaber = ? WHERE codigo = '2109'");
                 pst.setDouble(1, total); // Establecemos el valor de 'total' en la sentencia SQL.
                 double a = pst.executeUpdate();// Ejecuta la sentencia y guarda el resultado
-            }
+            
             jTextFieldSumaTotalImpuestos.setText(String.valueOf(total));
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
@@ -520,13 +520,13 @@ public class libroMayor2 extends javax.swing.JPanel {
             }
             jTextFieldSumaAbonoPrestamosBancarios.setText(String.valueOf(sumaAbono));
             //Ya que es activo cargo tiene que ser mayor para que la resta no quede negativa
-            if (sumaAbono > sumaCargo) {
+            
                 total = sumaAbono - sumaCargo;
                 // Actualizamos el valor de 'total' en la tabla 'mayorizacion'
                 PreparedStatement pst = cn.prepareStatement("UPDATE mayorizacion SET totalHaber = ? WHERE codigo = '2201'");
                 pst.setDouble(1, total); // Establecemos el valor de 'total' en la sentencia SQL.
                 double a = pst.executeUpdate();// Ejecuta la sentencia y guarda el resultado
-            }
+            
             jTextFieldSumaTotalPrestamosBancarios.setText(String.valueOf(total));
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
@@ -553,13 +553,13 @@ public class libroMayor2 extends javax.swing.JPanel {
             }
             jTextFieldSumaAbonoIndemnizaciones.setText(String.valueOf(sumaAbono));
             //Ya que es activo cargo tiene que ser mayor para que la resta no quede negativa
-            if (sumaAbono > sumaCargo) {
+            
                 total = sumaAbono - sumaCargo;
                 // Actualizamos el valor de 'total' en la tabla 'mayorizacion'
                 PreparedStatement pst = cn.prepareStatement("UPDATE mayorizacion SET totalHaber = ? WHERE codigo = '2202'");
                 pst.setDouble(1, total); // Establecemos el valor de 'total' en la sentencia SQL.
                 double a = pst.executeUpdate();// Ejecuta la sentencia y guarda el resultado
-            }
+            
             jTextFieldSumaTotalIndemnizaciones.setText(String.valueOf(total));
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
@@ -586,13 +586,13 @@ public class libroMayor2 extends javax.swing.JPanel {
             }
             jTextFieldSumaAbonoCapitalContable.setText(String.valueOf(sumaAbono));
             //Ya que es activo cargo tiene que ser mayor para que la resta no quede negativa
-            if (sumaAbono > sumaCargo) {
+           
                 total = sumaAbono - sumaCargo;
                 // Actualizamos el valor de 'total' en la tabla 'mayorizacion'
                 PreparedStatement pst = cn.prepareStatement("UPDATE mayorizacion SET totalHaber = ? WHERE codigo = '31'");
                 pst.setDouble(1, total); // Establecemos el valor de 'total' en la sentencia SQL.
                 double a = pst.executeUpdate();// Ejecuta la sentencia y guarda el resultado
-            }
+            
             jTextFieldSumaTotalCapitalContable.setText(String.valueOf(total));
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
@@ -619,13 +619,13 @@ public class libroMayor2 extends javax.swing.JPanel {
             }
             jTextFieldSumaAbonoCapitalSocial.setText(String.valueOf(sumaAbono));
             //Ya que es activo cargo tiene que ser mayor para que la resta no quede negativa
-            if (sumaAbono > sumaCargo) {
+            
                 total = sumaAbono - sumaCargo;
                 // Actualizamos el valor de 'total' en la tabla 'mayorizacion'
                 PreparedStatement pst = cn.prepareStatement("UPDATE mayorizacion SET totalHaber = ? WHERE codigo = '3101'");
                 pst.setDouble(1, total); // Establecemos el valor de 'total' en la sentencia SQL.
                 double a = pst.executeUpdate();// Ejecuta la sentencia y guarda el resultado
-            }
+            
             jTextFieldSumaTotalCapitalSocial.setText(String.valueOf(total));
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
@@ -652,13 +652,13 @@ public class libroMayor2 extends javax.swing.JPanel {
             }
             jTextFieldSumaAbonoUtilidadesAcumuladas.setText(String.valueOf(sumaAbono));
             //Ya que es activo cargo tiene que ser mayor para que la resta no quede negativa
-            if (sumaAbono > sumaCargo) {
+            
                 total = sumaAbono - sumaCargo;
                 // Actualizamos el valor de 'total' en la tabla 'mayorizacion'
                 PreparedStatement pst = cn.prepareStatement("UPDATE mayorizacion SET totalHaber = ? WHERE codigo = '3102'");
                 pst.setDouble(1, total); // Establecemos el valor de 'total' en la sentencia SQL.
                 double a = pst.executeUpdate();// Ejecuta la sentencia y guarda el resultado
-            }
+            
             jTextFieldSumaTotalUtilidadesAcumuladas.setText(String.valueOf(total));
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
@@ -685,13 +685,13 @@ public class libroMayor2 extends javax.swing.JPanel {
             }
             jTextFieldSumaAbonoUtilidadEjercicio.setText(String.valueOf(sumaAbono));
             //Ya que es activo cargo tiene que ser mayor para que la resta no quede negativa
-            if (sumaAbono > sumaCargo) {
+            
                 total = sumaAbono - sumaCargo;
                 // Actualizamos el valor de 'total' en la tabla 'mayorizacion'
                 PreparedStatement pst = cn.prepareStatement("UPDATE mayorizacion SET totalHaber = ? WHERE codigo = '3103'");
                 pst.setDouble(1, total); // Establecemos el valor de 'total' en la sentencia SQL.
                 double a = pst.executeUpdate();// Ejecuta la sentencia y guarda el resultado
-            }
+            
             jTextFieldSumaTotalUtilidadEjercicio.setText(String.valueOf(total));
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
@@ -718,13 +718,13 @@ public class libroMayor2 extends javax.swing.JPanel {
             }
             jTextFieldSumaAbonoGastosYCostos.setText(String.valueOf(sumaAbono));
             //Ya que es activo cargo tiene que ser mayor para que la resta no quede negativa
-            if (sumaCargo > sumaAbono) {
+            
                 total = sumaCargo - sumaAbono;
                 // Actualizamos el valor de 'total' en la tabla 'mayorizacion'
                 PreparedStatement pst = cn.prepareStatement("UPDATE mayorizacion SET totalDebe = ? WHERE codigo = '41'");
                 pst.setDouble(1, total); // Establecemos el valor de 'total' en la sentencia SQL.
                 double a = pst.executeUpdate();// Ejecuta la sentencia y guarda el resultado
-            }
+            
             jTextFieldSumaTotalGastosYCostos.setText(String.valueOf(total));
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
@@ -751,13 +751,13 @@ public class libroMayor2 extends javax.swing.JPanel {
             }
             jTextFieldSumaAbonoCompraSoftware.setText(String.valueOf(sumaAbono));
             //Ya que es activo cargo tiene que ser mayor para que la resta no quede negativa
-            if (sumaCargo > sumaAbono) {
+            
                 total = sumaCargo - sumaAbono;
                 // Actualizamos el valor de 'total' en la tabla 'mayorizacion'
                 PreparedStatement pst = cn.prepareStatement("UPDATE mayorizacion SET totalDebe = ? WHERE codigo = '4101'");
                 pst.setDouble(1, total); // Establecemos el valor de 'total' en la sentencia SQL.
                 double a = pst.executeUpdate();// Ejecuta la sentencia y guarda el resultado
-            }
+            
             jTextFieldSumaTotalCompraSoftware.setText(String.valueOf(total));
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
@@ -784,13 +784,13 @@ public class libroMayor2 extends javax.swing.JPanel {
             }
             jTextFieldSumaAbonoGastosDeCompras.setText(String.valueOf(sumaAbono));
             //Ya que es activo cargo tiene que ser mayor para que la resta no quede negativa
-            if (sumaCargo > sumaAbono) {
+            
                 total = sumaCargo - sumaAbono;
                 // Actualizamos el valor de 'total' en la tabla 'mayorizacion'
                 PreparedStatement pst = cn.prepareStatement("UPDATE mayorizacion SET totalDebe = ? WHERE codigo = '410101'");
                 pst.setDouble(1, total); // Establecemos el valor de 'total' en la sentencia SQL.
                 double a = pst.executeUpdate();// Ejecuta la sentencia y guarda el resultado
-            }
+            
             jTextFieldSumaTotalGastosDeCompras.setText(String.valueOf(total));
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
@@ -817,13 +817,13 @@ public class libroMayor2 extends javax.swing.JPanel {
             }
             jTextFieldSumaAbonoGastoSobreCompras.setText(String.valueOf(sumaAbono));
             //Ya que es activo cargo tiene que ser mayor para que la resta no quede negativa
-            if (sumaCargo > sumaAbono) {
+           
                 total = sumaCargo - sumaAbono;
                 // Actualizamos el valor de 'total' en la tabla 'mayorizacion'
                 PreparedStatement pst = cn.prepareStatement("UPDATE mayorizacion SET totalDebe = ? WHERE codigo = '410102'");
                 pst.setDouble(1, total); // Establecemos el valor de 'total' en la sentencia SQL.
                 double a = pst.executeUpdate();// Ejecuta la sentencia y guarda el resultado
-            }
+            
             jTextFieldSumaTotalGastoSobreCompras.setText(String.valueOf(total));
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
@@ -850,13 +850,13 @@ public class libroMayor2 extends javax.swing.JPanel {
             }
             jTextFieldSumaAbonoDescuentoSobreVentas.setText(String.valueOf(sumaAbono));
             //Ya que es activo cargo tiene que ser mayor para que la resta no quede negativa
-            if (sumaCargo > sumaAbono) {
+           
                 total = sumaCargo - sumaAbono;
                 // Actualizamos el valor de 'total' en la tabla 'mayorizacion'
                 PreparedStatement pst = cn.prepareStatement("UPDATE mayorizacion SET totalDebe = ? WHERE codigo = '410103'");
                 pst.setDouble(1, total); // Establecemos el valor de 'total' en la sentencia SQL.
                 double a = pst.executeUpdate();// Ejecuta la sentencia y guarda el resultado
-            }
+            
             jTextFieldSumaTotalDescuentoSobreVentas.setText(String.valueOf(total));
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
@@ -883,13 +883,13 @@ public class libroMayor2 extends javax.swing.JPanel {
             }
             jTextFieldSumaAbonoDevolucionSobreVentas.setText(String.valueOf(sumaAbono));
             //Ya que es activo cargo tiene que ser mayor para que la resta no quede negativa
-            if (sumaCargo > sumaAbono) {
+            
                 total = sumaCargo - sumaAbono;
                 // Actualizamos el valor de 'total' en la tabla 'mayorizacion'
                 PreparedStatement pst = cn.prepareStatement("UPDATE mayorizacion SET totalDebe = ? WHERE codigo = '410104'");
                 pst.setDouble(1, total); // Establecemos el valor de 'total' en la sentencia SQL.
                 double a = pst.executeUpdate();// Ejecuta la sentencia y guarda el resultado
-            }
+            
             jTextFieldSumaTotalDevolucionSobreVentas.setText(String.valueOf(total));
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);

@@ -62,6 +62,7 @@ public class Inicio extends javax.swing.JFrame {
         jMenuItemLibroMayor1 = new javax.swing.JMenuItem();
         jMenuItemLibroMayor2 = new javax.swing.JMenuItem();
         jMenuItemLibroMayor3 = new javax.swing.JMenuItem();
+        jMenuItemLibroMayor4 = new javax.swing.JMenuItem();
         jMenuBalanceComprobacion = new javax.swing.JMenu();
         jMenuItemBalanceComprobacion = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
@@ -195,6 +196,14 @@ public class Inicio extends javax.swing.JFrame {
             }
         });
         jMenuLibroMayor.add(jMenuItemLibroMayor3);
+
+        jMenuItemLibroMayor4.setText("Pagina 5");
+        jMenuItemLibroMayor4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemLibroMayor4ActionPerformed(evt);
+            }
+        });
+        jMenuLibroMayor.add(jMenuItemLibroMayor4);
 
         jMenuBar2.add(jMenuLibroMayor);
 
@@ -385,6 +394,17 @@ public class Inicio extends javax.swing.JFrame {
         jPanelInicio.repaint();
     }//GEN-LAST:event_jMenuItemLibroMayor3ActionPerformed
 
+    private void jMenuItemLibroMayor4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemLibroMayor4ActionPerformed
+        // TODO add your handling code here:
+        libroMayor4 libroMayor4 = new libroMayor4();
+        libroMayor4.setSize(1280, 660);
+        libroMayor4.setLocation(0, 0);
+        jPanelInicio.removeAll();
+        jPanelInicio.add(libroMayor4, BorderLayout.CENTER);
+        jPanelInicio.revalidate();
+        jPanelInicio.repaint();
+    }//GEN-LAST:event_jMenuItemLibroMayor4ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -450,6 +470,7 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItemLibroMayor1;
     private javax.swing.JMenuItem jMenuItemLibroMayor2;
     private javax.swing.JMenuItem jMenuItemLibroMayor3;
+    private javax.swing.JMenuItem jMenuItemLibroMayor4;
     private javax.swing.JMenuItem jMenuItemManoObra;
     private javax.swing.JMenuItem jMenuItemTransaccion;
     private javax.swing.JMenu jMenuLibroMayor;

@@ -54,7 +54,6 @@ public class transaccion extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         jComboBoxCatalogo = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
-        jTextFieldFecha = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jCheckBoxCredito = new javax.swing.JCheckBox();
@@ -69,6 +68,7 @@ public class transaccion extends javax.swing.JPanel {
         jButtonEditarTransaccion = new javax.swing.JButton();
         jButtonEliminarTransaccion = new javax.swing.JButton();
         jButtonLimpiar = new javax.swing.JButton();
+        jTextFieldFecha = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableLibroDiario = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
@@ -76,7 +76,7 @@ public class transaccion extends javax.swing.JPanel {
 
         jPanelTransacciones.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Ink Free", 0, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel1.setText("Registro de Transacciones");
         jPanelTransacciones.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 10, -1, -1));
 
@@ -95,7 +95,6 @@ public class transaccion extends javax.swing.JPanel {
 
         jLabel4.setText("Fecha:");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, -1, -1));
-        jPanel1.add(jTextFieldFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 70, 140, -1));
 
         jLabel5.setText("Cargo:");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 70, -1, -1));
@@ -118,7 +117,7 @@ public class transaccion extends javax.swing.JPanel {
                 jTextFieldConceptoActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextFieldConcepto, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 110, 1070, 60));
+        jPanel1.add(jTextFieldConcepto, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 110, 1070, -1));
         jPanel1.add(jTextFieldCargo, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 70, 90, -1));
         jPanel1.add(jTextFieldAbono, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 70, 90, -1));
 
@@ -128,10 +127,12 @@ public class transaccion extends javax.swing.JPanel {
                 jButtonGuardarTransaccionActionPerformed(evt);
             }
         });
-        jPanel1.add(jButtonGuardarTransaccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 190, 90, -1));
+        jPanel1.add(jButtonGuardarTransaccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 140, 90, -1));
 
         jLabel10.setText("Codigo:");
         jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 30, -1, -1));
+
+        jTextFieldCodigo.setEnabled(false);
         jPanel1.add(jTextFieldCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 30, 110, -1));
 
         jButtonEditarTransaccion.setText("Modificar");
@@ -140,7 +141,7 @@ public class transaccion extends javax.swing.JPanel {
                 jButtonEditarTransaccionActionPerformed(evt);
             }
         });
-        jPanel1.add(jButtonEditarTransaccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 190, 90, -1));
+        jPanel1.add(jButtonEditarTransaccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 140, 90, -1));
 
         jButtonEliminarTransaccion.setText("Eliminar");
         jButtonEliminarTransaccion.addActionListener(new java.awt.event.ActionListener() {
@@ -148,7 +149,7 @@ public class transaccion extends javax.swing.JPanel {
                 jButtonEliminarTransaccionActionPerformed(evt);
             }
         });
-        jPanel1.add(jButtonEliminarTransaccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 190, 90, -1));
+        jPanel1.add(jButtonEliminarTransaccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 140, 90, -1));
 
         jButtonLimpiar.setText("Limpiar");
         jButtonLimpiar.addActionListener(new java.awt.event.ActionListener() {
@@ -156,9 +157,10 @@ public class transaccion extends javax.swing.JPanel {
                 jButtonLimpiarActionPerformed(evt);
             }
         });
-        jPanel1.add(jButtonLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 190, 90, -1));
+        jPanel1.add(jButtonLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 140, 90, -1));
+        jPanel1.add(jTextFieldFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 70, 140, -1));
 
-        jPanelTransacciones.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, 1200, 230));
+        jPanelTransacciones.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, 1200, 180));
 
         jTableLibroDiario.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -178,11 +180,11 @@ public class transaccion extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(jTableLibroDiario);
 
-        jPanelTransacciones.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 330, 1200, 280));
+        jPanelTransacciones.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, 1200, 340));
 
-        jLabel2.setFont(new java.awt.Font("Ink Free", 0, 24)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel2.setText("Libro Diario");
-        jPanelTransacciones.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 290, -1, -1));
+        jPanelTransacciones.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 240, -1, -1));
         jPanelTransacciones.add(jLabel1ID, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 30, 60, 20));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
