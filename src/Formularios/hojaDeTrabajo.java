@@ -4,6 +4,14 @@
  */
 package Formularios;
 
+import Conexiones.ConexionDB;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author juann
@@ -15,6 +23,106 @@ public class hojaDeTrabajo extends javax.swing.JPanel {
      */
     public hojaDeTrabajo() {
         initComponents();
+        BalanceComprobación();
+        jTextFieldSumaAbonoBalance.setText("$" + Double.toString(calcularDebeBalanceComprobacion()));
+        jTextFieldSumaCargoBalance.setText("$" + Double.toString(calcularDebeBalanceComprobacion()));
+
+    }
+
+    public void BalanceComprobación() {
+        ConexionDB db = new ConexionDB();
+        Connection cn = db.conectar();
+
+        DefaultTableModel modelo = new DefaultTableModel();
+
+        modelo.addColumn("Cuenta");
+        modelo.addColumn("Debe");
+        modelo.addColumn("Haber");
+        modelo.addColumn("Debe");
+        modelo.addColumn("Haber");
+        modelo.addColumn("Debe");
+        modelo.addColumn("Haber");
+        modelo.addColumn("Debe");
+        modelo.addColumn("Haber");
+        modelo.addColumn("Debe");
+        modelo.addColumn("Haber");
+        modelo.addColumn("Debe");
+        modelo.addColumn("Haber");
+
+        String sql = "";
+
+        jTableBalanceGeneral.setModel(modelo);
+
+        String[] datos = new String[13];
+
+        try {
+
+            PreparedStatement pst = cn.prepareStatement("SELECT cuenta,totalDebe,totalHaber FROM mayorizacion");
+            ResultSet resultado = pst.executeQuery();
+
+            while (resultado.next()) {
+                datos[0] = resultado.getString(1);
+                datos[1] = resultado.getString(2);
+                datos[2] = resultado.getString(3);
+                datos[3] = "0";
+                datos[4] = "0";
+                datos[5] = "0";
+                datos[6] = "0";
+                datos[7] = "0";
+                datos[8] = "0";
+                datos[9] = "0";
+                datos[10] = "0";
+                datos[11] = "0";
+                datos[12] = "0";
+
+                modelo.addRow(datos);
+
+                jTableBalanceGeneral.setModel(modelo);
+            }
+
+            //Para cargo
+            if (datos[0].startsWith("1") || datos[0].startsWith("4")) {
+                for (int i = 0; i < jTableBalanceGeneral.getRowCount(); i++) {
+                    double cargo = Double.parseDouble(jTableBalanceGeneral.getValueAt(i, 2).toString());
+                    double abono = Double.parseDouble(jTableBalanceGeneral.getValueAt(i, 3).toString());
+                    double resta = cargo - abono;
+                    jTableBalanceGeneral.setValueAt(resta, i, 2);
+                    jTableBalanceGeneral.setValueAt(0, i, 3);
+                }
+                //Para abono
+                if (datos[0].startsWith("2") || datos[0].startsWith("3") || datos[0].startsWith("5")) {
+                    for (int i = 0; i < jTableBalanceGeneral.getRowCount(); i++) {
+                        double cargo = Double.parseDouble(jTableBalanceGeneral.getValueAt(i, 2).toString());
+                        double abono = Double.parseDouble(jTableBalanceGeneral.getValueAt(i, 3).toString());
+                        double resta = cargo - abono;
+                        jTableBalanceGeneral.setValueAt(resta, i, 3);
+                        jTableBalanceGeneral.setValueAt(0, i, 2);
+                    }
+                }
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error:" + e.toString());
+        }
+    }
+    //Calcular suma columna de Debe Balance de Comprobación
+
+    public double calcularDebeBalanceComprobacion() {
+        double total = 0;
+        for (int i = 0; i < jTableBalanceGeneral.getRowCount(); i++) {
+            total = total + Double.parseDouble(jTableBalanceGeneral.getValueAt(i, 2).toString());
+        }
+        return total;
+
+    }
+
+    //Calcular suma columna de Haber Balance de Comprobación
+    public double calcularHaberBalanceComprobacion() {
+        double total = 0;
+        for (int i = 0; i < jTableBalanceGeneral.getRowCount(); i++) {
+            total = total + Double.parseDouble(jTableBalanceGeneral.getValueAt(i, 1).toString());
+        }
+        return total;
+
     }
 
     /**
@@ -28,6 +136,26 @@ public class hojaDeTrabajo extends javax.swing.JPanel {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTableBalanceGeneral = new javax.swing.JTable();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jTextFieldSumaAbonoBalance = new javax.swing.JTextField();
+        jTextFieldSumaCargoBalance = new javax.swing.JTextField();
+        jLabel12 = new javax.swing.JLabel();
+        jButtonAjustes = new javax.swing.JButton();
+        jTextFieldSumaCargoAjustes = new javax.swing.JTextField();
+        jTextFieldSumaAbonoAjustes = new javax.swing.JTextField();
+        jButtonBalanceAjustado = new javax.swing.JButton();
+        jTextFieldSumaCargoAjustados = new javax.swing.JTextField();
+        jTextFieldSumaAbonoAjustado = new javax.swing.JTextField();
+        jButtonEstado = new javax.swing.JButton();
+        jTextFieldSumaAbonoEstado = new javax.swing.JTextField();
+        jTextFieldSumaCargoEstado = new javax.swing.JTextField();
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -35,11 +163,85 @@ public class hojaDeTrabajo extends javax.swing.JPanel {
         jLabel1.setText("HOJA DE TRABAJO");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 20, -1, -1));
 
+        jTableBalanceGeneral.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Cuenta", "Debe", "Haber", "Debe", "Haber", "Debe", "Haber", "Debe", "Haber", "Debe", "Haber", "Debe", "Haber"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, true, true, false, false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane2.setViewportView(jTableBalanceGeneral);
+
+        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 1260, 400));
+
+        jLabel6.setText("Balance de Comprobacion");
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 60, -1, -1));
+
+        jLabel7.setText("Ajustes");
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 60, -1, -1));
+
+        jLabel8.setText("Balance Ajustado");
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 60, -1, -1));
+
+        jLabel9.setText("Estado de Resultados");
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 60, -1, -1));
+
+        jLabel10.setText("Estado de Capital");
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 60, -1, -1));
+
+        jLabel11.setText("Balance General");
+        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(1120, 60, -1, -1));
+        jPanel1.add(jTextFieldSumaAbonoBalance, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 500, 80, -1));
+        jPanel1.add(jTextFieldSumaCargoBalance, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 500, 80, -1));
+
+        jLabel12.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel12.setText("TOTAL");
+        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 500, -1, -1));
+
+        jButtonAjustes.setText("Ajustes");
+        jButtonAjustes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAjustesActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButtonAjustes, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 540, 170, -1));
+        jPanel1.add(jTextFieldSumaCargoAjustes, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 500, 80, -1));
+        jPanel1.add(jTextFieldSumaAbonoAjustes, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 500, 80, -1));
+
+        jButtonBalanceAjustado.setText("Balance Ajustado");
+        jButtonBalanceAjustado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonBalanceAjustadoActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButtonBalanceAjustado, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 540, 170, -1));
+        jPanel1.add(jTextFieldSumaCargoAjustados, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 500, 80, -1));
+        jPanel1.add(jTextFieldSumaAbonoAjustado, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 500, 80, -1));
+
+        jButtonEstado.setText("Estado de Resultados");
+        jButtonEstado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonEstadoActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButtonEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 540, 190, -1));
+        jPanel1.add(jTextFieldSumaAbonoEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 500, 90, -1));
+        jPanel1.add(jTextFieldSumaCargoEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 500, 90, -1));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1280, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -47,9 +249,172 @@ public class hojaDeTrabajo extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButtonAjustesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAjustesActionPerformed
+        // TODO add your handling code here:
+        double t = 0;
+        double p = 0;
+        if (jTableBalanceGeneral.getRowCount() > 0) {
+            for (int i = 0; i < jTableBalanceGeneral.getRowCount(); i++) {
+                p = Double.parseDouble(jTableBalanceGeneral.getValueAt(i, 4).toString());
+                t += p;
+            }
+            t = Math.round(t * 100) / 100d;
+        }
+        if (jTableBalanceGeneral.getRowCount() > 0) {
+            for (int i = 0; i < jTableBalanceGeneral.getRowCount(); i++) {
+                p = Double.parseDouble(jTableBalanceGeneral.getValueAt(i, 5).toString());
+                t += p;
+            }
+            t = Math.round(t * 100) / 100d;
+        }
+        jTextFieldSumaCargoAjustes.setText("$" + Double.toString(calcularDebeAjuste()));
+        jTextFieldSumaAbonoAjustes.setText("$" + Double.toString(calcularHaberAjuste()));
+    }//GEN-LAST:event_jButtonAjustesActionPerformed
+
+    //Calcular Haber Ajuste
+    public double calcularHaberAjuste() {
+        double total = 0;
+        for (int i = 0; i < jTableBalanceGeneral.getRowCount(); i++) {
+            total = total + Double.parseDouble(jTableBalanceGeneral.getValueAt(i, 4).toString());
+        }
+        return total;
+    }
+
+    //Calcular Debe Ajuste
+    public double calcularDebeAjuste() {
+        double total = 0;
+        for (int i = 0; i < jTableBalanceGeneral.getRowCount(); i++) {
+            total = total + Double.parseDouble(jTableBalanceGeneral.getValueAt(i, 3).toString());
+        }
+        return total;
+    }
+
+
+    private void jButtonBalanceAjustadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBalanceAjustadoActionPerformed
+        // TODO add your handling code here:
+        calcularBalanceAjustado();
+        jTextFieldSumaCargoAjustados.setText("$" + Double.toString(calcularDebeBalanceAjustado()));
+        jTextFieldSumaAbonoAjustado.setText("$" + Double.toString(calcularHaberBalanceAjustado()));
+    }//GEN-LAST:event_jButtonBalanceAjustadoActionPerformed
+    //calcular balance ajustado
+    public void calcularBalanceAjustado() {
+        calcularMontoDebeBalanceAjustado();
+        calcularMontoHaberBalanceAjustado();
+    }
+
+    //asignar columnas balance ajustado
+    public void calcularMontoDebeBalanceAjustado() {
+        for (int i = 0; i < jTableBalanceGeneral.getRowCount(); i++) {
+            double debeBC = Double.parseDouble(jTableBalanceGeneral.getValueAt(i, 1).toString());
+            double debeAJ = Double.parseDouble(jTableBalanceGeneral.getValueAt(i, 3).toString());
+            double sumaDebe = debeBC + debeAJ;
+
+            jTableBalanceGeneral.setValueAt(sumaDebe, i, 5);
+        }
+    }
+
+    //asignar columnas balance ajustado
+    public void calcularMontoHaberBalanceAjustado() {
+        for (int i = 0; i < jTableBalanceGeneral.getRowCount(); i++) {
+            double debeBC = Double.parseDouble(jTableBalanceGeneral.getValueAt(i, 2).toString());
+            double debeAJ = Double.parseDouble(jTableBalanceGeneral.getValueAt(i, 4).toString());
+            double sumaDebe = debeBC + debeAJ;
+
+            jTableBalanceGeneral.setValueAt(sumaDebe, i, 6);
+
+        }
+    }
+
+    //Calcular SUMAS Debe Balance Ajustado
+    public double calcularDebeBalanceAjustado() {
+        double total = 0;
+        for (int i = 0; i < jTableBalanceGeneral.getRowCount(); i++) {
+            total = total + Double.parseDouble(jTableBalanceGeneral.getValueAt(i, 5).toString());
+        }
+        return total;
+    }
+
+    //Calcular SUMAS Haber Balance Ajustado
+    public double calcularHaberBalanceAjustado() {
+        double total = 0;
+        for (int i = 0; i < jTableBalanceGeneral.getRowCount(); i++) {
+            total = total + Double.parseDouble(jTableBalanceGeneral.getValueAt(i, 6).toString());
+        }
+        return total;
+    }
+    private void jButtonEstadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEstadoActionPerformed
+        // TODO add your handling code here:
+
+        calcularMontoDebeBalanceResultados();
+        calcularMontoHaberBalanceResultados();
+        jTextFieldSumaCargoEstado.setText("$" + Double.toString(calcularDebeBalanceResultados()));
+        jTextFieldSumaAbonoEstado.setText("$" + Double.toString(calcularHaberBalanceResultados()));
+    }//GEN-LAST:event_jButtonEstadoActionPerformed
+
+    public void calcularMontoDebeBalanceResultados() {
+        double sumaDebe = 0;
+        for (int i = 0; i < jTableBalanceGeneral.getRowCount(); i++) {
+            double debeBC = Double.parseDouble(jTableBalanceGeneral.getValueAt(i, 5).toString());
+            double debeAJ = Double.parseDouble(jTableBalanceGeneral.getValueAt(i, 6).toString());
+            if (debeBC > debeAJ) {
+                sumaDebe = debeBC - debeAJ;
+                jTableBalanceGeneral.setValueAt(sumaDebe, i, 7);
+            }
+        }
+    }
+    public void calcularMontoHaberBalanceResultados(){
+         double sumaHaber = 0;
+        for (int i = 0; i < jTableBalanceGeneral.getRowCount(); i++) {
+            double debeBC = Double.parseDouble(jTableBalanceGeneral.getValueAt(i, 5).toString());
+            double debeAJ = Double.parseDouble(jTableBalanceGeneral.getValueAt(i, 6).toString());
+            if (debeAJ>debeBC) {
+                sumaHaber= debeAJ-debeBC;
+                jTableBalanceGeneral.setValueAt(sumaHaber, i, 8);
+            }
+        }
+    }
+
+    //Calcular Debe Balance de Resultados
+    public double calcularDebeBalanceResultados() {
+        double total = 0;
+        for (int i = 0; i < jTableBalanceGeneral.getRowCount(); i++) {
+            total = total + Double.parseDouble(jTableBalanceGeneral.getValueAt(i, 7).toString());
+        }
+        return total;
+    }
+
+    //Calcular Haber Balance de Resultados
+    public double calcularHaberBalanceResultados() {
+        double total = 0;
+        for (int i = 0; i < jTableBalanceGeneral.getRowCount(); i++) {
+            total = total + Double.parseDouble(jTableBalanceGeneral.getValueAt(i, 8).toString());
+        }
+        return total;
+    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButtonAjustes;
+    private javax.swing.JButton jButtonBalanceAjustado;
+    private javax.swing.JButton jButtonEstado;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable jTableBalanceGeneral;
+    private javax.swing.JTextField jTextFieldSumaAbonoAjustado;
+    private javax.swing.JTextField jTextFieldSumaAbonoAjustes;
+    private javax.swing.JTextField jTextFieldSumaAbonoBalance;
+    private javax.swing.JTextField jTextFieldSumaAbonoEstado;
+    private javax.swing.JTextField jTextFieldSumaCargoAjustados;
+    private javax.swing.JTextField jTextFieldSumaCargoAjustes;
+    private javax.swing.JTextField jTextFieldSumaCargoBalance;
+    private javax.swing.JTextField jTextFieldSumaCargoEstado;
     // End of variables declaration//GEN-END:variables
 }
