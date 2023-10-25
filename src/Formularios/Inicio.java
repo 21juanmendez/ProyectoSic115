@@ -59,6 +59,10 @@ public class Inicio extends javax.swing.JFrame {
         jMenuItemTransaccion = new javax.swing.JMenuItem();
         jMenuLibroMayor = new javax.swing.JMenu();
         jMenuItemLibroMayor = new javax.swing.JMenuItem();
+        jMenuItemLibroMayor1 = new javax.swing.JMenuItem();
+        jMenuItemLibroMayor2 = new javax.swing.JMenuItem();
+        jMenuItemLibroMayor3 = new javax.swing.JMenuItem();
+        jMenuItemLibroMayor4 = new javax.swing.JMenuItem();
         jMenuBalanceComprobacion = new javax.swing.JMenu();
         jMenuItemBalanceComprobacion = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
@@ -81,7 +85,6 @@ public class Inicio extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("AGORA S.A");
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        setPreferredSize(new java.awt.Dimension(1280, 660));
 
         jPanelInicio.setToolTipText("");
         jPanelInicio.setPreferredSize(new java.awt.Dimension(1280, 660));
@@ -97,7 +100,7 @@ public class Inicio extends javax.swing.JFrame {
             .addGap(0, 660, Short.MAX_VALUE)
         );
 
-        jMenuInicio.setText("Inicio");
+        jMenuInicio.setText("| Inicio |");
         jMenuInicio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuInicioActionPerformed(evt);
@@ -114,7 +117,7 @@ public class Inicio extends javax.swing.JFrame {
 
         jMenuBar2.add(jMenuInicio);
 
-        jMenuCatalogo.setText("Catalogo de Cuentas");
+        jMenuCatalogo.setText("Catalogo de Cuentas ");
         jMenuCatalogo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuCatalogoActionPerformed(evt);
@@ -131,7 +134,7 @@ public class Inicio extends javax.swing.JFrame {
 
         jMenuBar2.add(jMenuCatalogo);
 
-        jMenuManoObra.setText("Mano de Obra");
+        jMenuManoObra.setText("| Mano de Obra |");
 
         jMenuItemManoObra.setText("Mano de Obra");
         jMenuItemManoObra.addActionListener(new java.awt.event.ActionListener() {
@@ -143,7 +146,7 @@ public class Inicio extends javax.swing.JFrame {
 
         jMenuBar2.add(jMenuManoObra);
 
-        jMenuTransaccion.setText("Transaccion");
+        jMenuTransaccion.setText(" Transaccion ");
 
         jMenuItemTransaccion.setText("Transaccion");
         jMenuItemTransaccion.addActionListener(new java.awt.event.ActionListener() {
@@ -155,15 +158,52 @@ public class Inicio extends javax.swing.JFrame {
 
         jMenuBar2.add(jMenuTransaccion);
 
-        jMenuLibroMayor.setText("Libro Mayor");
+        jMenuLibroMayor.setText("| Libro Mayor |");
+        jMenuLibroMayor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuLibroMayorActionPerformed(evt);
+            }
+        });
 
-        jMenuItemLibroMayor.setText("Libro Mayor");
+        jMenuItemLibroMayor.setText("Pagina 1");
         jMenuItemLibroMayor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItemLibroMayorActionPerformed(evt);
             }
         });
         jMenuLibroMayor.add(jMenuItemLibroMayor);
+
+        jMenuItemLibroMayor1.setText("Pagina 2");
+        jMenuItemLibroMayor1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemLibroMayor1ActionPerformed(evt);
+            }
+        });
+        jMenuLibroMayor.add(jMenuItemLibroMayor1);
+
+        jMenuItemLibroMayor2.setText("Pagina 3");
+        jMenuItemLibroMayor2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemLibroMayor2ActionPerformed(evt);
+            }
+        });
+        jMenuLibroMayor.add(jMenuItemLibroMayor2);
+
+        jMenuItemLibroMayor3.setText("Pagina 4");
+        jMenuItemLibroMayor3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemLibroMayor3ActionPerformed(evt);
+            }
+        });
+        jMenuLibroMayor.add(jMenuItemLibroMayor3);
+
+        jMenuItemLibroMayor4.setText("Pagina 5");
+        jMenuItemLibroMayor4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemLibroMayor4ActionPerformed(evt);
+            }
+        });
+        jMenuLibroMayor.add(jMenuItemLibroMayor4);
 
         jMenuBar2.add(jMenuLibroMayor);
 
@@ -179,7 +219,7 @@ public class Inicio extends javax.swing.JFrame {
 
         jMenuBar2.add(jMenuBalanceComprobacion);
 
-        jMenu3.setText("Hoja de Trabajo");
+        jMenu3.setText("| Hoja de Trabajo |");
 
         jMenuItem3.setText("Hoja de Trabajo");
         jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
@@ -213,7 +253,7 @@ public class Inicio extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelInicio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanelInicio, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -317,6 +357,54 @@ public class Inicio extends javax.swing.JFrame {
         jPanelInicio.repaint();
     }//GEN-LAST:event_jMenuItemCierreContableActionPerformed
 
+    private void jMenuItemLibroMayor1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemLibroMayor1ActionPerformed
+        // TODO add your handling code here:
+         libroMayor1 libroMayor1 = new libroMayor1();
+        libroMayor1.setSize(1280, 660);
+        libroMayor1.setLocation(0, 0);
+        jPanelInicio.removeAll();
+        jPanelInicio.add(libroMayor1, BorderLayout.CENTER);
+        jPanelInicio.revalidate();
+        jPanelInicio.repaint();
+    }//GEN-LAST:event_jMenuItemLibroMayor1ActionPerformed
+
+    private void jMenuLibroMayorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuLibroMayorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuLibroMayorActionPerformed
+
+    private void jMenuItemLibroMayor2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemLibroMayor2ActionPerformed
+        // TODO add your handling code here:
+        libroMayor2 libroMayor2 = new libroMayor2();
+        libroMayor2.setSize(1280, 660);
+        libroMayor2.setLocation(0, 0);
+        jPanelInicio.removeAll();
+        jPanelInicio.add(libroMayor2, BorderLayout.CENTER);
+        jPanelInicio.revalidate();
+        jPanelInicio.repaint();
+    }//GEN-LAST:event_jMenuItemLibroMayor2ActionPerformed
+
+    private void jMenuItemLibroMayor3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemLibroMayor3ActionPerformed
+        // TODO add your handling code here:
+        libroMayor3 libroMayor3 = new libroMayor3();
+        libroMayor3.setSize(1280, 660);
+        libroMayor3.setLocation(0, 0);
+        jPanelInicio.removeAll();
+        jPanelInicio.add(libroMayor3, BorderLayout.CENTER);
+        jPanelInicio.revalidate();
+        jPanelInicio.repaint();
+    }//GEN-LAST:event_jMenuItemLibroMayor3ActionPerformed
+
+    private void jMenuItemLibroMayor4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemLibroMayor4ActionPerformed
+        // TODO add your handling code here:
+        libroMayor4 libroMayor4 = new libroMayor4();
+        libroMayor4.setSize(1280, 660);
+        libroMayor4.setLocation(0, 0);
+        jPanelInicio.removeAll();
+        jPanelInicio.add(libroMayor4, BorderLayout.CENTER);
+        jPanelInicio.revalidate();
+        jPanelInicio.repaint();
+    }//GEN-LAST:event_jMenuItemLibroMayor4ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -379,6 +467,10 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItemCierreContable;
     private javax.swing.JMenuItem jMenuItemInicio;
     private javax.swing.JMenuItem jMenuItemLibroMayor;
+    private javax.swing.JMenuItem jMenuItemLibroMayor1;
+    private javax.swing.JMenuItem jMenuItemLibroMayor2;
+    private javax.swing.JMenuItem jMenuItemLibroMayor3;
+    private javax.swing.JMenuItem jMenuItemLibroMayor4;
     private javax.swing.JMenuItem jMenuItemManoObra;
     private javax.swing.JMenuItem jMenuItemTransaccion;
     private javax.swing.JMenu jMenuLibroMayor;
