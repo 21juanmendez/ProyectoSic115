@@ -22,10 +22,10 @@ public class balanceDeComprobacion extends javax.swing.JPanel {
      */
     public balanceDeComprobacion() {
         initComponents();
+        libroMayor libro=new libroMayor();
         mostrarBalance();
         sumarBalance();
     }
-
     public void mostrarBalance() {
         ConexionDB db = new ConexionDB();
         Connection cn = db.conectar();
@@ -98,8 +98,8 @@ public class balanceDeComprobacion extends javax.swing.JPanel {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel1.setText("BALANCE DE COMPROBACION");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 30, -1, -1));
+        jLabel1.setText("Balance de Comprobacion");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 10, -1, -1));
 
         jTableBalance.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -114,13 +114,13 @@ public class balanceDeComprobacion extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(jTableBalance);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 80, 1120, 430));
-        jPanel1.add(jTextFieldSumaHaberBalance, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 520, 260, -1));
-        jPanel1.add(jTextFieldSumaDebeBalance, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 520, 260, -1));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 50, 1120, 510));
+        jPanel1.add(jTextFieldSumaHaberBalance, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 570, 260, -1));
+        jPanel1.add(jTextFieldSumaDebeBalance, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 570, 260, -1));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel2.setText("TOTAL");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 520, -1, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 570, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);

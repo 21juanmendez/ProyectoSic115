@@ -35,8 +35,10 @@ public class manoDeObra extends javax.swing.JPanel {
         btnModificar.setEnabled(false);
         btnEliminar.setEnabled(false);
         btnGuardar.setEnabled(true);
+        jButtonLimpiar.setEnabled(false);
         lblID.setText("");
         lblTotal.setText("");
+        jLabel5.setVisible(false);
     }
 
     /**
@@ -60,6 +62,7 @@ public class manoDeObra extends javax.swing.JPanel {
         btnGuardar = new javax.swing.JButton();
         btnModificar = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
+        jButtonLimpiar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablaManoObra = new javax.swing.JTable();
         jLabel5 = new javax.swing.JLabel();
@@ -69,9 +72,9 @@ public class manoDeObra extends javax.swing.JPanel {
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Ink Free", 1, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel1.setText("MANO DE OBRA");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 30, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 10, -1, -1));
 
         jPanel2.setBackground(new java.awt.Color(204, 204, 204));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -100,7 +103,7 @@ public class manoDeObra extends javax.swing.JPanel {
                 btnGuardarActionPerformed(evt);
             }
         });
-        jPanel2.add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 70, -1, -1));
+        jPanel2.add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 60, -1, -1));
 
         btnModificar.setText("Modificar");
         btnModificar.addActionListener(new java.awt.event.ActionListener() {
@@ -108,7 +111,7 @@ public class manoDeObra extends javax.swing.JPanel {
                 btnModificarActionPerformed(evt);
             }
         });
-        jPanel2.add(btnModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 70, -1, -1));
+        jPanel2.add(btnModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 60, -1, -1));
 
         btnEliminar.setText("Eliminar");
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
@@ -116,9 +119,17 @@ public class manoDeObra extends javax.swing.JPanel {
                 btnEliminarActionPerformed(evt);
             }
         });
-        jPanel2.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 70, -1, -1));
+        jPanel2.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 60, -1, -1));
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, 1180, 110));
+        jButtonLimpiar.setText("Limpiar");
+        jButtonLimpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonLimpiarActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButtonLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 60, -1, -1));
+
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, 1180, 100));
 
         tablaManoObra.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -138,16 +149,15 @@ public class manoDeObra extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tablaManoObra);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, 1180, 240));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 190, 1180, 280));
 
-        jLabel5.setFont(new java.awt.Font("Ink Free", 1, 24)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel5.setText("Total del costo real de mano de obra:");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 540, -1, -1));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 550, -1, -1));
 
-        lblTotal.setFont(new java.awt.Font("Ink Free", 1, 18)); // NOI18N
-        lblTotal.setForeground(new java.awt.Color(255, 153, 153));
+        lblTotal.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         lblTotal.setText("Aqui va el valor");
-        jPanel1.add(lblTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 540, -1, -1));
+        jPanel1.add(lblTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 530, -1, -1));
 
         btnTotal.setText("Ver Total");
         btnTotal.addActionListener(new java.awt.event.ActionListener() {
@@ -155,9 +165,8 @@ public class manoDeObra extends javax.swing.JPanel {
                 btnTotalActionPerformed(evt);
             }
         });
-        jPanel1.add(btnTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 480, -1, -1));
+        jPanel1.add(btnTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 480, -1, -1));
 
-        lblID.setText("oo");
         lblID.setEnabled(false);
         jPanel1.add(lblID, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 480, 90, 30));
 
@@ -243,6 +252,7 @@ public class manoDeObra extends javax.swing.JPanel {
             btnModificar.setEnabled(true);
             btnEliminar.setEnabled(true);
             btnGuardar.setEnabled(false);
+            jButtonLimpiar.setEnabled(true);
             lblID.setText(String.valueOf(id));
             lblID.setVisible(true);
         }
@@ -319,9 +329,25 @@ public class manoDeObra extends javax.swing.JPanel {
             }
             t = Math.round(t * 100) / 100d;
             lblTotal.setText("$ " + t);
+            jLabel5.setVisible(true);
+            btnGuardar.setEnabled(true);
+            btnModificar.setEnabled(false);
+            btnEliminar.setEnabled(false);
+            jButtonLimpiar.setEnabled(false);
+            tablaManoObra.clearSelection();
+            txtNombre.setText("");
+            txtPuesto.setText("");
+            txtSalario.setText("");
 
         }
     }//GEN-LAST:event_btnTotalActionPerformed
+
+    private void jButtonLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLimpiarActionPerformed
+        // TODO add your handling code here:
+        valoresIniciales();
+        jButtonLimpiar.setEnabled(false);
+        tablaManoObra.clearSelection();
+    }//GEN-LAST:event_jButtonLimpiarActionPerformed
     public void tablemodelo() {
         ConexionDB objetoConexion = new ConexionDB();
 
@@ -394,6 +420,7 @@ public class manoDeObra extends javax.swing.JPanel {
     private javax.swing.JButton btnGuardar;
     private javax.swing.JButton btnModificar;
     private javax.swing.JButton btnTotal;
+    private javax.swing.JButton jButtonLimpiar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

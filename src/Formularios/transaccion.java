@@ -54,7 +54,6 @@ public class transaccion extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         jComboBoxCatalogo = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
-        jTextFieldFecha = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jCheckBoxCredito = new javax.swing.JCheckBox();
@@ -69,6 +68,7 @@ public class transaccion extends javax.swing.JPanel {
         jButtonEditarTransaccion = new javax.swing.JButton();
         jButtonEliminarTransaccion = new javax.swing.JButton();
         jButtonLimpiar = new javax.swing.JButton();
+        jTextFieldFecha = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableLibroDiario = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
@@ -76,7 +76,7 @@ public class transaccion extends javax.swing.JPanel {
 
         jPanelTransacciones.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Ink Free", 0, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel1.setText("Registro de Transacciones");
         jPanelTransacciones.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 10, -1, -1));
 
@@ -95,7 +95,6 @@ public class transaccion extends javax.swing.JPanel {
 
         jLabel4.setText("Fecha:");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, -1, -1));
-        jPanel1.add(jTextFieldFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 70, 140, -1));
 
         jLabel5.setText("Cargo:");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 70, -1, -1));
@@ -118,7 +117,7 @@ public class transaccion extends javax.swing.JPanel {
                 jTextFieldConceptoActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextFieldConcepto, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 110, 1070, 60));
+        jPanel1.add(jTextFieldConcepto, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 110, 1070, -1));
         jPanel1.add(jTextFieldCargo, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 70, 90, -1));
         jPanel1.add(jTextFieldAbono, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 70, 90, -1));
 
@@ -128,13 +127,13 @@ public class transaccion extends javax.swing.JPanel {
                 jButtonGuardarTransaccionActionPerformed(evt);
             }
         });
-        jPanel1.add(jButtonGuardarTransaccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 190, 90, -1));
+        jPanel1.add(jButtonGuardarTransaccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 140, 90, -1));
 
         jLabel10.setText("Codigo:");
         jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 30, -1, -1));
 
         jTextFieldCodigo.setEnabled(false);
-        jPanel1.add(jTextFieldCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 30, 90, -1));
+        jPanel1.add(jTextFieldCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 30, 110, -1));
 
         jButtonEditarTransaccion.setText("Modificar");
         jButtonEditarTransaccion.addActionListener(new java.awt.event.ActionListener() {
@@ -142,7 +141,7 @@ public class transaccion extends javax.swing.JPanel {
                 jButtonEditarTransaccionActionPerformed(evt);
             }
         });
-        jPanel1.add(jButtonEditarTransaccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 190, 90, -1));
+        jPanel1.add(jButtonEditarTransaccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 140, 90, -1));
 
         jButtonEliminarTransaccion.setText("Eliminar");
         jButtonEliminarTransaccion.addActionListener(new java.awt.event.ActionListener() {
@@ -150,7 +149,7 @@ public class transaccion extends javax.swing.JPanel {
                 jButtonEliminarTransaccionActionPerformed(evt);
             }
         });
-        jPanel1.add(jButtonEliminarTransaccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 190, 90, -1));
+        jPanel1.add(jButtonEliminarTransaccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 140, 90, -1));
 
         jButtonLimpiar.setText("Limpiar");
         jButtonLimpiar.addActionListener(new java.awt.event.ActionListener() {
@@ -158,9 +157,10 @@ public class transaccion extends javax.swing.JPanel {
                 jButtonLimpiarActionPerformed(evt);
             }
         });
-        jPanel1.add(jButtonLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 190, 90, -1));
+        jPanel1.add(jButtonLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 140, 90, -1));
+        jPanel1.add(jTextFieldFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 70, 140, -1));
 
-        jPanelTransacciones.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, 1200, 230));
+        jPanelTransacciones.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, 1200, 180));
 
         jTableLibroDiario.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -180,11 +180,11 @@ public class transaccion extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(jTableLibroDiario);
 
-        jPanelTransacciones.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 330, 1200, 280));
+        jPanelTransacciones.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, 1200, 340));
 
-        jLabel2.setFont(new java.awt.Font("Ink Free", 0, 24)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel2.setText("Libro Diario");
-        jPanelTransacciones.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 290, -1, -1));
+        jPanelTransacciones.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 240, -1, -1));
         jPanelTransacciones.add(jLabel1ID, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 30, 60, 20));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -212,8 +212,8 @@ public class transaccion extends javax.swing.JPanel {
         jComboBoxCatalogo.setVisible(true);
         jTextFieldCodigo.setText("");
         jTextFieldFecha.setText("");
-        jTextFieldCargo.setText("0");
-        jTextFieldAbono.setText("0");
+        jTextFieldCargo.setText("0.0");
+        jTextFieldAbono.setText("0.0");
         jTextFieldConcepto.setText("");
         jCheckBoxCredito.setVisible(true);
         jCheckBoxDebito.setVisible(true);
@@ -222,7 +222,6 @@ public class transaccion extends javax.swing.JPanel {
 
     private void jButtonGuardarTransaccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGuardarTransaccionActionPerformed
         // TODO add your handling code here:  
-
         String fecha = jTextFieldFecha.getText();
         String codigo = jTextFieldCodigo.getText();
         String cuenta = (String) jComboBoxCatalogo.getSelectedItem();
@@ -266,8 +265,8 @@ public class transaccion extends javax.swing.JPanel {
                 PreparedStatement pst = cn.prepareStatement("INSERT INTO transacciones (fecha, codigo, cuenta, concepto, cargo, abono) "
                         + "VALUES (?, ?, ?, ?, ?, ?)");
                 pst.setString(1, transaccion.getFecha());
-                pst.setString(2, "1107");
-                pst.setString(3, "IVA-CREDITO FISCAL");
+                pst.setString(2, "1105");
+                pst.setString(3, "Crédito fiscal - IVA");
                 pst.setString(4, transaccion.getConcepto());
                 double ivaCreditoCargo = transaccion.getCargo() * 0.13;
                 pst.setDouble(5, ivaCreditoCargo);
@@ -298,8 +297,8 @@ public class transaccion extends javax.swing.JPanel {
                 PreparedStatement pst = cn.prepareStatement("INSERT INTO transacciones (fecha, codigo, cuenta, concepto, cargo, abono) "
                         + "VALUES (?, ?, ?, ?, ?, ?)");
                 pst.setString(1, transaccion.getFecha());
-                pst.setString(2, "2107");
-                pst.setString(3, "IVA-DEBITO FISCAL");
+                pst.setString(2, "2108");
+                pst.setString(3, "Débito fiscal - IVA");
                 pst.setString(4, transaccion.getConcepto());
                 double ivaDebitoCargo = transaccion.getCargo() * 0.13;
                 pst.setDouble(5, ivaDebitoCargo);
@@ -330,8 +329,8 @@ public class transaccion extends javax.swing.JPanel {
                     + "VALUES (?, ?, ?, ?, ?, ?)");
             if (sumaCargo != 0) {
                 pst.setString(1, transaccion.getFecha());
-                pst.setString(2, "1101");
-                pst.setString(3, "CAJA");
+                pst.setString(2, "110101");
+                pst.setString(3, "Caja");
                 pst.setString(4, transaccion.getConcepto());
                 pst.setDouble(5, 0);
                 pst.setDouble(6, sumaCargo);
@@ -347,8 +346,8 @@ public class transaccion extends javax.swing.JPanel {
                 libroDIario();
             } else {
                 pst.setString(1, transaccion.getFecha());
-                pst.setString(2, "1101");
-                pst.setString(3, "CAJA");
+                pst.setString(2, "110101");
+                pst.setString(3, "Caja");
                 pst.setString(4, transaccion.getConcepto());
                 pst.setDouble(5, sumaAbono);
                 pst.setDouble(6, 0);
@@ -471,8 +470,8 @@ public class transaccion extends javax.swing.JPanel {
         jComboBoxCatalogo.setVisible(true);
         jTextFieldCodigo.setText("");
         jTextFieldFecha.setText("");
-        jTextFieldCargo.setText("0");
-        jTextFieldAbono.setText("0");
+        jTextFieldCargo.setText("0.0");
+        jTextFieldAbono.setText("0.0");
         jTextFieldConcepto.setText("");
         jCheckBoxCredito.setVisible(true);
         jCheckBoxDebito.setVisible(true);
@@ -480,6 +479,7 @@ public class transaccion extends javax.swing.JPanel {
         jButtonEditarTransaccion.setEnabled(false);
         jButtonEliminarTransaccion.setEnabled(false);
         jButtonLimpiar.setEnabled(false);
+        jTableLibroDiario.clearSelection();
     }//GEN-LAST:event_jButtonLimpiarActionPerformed
 
     //MUESTRA LOS VALORES DE LA CUENTA EN EL COMBOBOS Y DEL CODIGO EN EL TEXTBOX
@@ -498,6 +498,7 @@ public class transaccion extends javax.swing.JPanel {
             while (resultado.next()) {
                 String cuenta = resultado.getString("cuenta");
                 String codigo = resultado.getString("codigo");
+                
                 items.add(cuenta);
 
                 // Mapea la cuenta con su código.
@@ -555,7 +556,7 @@ public class transaccion extends javax.swing.JPanel {
                 String cargo = resultado.getString("Cargo");
                 String abono = resultado.getString("Abono");
 
-                modeloTabla.addRow(new Object[]{id, fecha, codigo, cuenta, concepto, cargo, abono});
+                modeloTabla.addRow(new Object[]{id,fecha, codigo, cuenta, concepto, cargo, abono});
                 jTableLibroDiario.setModel(modeloTabla); // Reemplaza "jTable1" con el nombre de tu JTable.
             }
         } catch (Exception e) {
