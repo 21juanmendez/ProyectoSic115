@@ -47,6 +47,8 @@ public class Inicio extends javax.swing.JFrame {
         jMenu2 = new javax.swing.JMenu();
         jMenu4 = new javax.swing.JMenu();
         jMenu5 = new javax.swing.JMenu();
+        jMenuItem4 = new javax.swing.JMenuItem();
+        jMenuItem5 = new javax.swing.JMenuItem();
         jPanelInicio = new javax.swing.JPanel();
         jMenuBar2 = new javax.swing.JMenuBar();
         jMenuInicio = new javax.swing.JMenu();
@@ -69,6 +71,8 @@ public class Inicio extends javax.swing.JFrame {
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenuCierreContable = new javax.swing.JMenu();
         jMenuItemCierreContable = new javax.swing.JMenuItem();
+        jMenu6 = new javax.swing.JMenu();
+        jMenuItemCosteo = new javax.swing.JMenuItem();
 
         jMenu1.setText("jMenu1");
 
@@ -81,6 +85,10 @@ public class Inicio extends javax.swing.JFrame {
         jMenu4.setText("jMenu4");
 
         jMenu5.setText("jMenu5");
+
+        jMenuItem4.setText("jMenuItem4");
+
+        jMenuItem5.setText("jMenuItem5");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("AGORA S.A");
@@ -242,6 +250,18 @@ public class Inicio extends javax.swing.JFrame {
         jMenuCierreContable.add(jMenuItemCierreContable);
 
         jMenuBar2.add(jMenuCierreContable);
+
+        jMenu6.setText("Costeo de Ordenes");
+
+        jMenuItemCosteo.setText("Costeo de Ordenes");
+        jMenuItemCosteo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemCosteoActionPerformed(evt);
+            }
+        });
+        jMenu6.add(jMenuItemCosteo);
+
+        jMenuBar2.add(jMenu6);
 
         setJMenuBar(jMenuBar2);
 
@@ -405,6 +425,17 @@ public class Inicio extends javax.swing.JFrame {
         jPanelInicio.repaint();
     }//GEN-LAST:event_jMenuItemLibroMayor4ActionPerformed
 
+    private void jMenuItemCosteoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCosteoActionPerformed
+        // TODO add your handling code here:
+        CosteoDeOrdenes costeo=new CosteoDeOrdenes();
+        costeo.setSize(1280, 660);
+        costeo.setLocation(0, 0);
+        jPanelInicio.removeAll();
+        jPanelInicio.add(costeo, BorderLayout.CENTER);
+        jPanelInicio.revalidate();
+        jPanelInicio.repaint();
+    }//GEN-LAST:event_jMenuItemCosteoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -454,6 +485,7 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
+    private javax.swing.JMenu jMenu6;
     private javax.swing.JMenu jMenuBalanceComprobacion;
     private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JMenu jMenuCatalogo;
@@ -462,9 +494,12 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItemBalanceComprobacion;
     private javax.swing.JMenuItem jMenuItemCatalogo;
     private javax.swing.JMenuItem jMenuItemCierreContable;
+    private javax.swing.JMenuItem jMenuItemCosteo;
     private javax.swing.JMenuItem jMenuItemInicio;
     private javax.swing.JMenuItem jMenuItemLibroMayor;
     private javax.swing.JMenuItem jMenuItemLibroMayor1;
