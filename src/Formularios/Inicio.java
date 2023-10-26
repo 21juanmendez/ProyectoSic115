@@ -357,11 +357,11 @@ public class Inicio extends javax.swing.JFrame {
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
         // TODO add your handling code here:
-        hojaDeTrabajo hojaDeTrabajo = new hojaDeTrabajo();
-        hojaDeTrabajo.setSize(1280, 660);
-        hojaDeTrabajo.setLocation(0, 0);
+        hojaDeTrabajo1 hojaDeTrabajo1 = new hojaDeTrabajo1();
+        hojaDeTrabajo1.setSize(1280, 660);
+        hojaDeTrabajo1.setLocation(0, 0);
         jPanelInicio.removeAll();
-        jPanelInicio.add(hojaDeTrabajo, BorderLayout.CENTER);
+        jPanelInicio.add(hojaDeTrabajo1, BorderLayout.CENTER);
         jPanelInicio.revalidate();
         jPanelInicio.repaint();
     }//GEN-LAST:event_jMenuItem3ActionPerformed
