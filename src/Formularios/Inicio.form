@@ -208,7 +208,7 @@
         </Menu>
         <Menu class="javax.swing.JMenu" name="jMenuCierreContable">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Cierre Contable"/>
+            <Property name="text" type="java.lang.String" value="| Cierre Contable |"/>
           </Properties>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItemCierreContable">

@@ -239,7 +239,7 @@ public class Inicio extends javax.swing.JFrame {
 
         jMenuBar2.add(jMenu3);
 
-        jMenuCierreContable.setText("Cierre Contable");
+        jMenuCierreContable.setText("| Cierre Contable |");
 
         jMenuItemCierreContable.setText("Cierre Contable");
         jMenuItemCierreContable.addActionListener(new java.awt.event.ActionListener() {
