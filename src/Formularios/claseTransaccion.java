@@ -4,13 +4,15 @@
  */
 package Formularios;
 
+import java.util.Date;
+
 /**
  *
  * @author juann
  */
 public class claseTransaccion {
     private int id;
-    private String fecha;
+    private Date fecha;
     private String codigo;
     private String cuenta;
     private String concepto;
@@ -19,7 +21,7 @@ public class claseTransaccion {
     private String tipo;
     
 
-    public claseTransaccion(String fecha, String codigo, String cuenta, String concepto, double cargo, double abono) {
+    public claseTransaccion(Date fecha, String codigo, String cuenta, String concepto, double cargo, double abono) {
         this.fecha = fecha;
         this.codigo = codigo;
         this.cuenta = cuenta;
@@ -36,11 +38,11 @@ public class claseTransaccion {
         this.id = id;
     }
 
-    public String getFecha() {
+    public Date getFecha() {
         return fecha;
     }
 
-    public void setFecha(String fecha) {
+    public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
 
