@@ -14,6 +14,8 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import javax.swing.JTable;
 
@@ -68,7 +70,7 @@ public class transaccion extends javax.swing.JPanel {
         jButtonEditarTransaccion = new javax.swing.JButton();
         jButtonEliminarTransaccion = new javax.swing.JButton();
         jButtonLimpiar = new javax.swing.JButton();
-        jTextFieldFecha = new javax.swing.JTextField();
+        dateExpedicion = new com.toedter.calendar.JDateChooser();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableLibroDiario = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
@@ -158,7 +160,9 @@ public class transaccion extends javax.swing.JPanel {
             }
         });
         jPanel1.add(jButtonLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 140, 90, -1));
-        jPanel1.add(jTextFieldFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 70, 140, -1));
+
+        dateExpedicion.setDateFormatString("dd/MM/yyyy");
+        jPanel1.add(dateExpedicion, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 70, 190, -1));
 
         jPanelTransacciones.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, 1200, 180));
 
@@ -211,7 +215,7 @@ public class transaccion extends javax.swing.JPanel {
     public void valoresIniciales() {
         jComboBoxCatalogo.setVisible(true);
         jTextFieldCodigo.setText("");
-        jTextFieldFecha.setText("");
+        dateExpedicion.setDate(null);
         jTextFieldCargo.setText("0.0");
         jTextFieldAbono.setText("0.0");
         jTextFieldConcepto.setText("");
@@ -222,19 +226,20 @@ public class transaccion extends javax.swing.JPanel {
 
     private void jButtonGuardarTransaccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGuardarTransaccionActionPerformed
         // TODO add your handling code here:  
-        String fecha = jTextFieldFecha.getText();
+        Date fecha = dateExpedicion.getDate();
         String codigo = jTextFieldCodigo.getText();
         String cuenta = (String) jComboBoxCatalogo.getSelectedItem();
         String concepto = jTextFieldConcepto.getText();
         double cargo = Double.parseDouble(jTextFieldCargo.getText());
         double abono = Double.parseDouble(jTextFieldAbono.getText());
         claseTransaccion transaccion = new claseTransaccion(fecha, codigo, cuenta, concepto, cargo, abono);
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
         try {
             ConexionDB db = new ConexionDB();
             Connection cn = db.conectar();
             PreparedStatement pst = cn.prepareStatement("INSERT INTO transacciones (fecha, codigo, cuenta, concepto, cargo, abono) "
                     + "VALUES (?, ?, ?, ?, ?, ?)");
-            pst.setString(1, transaccion.getFecha());
+            pst.setString(1, formatter.format(transaccion.getFecha()));
             pst.setString(2, transaccion.getCodigo());
             pst.setString(3, transaccion.getCuenta());
             pst.setString(4, transaccion.getConcepto());
@@ -243,7 +248,7 @@ public class transaccion extends javax.swing.JPanel {
             sumaCargo += transaccion.getCargo();
             sumaAbono += transaccion.getAbono();
             // LIMPIA LOS DATOS INGRESADOS
-            jTextFieldFecha.setText("");
+            dateExpedicion.setDate(null);
             jTextFieldConcepto.setText("");
             jTextFieldCargo.setText("");
             jTextFieldAbono.setText("");
@@ -264,7 +269,7 @@ public class transaccion extends javax.swing.JPanel {
                 Connection cn = db.conectar();
                 PreparedStatement pst = cn.prepareStatement("INSERT INTO transacciones (fecha, codigo, cuenta, concepto, cargo, abono) "
                         + "VALUES (?, ?, ?, ?, ?, ?)");
-                pst.setString(1, transaccion.getFecha());
+                pst.setString(1, formatter.format(transaccion.getFecha()));
                 pst.setString(2, "1105");
                 pst.setString(3, "Crédito fiscal - IVA");
                 pst.setString(4, transaccion.getConcepto());
@@ -275,7 +280,7 @@ public class transaccion extends javax.swing.JPanel {
                 pst.setDouble(6, ivaCreditoAbono);
                 sumaAbono += ivaCreditoAbono;
                 // LIMPIA LOS DATOS INGRESADOS
-                jTextFieldFecha.setText("");
+                dateExpedicion.setDate(null);
                 jTextFieldConcepto.setText("");
                 jTextFieldCargo.setText("");
                 jTextFieldAbono.setText("");
@@ -296,7 +301,7 @@ public class transaccion extends javax.swing.JPanel {
                 Connection cn = db.conectar();
                 PreparedStatement pst = cn.prepareStatement("INSERT INTO transacciones (fecha, codigo, cuenta, concepto, cargo, abono) "
                         + "VALUES (?, ?, ?, ?, ?, ?)");
-                pst.setString(1, transaccion.getFecha());
+                pst.setString(1, formatter.format(transaccion.getFecha()));
                 pst.setString(2, "2108");
                 pst.setString(3, "Débito fiscal - IVA");
                 pst.setString(4, transaccion.getConcepto());
@@ -307,7 +312,7 @@ public class transaccion extends javax.swing.JPanel {
                 pst.setDouble(6, ivaDebitoAbono);
                 sumaAbono += ivaDebitoAbono;
                 // LIMPIA LOS DATOS INGRESADOS
-                jTextFieldFecha.setText("");
+                dateExpedicion.setDate(null);
                 jTextFieldConcepto.setText("");
                 jTextFieldCargo.setText("");
                 jTextFieldAbono.setText("");
@@ -328,14 +333,14 @@ public class transaccion extends javax.swing.JPanel {
             PreparedStatement pst = cn.prepareStatement("INSERT INTO transacciones (fecha, codigo, cuenta, concepto, cargo, abono) "
                     + "VALUES (?, ?, ?, ?, ?, ?)");
             if (sumaCargo != 0) {
-                pst.setString(1, transaccion.getFecha());
+                pst.setString(1, formatter.format(transaccion.getFecha()));
                 pst.setString(2, "110101");
                 pst.setString(3, "Caja");
                 pst.setString(4, transaccion.getConcepto());
                 pst.setDouble(5, 0);
                 pst.setDouble(6, sumaCargo);
                 // LIMPIA LOS DATOS INGRESADOS
-                jTextFieldFecha.setText("");
+                dateExpedicion.setDate(null);
                 jTextFieldConcepto.setText("");
                 jTextFieldCargo.setText("");
                 jTextFieldAbono.setText("");
@@ -345,14 +350,14 @@ public class transaccion extends javax.swing.JPanel {
                 //ACTUALIZAMOS LA TABLA
                 libroDIario();
             } else {
-                pst.setString(1, transaccion.getFecha());
+                pst.setString(1, formatter.format(transaccion.getFecha()));
                 pst.setString(2, "110101");
                 pst.setString(3, "Caja");
                 pst.setString(4, transaccion.getConcepto());
                 pst.setDouble(5, sumaAbono);
                 pst.setDouble(6, 0);
                 // LIMPIA LOS DATOS INGRESADOS
-                jTextFieldFecha.setText("");
+                dateExpedicion.setDate(null);
                 jTextFieldConcepto.setText("");
                 jTextFieldCargo.setText("");
                 jTextFieldAbono.setText("");
@@ -372,19 +377,21 @@ public class transaccion extends javax.swing.JPanel {
     private void jButtonEditarTransaccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditarTransaccionActionPerformed
         // TODO add your handling code here:
         int id = Integer.parseInt(jLabel1ID.getText());
-        String fecha = jTextFieldFecha.getText();
+        Date fecha = dateExpedicion.getDate();
         String codigo = jTextFieldCodigo.getText();
         String cuenta = (String) jComboBoxCatalogo.getSelectedItem();
         String concepto = jTextFieldConcepto.getText();
         double cargo = Double.parseDouble(jTextFieldCargo.getText());
         double abono = Double.parseDouble(jTextFieldAbono.getText());
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+        claseTransaccion transaccion = new claseTransaccion(fecha, codigo, cuenta, concepto, cargo, abono);
 
         try {
             ConexionDB db = new ConexionDB();
             Connection cn = db.conectar();
             PreparedStatement pst = cn.prepareStatement("UPDATE transacciones SET fecha=?, codigo=?, "
                     + "cuenta=?, concepto=?, cargo=?, abono=? WHERE id=?");
-            pst.setString(1, fecha);
+            pst.setString(1, formatter.format(transaccion.getFecha()));
             pst.setString(2, codigo);
             pst.setString(3, cuenta);
             pst.setString(4, concepto);
@@ -406,32 +413,40 @@ public class transaccion extends javax.swing.JPanel {
     }//GEN-LAST:event_jButtonEditarTransaccionActionPerformed
 
     private void jTableLibroDiarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableLibroDiarioMouseClicked
-        // TODO add your handling code here:
-        int filaSeleccionada = jTableLibroDiario.getSelectedRow();
+        try {
+            int filaSeleccionada = jTableLibroDiario.getSelectedRow();
 
-        if (filaSeleccionada >= 0) {
-            int id = (int) jTableLibroDiario.getValueAt(filaSeleccionada, 0);
-            String fecha = jTableLibroDiario.getValueAt(filaSeleccionada, 1).toString();
-            String codigo = jTableLibroDiario.getValueAt(filaSeleccionada, 2).toString();
-            String cuenta = jTableLibroDiario.getValueAt(filaSeleccionada, 3).toString();
-            String concepto = jTableLibroDiario.getValueAt(filaSeleccionada, 4).toString();
-            String cargo = jTableLibroDiario.getValueAt(filaSeleccionada, 5).toString();
-            String abono = jTableLibroDiario.getValueAt(filaSeleccionada, 6).toString();
+            if (filaSeleccionada >= 0) {
+                int id = (int) jTableLibroDiario.getValueAt(filaSeleccionada, 0);
+                String fecha = jTableLibroDiario.getValueAt(filaSeleccionada, 1).toString();
+                String codigo = jTableLibroDiario.getValueAt(filaSeleccionada, 2).toString();
+                String cuenta = jTableLibroDiario.getValueAt(filaSeleccionada, 3).toString();
+                String concepto = jTableLibroDiario.getValueAt(filaSeleccionada, 4).toString();
+                String cargo = jTableLibroDiario.getValueAt(filaSeleccionada, 5).toString();
+                String abono = jTableLibroDiario.getValueAt(filaSeleccionada, 6).toString();
 
-            // Actualiza los campos de texto y otros componentes con los valores de la fila seleccionada
-            jLabel1ID.setText(String.valueOf(id));
-            jTextFieldFecha.setText(fecha);
-            jTextFieldCodigo.setText(codigo);
-            jComboBoxCatalogo.setSelectedItem(cuenta);
-            jTextFieldConcepto.setText(concepto);
-            jTextFieldCargo.setText(cargo);
-            jTextFieldAbono.setText(abono);
-            jLabel1ID.setVisible(false);
-            //habilitamos o desabiltamos los botones segun nos parezca
-            jButtonGuardarTransaccion.setEnabled(false);
-            jButtonEditarTransaccion.setEnabled(true);
-            jButtonEliminarTransaccion.setEnabled(true);
-            jButtonLimpiar.setEnabled(true);
+                // Convierte la cadena 'fecha' a un objeto Date
+                SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");  // Ajusta el formato según tu necesidad
+                Date date = dateFormat.parse(fecha);
+
+                // Resto del código para actualizar los campos de texto y componentes
+                jLabel1ID.setText(String.valueOf(id));
+                dateExpedicion.setDate(date); // Establece la fecha como un objeto Date
+                jTextFieldCodigo.setText(codigo);
+                jComboBoxCatalogo.setSelectedItem(cuenta);
+                jTextFieldConcepto.setText(concepto);
+                jTextFieldCargo.setText(cargo);
+                jTextFieldAbono.setText(abono);
+                jLabel1ID.setVisible(false);
+                //habilitamos o deshabilitamos los botones según corresponda
+                jButtonGuardarTransaccion.setEnabled(false);
+                jButtonEditarTransaccion.setEnabled(true);
+                jButtonEliminarTransaccion.setEnabled(true);
+                jButtonLimpiar.setEnabled(true);
+            }
+        } catch (Exception e) {
+            // Manejo de errores de conversión de fecha
+            e.printStackTrace();  // Puedes personalizar este manejo de error según tus necesidades
         }
 
     }//GEN-LAST:event_jTableLibroDiarioMouseClicked
@@ -439,7 +454,7 @@ public class transaccion extends javax.swing.JPanel {
     private void jButtonEliminarTransaccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEliminarTransaccionActionPerformed
         // TODO add your handling code here:
         int id = Integer.parseInt(jLabel1ID.getText());
-        String fecha = jTextFieldFecha.getText();
+        Date fecha = dateExpedicion.getDate();
         String codigo = jTextFieldCodigo.getText();
         String cuenta = (String) jComboBoxCatalogo.getSelectedItem();
         String concepto = jTextFieldConcepto.getText();
@@ -469,7 +484,7 @@ public class transaccion extends javax.swing.JPanel {
         // TODO add your handling code here:
         jComboBoxCatalogo.setVisible(true);
         jTextFieldCodigo.setText("");
-        jTextFieldFecha.setText("");
+        dateExpedicion.setDate(null);
         jTextFieldCargo.setText("0.0");
         jTextFieldAbono.setText("0.0");
         jTextFieldConcepto.setText("");
@@ -498,7 +513,7 @@ public class transaccion extends javax.swing.JPanel {
             while (resultado.next()) {
                 String cuenta = resultado.getString("cuenta");
                 String codigo = resultado.getString("codigo");
-                
+
                 items.add(cuenta);
 
                 // Mapea la cuenta con su código.
@@ -556,7 +571,7 @@ public class transaccion extends javax.swing.JPanel {
                 String cargo = resultado.getString("Cargo");
                 String abono = resultado.getString("Abono");
 
-                modeloTabla.addRow(new Object[]{id,fecha, codigo, cuenta, concepto, cargo, abono});
+                modeloTabla.addRow(new Object[]{id, fecha, codigo, cuenta, concepto, cargo, abono});
                 jTableLibroDiario.setModel(modeloTabla); // Reemplaza "jTable1" con el nombre de tu JTable.
             }
         } catch (Exception e) {
@@ -565,6 +580,7 @@ public class transaccion extends javax.swing.JPanel {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private com.toedter.calendar.JDateChooser dateExpedicion;
     private javax.swing.JButton jButtonEditarTransaccion;
     private javax.swing.JButton jButtonEliminarTransaccion;
     private javax.swing.JButton jButtonGuardarTransaccion;
@@ -589,6 +605,5 @@ public class transaccion extends javax.swing.JPanel {
     private javax.swing.JTextField jTextFieldCargo;
     private javax.swing.JTextField jTextFieldCodigo;
     private javax.swing.JTextField jTextFieldConcepto;
-    private javax.swing.JTextField jTextFieldFecha;
     // End of variables declaration//GEN-END:variables
 }
