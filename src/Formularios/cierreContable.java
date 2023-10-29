@@ -397,7 +397,7 @@ public class cierreContable extends javax.swing.JPanel {
                 btnCierreActionPerformed(evt);
             }
         });
-        jPanel1.add(btnCierre, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 150, 60));
+        jPanel1.add(btnCierre, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 150, 30));
 
         tablaComprasNetas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -411,7 +411,7 @@ public class cierreContable extends javax.swing.JPanel {
         tablaComprasNetas.setShowVerticalLines(true);
         jScrollPane1.setViewportView(tablaComprasNetas);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 260, 470, 70));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 240, 470, 70));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(102, 102, 102));
@@ -435,16 +435,16 @@ public class cierreContable extends javax.swing.JPanel {
         jtableTablaMercanciasDispo.setShowVerticalLines(true);
         jScrollPane2.setViewportView(jtableTablaMercanciasDispo);
 
-        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 340, 310, 70));
+        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 330, 310, 70));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(102, 102, 102));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Compras Totales");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 220, -1, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1120, 120, 150, -1));
 
         txtComprasTotales.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jPanel1.add(txtComprasTotales, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 220, 110, 30));
+        jPanel1.add(txtComprasTotales, new org.netbeans.lib.awtextra.AbsoluteConstraints(1150, 170, 110, 30));
 
         jtableTablaUtilidad.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -458,15 +458,15 @@ public class cierreContable extends javax.swing.JPanel {
         jtableTablaUtilidad.setShowVerticalLines(true);
         jScrollPane3.setViewportView(jtableTablaUtilidad);
 
-        jPanel1.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 500, 310, 70));
+        jPanel1.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 490, 310, 70));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(102, 102, 102));
         jLabel4.setText("Compras Netas");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 290, -1, -1));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 260, -1, -1));
 
         txtComprasNetas.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jPanel1.add(txtComprasNetas, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 290, 110, 30));
+        jPanel1.add(txtComprasNetas, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 260, 110, 30));
 
         tablaVentas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -485,10 +485,10 @@ public class cierreContable extends javax.swing.JPanel {
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(102, 102, 102));
         jLabel5.setText("Costo de Ventas");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 450, -1, -1));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 430, -1, -1));
 
         txtCostoVenta.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jPanel1.add(txtCostoVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 450, 110, 30));
+        jPanel1.add(txtCostoVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 430, 110, 30));
 
         jtableTablaCostoVenta.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -501,15 +501,15 @@ public class cierreContable extends javax.swing.JPanel {
         ));
         jScrollPane5.setViewportView(jtableTablaCostoVenta);
 
-        jPanel1.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 420, 300, 70));
+        jPanel1.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 410, 310, 70));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(102, 102, 102));
         jLabel6.setText("Utilidad Bruta del Ejercicio");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 520, -1, -1));
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 510, -1, -1));
 
         txtUtilidad.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jPanel1.add(txtUtilidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 520, 100, 30));
+        jPanel1.add(txtUtilidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 510, 100, 30));
 
         jtableTablaComprasTotales.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -529,30 +529,30 @@ public class cierreContable extends javax.swing.JPanel {
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(102, 102, 102));
         jLabel7.setText("Mercancías Disponibles");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 360, -1, -1));
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 350, -1, -1));
 
         txtMercaDispo.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jPanel1.add(txtMercaDispo, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 360, 110, 30));
+        jPanel1.add(txtMercaDispo, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 350, 110, 30));
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel8.setText("$");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 290, 20, -1));
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 260, 20, -1));
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel9.setText("$");
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 450, 20, -1));
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 430, 20, -1));
 
         jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel10.setText("$");
-        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 220, 20, -1));
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 170, 20, -1));
 
         jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel11.setText("$");
-        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 520, 20, -1));
+        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 510, 20, -1));
 
         jLabel12.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel12.setText("$");
-        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 360, 20, -1));
+        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 350, 20, -1));
 
         jLabel13.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel13.setText("$");
@@ -564,7 +564,7 @@ public class cierreContable extends javax.swing.JPanel {
                 btnActualizarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, -1, -1));
+        jPanel1.add(btnActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 150, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -572,8 +572,8 @@ public class cierreContable extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1171, Short.MAX_VALUE)
-                .addGap(103, 103, 103))
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
