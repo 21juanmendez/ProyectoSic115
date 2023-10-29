@@ -253,7 +253,7 @@ public class hojaDeTrabajo1 extends javax.swing.JPanel {
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel1.setText("HOJA DE TRABAJO");
+        jLabel1.setText("Hoja de Trabajo");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 10, -1, -1));
 
         jTableEstadoDeResultados.setModel(new javax.swing.table.DefaultTableModel(
@@ -277,18 +277,19 @@ public class hojaDeTrabajo1 extends javax.swing.JPanel {
         add(jTextFieldSumaCargoEstadoResultado, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 500, 100, -1));
         add(jTextFieldSumaAbonoEstadoResultado, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 500, 100, -1));
 
+        jButtonUtilidades.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jButtonUtilidades.setText("Utilidades");
         jButtonUtilidades.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonUtilidadesActionPerformed(evt);
             }
         });
-        add(jButtonUtilidades, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 530, 220, -1));
+        add(jButtonUtilidades, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 500, 90, -1));
 
         jLabelUtilidaes.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabelUtilidaes.setText("                            ");
         jLabelUtilidaes.setEnabled(false);
-        add(jLabelUtilidaes, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 570, 320, -1));
+        add(jLabelUtilidaes, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 550, 320, -1));
 
         jTableEstadoCapital.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -311,18 +312,19 @@ public class hojaDeTrabajo1 extends javax.swing.JPanel {
         add(jTextFieldSumaAbonoEstadoCapital, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 500, 100, -1));
         add(jTextFieldSumaCargoEstadoCapital, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 500, 100, -1));
 
+        jButtonCapital.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jButtonCapital.setText("Capital");
         jButtonCapital.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonCapitalActionPerformed(evt);
             }
         });
-        add(jButtonCapital, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 530, 220, -1));
+        add(jButtonCapital, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 500, 90, -1));
 
         jLabelCapital.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabelCapital.setText("                            ");
         jLabelCapital.setEnabled(false);
-        add(jLabelCapital, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 570, 320, -1));
+        add(jLabelCapital, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 540, 320, -1));
 
         jTableBalanceGeneral.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -345,17 +347,18 @@ public class hojaDeTrabajo1 extends javax.swing.JPanel {
         add(jTextFieldSumaAbonoBalance, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 500, 90, -1));
         add(jTextFieldSumaCargoBalance, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 500, 90, -1));
 
-        jButtonBalance.setText("Balance General");
+        jButtonBalance.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jButtonBalance.setText("Balance ");
         jButtonBalance.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonBalanceActionPerformed(evt);
             }
         });
-        add(jButtonBalance, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 530, 200, -1));
+        add(jButtonBalance, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 500, 100, -1));
 
         jLabelBalance.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabelBalance.setText("                                      ");
-        add(jLabelBalance, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 570, 300, -1));
+        add(jLabelBalance, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 540, 310, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonUtilidadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUtilidadesActionPerformed

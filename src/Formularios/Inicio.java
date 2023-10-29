@@ -55,8 +55,6 @@ public class Inicio extends javax.swing.JFrame {
         jMenuItemInicio = new javax.swing.JMenuItem();
         jMenuCatalogo = new javax.swing.JMenu();
         jMenuItemCatalogo = new javax.swing.JMenuItem();
-        jMenuManoObra = new javax.swing.JMenu();
-        jMenuItemManoObra = new javax.swing.JMenuItem();
         jMenuTransaccion = new javax.swing.JMenu();
         jMenuItemTransaccion = new javax.swing.JMenuItem();
         jMenuLibroMayor = new javax.swing.JMenu();
@@ -71,6 +69,8 @@ public class Inicio extends javax.swing.JFrame {
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenuCierreContable = new javax.swing.JMenu();
         jMenuItemCierreContable = new javax.swing.JMenuItem();
+        jMenuManoObra = new javax.swing.JMenu();
+        jMenuItemManoObra = new javax.swing.JMenuItem();
         jMenu6 = new javax.swing.JMenu();
         jMenuItemCosteo = new javax.swing.JMenuItem();
 
@@ -91,7 +91,7 @@ public class Inicio extends javax.swing.JFrame {
         jMenuItem5.setText("jMenuItem5");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("AGORA S.A");
+        setTitle("Sistema Contable Agora S.A");
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         jPanelInicio.setToolTipText("");
@@ -101,20 +101,22 @@ public class Inicio extends javax.swing.JFrame {
         jPanelInicio.setLayout(jPanelInicioLayout);
         jPanelInicioLayout.setHorizontalGroup(
             jPanelInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1280, Short.MAX_VALUE)
+            .addGap(0, 1268, Short.MAX_VALUE)
         );
         jPanelInicioLayout.setVerticalGroup(
             jPanelInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 660, Short.MAX_VALUE)
+            .addGap(0, 659, Short.MAX_VALUE)
         );
 
-        jMenuInicio.setText("| Inicio |");
+        jMenuInicio.setText("|  Inicio");
+        jMenuInicio.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jMenuInicio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuInicioActionPerformed(evt);
             }
         });
 
+        jMenuItemInicio.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jMenuItemInicio.setText("Inicio");
         jMenuItemInicio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -125,13 +127,15 @@ public class Inicio extends javax.swing.JFrame {
 
         jMenuBar2.add(jMenuInicio);
 
-        jMenuCatalogo.setText("Catalogo de Cuentas ");
+        jMenuCatalogo.setText("|  Catalogo de Cuentas  |");
+        jMenuCatalogo.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jMenuCatalogo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuCatalogoActionPerformed(evt);
             }
         });
 
+        jMenuItemCatalogo.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jMenuItemCatalogo.setText("Catalogo de Cuentas");
         jMenuItemCatalogo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -142,20 +146,11 @@ public class Inicio extends javax.swing.JFrame {
 
         jMenuBar2.add(jMenuCatalogo);
 
-        jMenuManoObra.setText("| Mano de Obra |");
+        jMenuTransaccion.setText("Transaccion");
+        jMenuTransaccion.setActionCommand("Transaccion");
+        jMenuTransaccion.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
 
-        jMenuItemManoObra.setText("Mano de Obra");
-        jMenuItemManoObra.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItemManoObraActionPerformed(evt);
-            }
-        });
-        jMenuManoObra.add(jMenuItemManoObra);
-
-        jMenuBar2.add(jMenuManoObra);
-
-        jMenuTransaccion.setText(" Transaccion ");
-
+        jMenuItemTransaccion.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jMenuItemTransaccion.setText("Transaccion");
         jMenuItemTransaccion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -166,13 +161,15 @@ public class Inicio extends javax.swing.JFrame {
 
         jMenuBar2.add(jMenuTransaccion);
 
-        jMenuLibroMayor.setText("| Libro Mayor |");
+        jMenuLibroMayor.setText("|  Libro Mayor  |");
+        jMenuLibroMayor.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jMenuLibroMayor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuLibroMayorActionPerformed(evt);
             }
         });
 
+        jMenuItemLibroMayor.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jMenuItemLibroMayor.setText("Pagina 1");
         jMenuItemLibroMayor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -181,6 +178,7 @@ public class Inicio extends javax.swing.JFrame {
         });
         jMenuLibroMayor.add(jMenuItemLibroMayor);
 
+        jMenuItemLibroMayor1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jMenuItemLibroMayor1.setText("Pagina 2");
         jMenuItemLibroMayor1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -189,6 +187,7 @@ public class Inicio extends javax.swing.JFrame {
         });
         jMenuLibroMayor.add(jMenuItemLibroMayor1);
 
+        jMenuItemLibroMayor2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jMenuItemLibroMayor2.setText("Pagina 3");
         jMenuItemLibroMayor2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -197,6 +196,7 @@ public class Inicio extends javax.swing.JFrame {
         });
         jMenuLibroMayor.add(jMenuItemLibroMayor2);
 
+        jMenuItemLibroMayor3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jMenuItemLibroMayor3.setText("Pagina 4");
         jMenuItemLibroMayor3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -205,6 +205,7 @@ public class Inicio extends javax.swing.JFrame {
         });
         jMenuLibroMayor.add(jMenuItemLibroMayor3);
 
+        jMenuItemLibroMayor4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jMenuItemLibroMayor4.setText("Pagina 5");
         jMenuItemLibroMayor4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -216,7 +217,9 @@ public class Inicio extends javax.swing.JFrame {
         jMenuBar2.add(jMenuLibroMayor);
 
         jMenuBalanceComprobacion.setText("Balance de comprobacion");
+        jMenuBalanceComprobacion.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
 
+        jMenuItemBalanceComprobacion.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jMenuItemBalanceComprobacion.setText("Balance de comprobacion");
         jMenuItemBalanceComprobacion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -227,8 +230,10 @@ public class Inicio extends javax.swing.JFrame {
 
         jMenuBar2.add(jMenuBalanceComprobacion);
 
-        jMenu3.setText("| Hoja de Trabajo |");
+        jMenu3.setText("|  Hoja de Trabajo  |");
+        jMenu3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
 
+        jMenuItem3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jMenuItem3.setText("Hoja de Trabajo");
         jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -240,7 +245,9 @@ public class Inicio extends javax.swing.JFrame {
         jMenuBar2.add(jMenu3);
 
         jMenuCierreContable.setText("Cierre Contable");
+        jMenuCierreContable.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
 
+        jMenuItemCierreContable.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jMenuItemCierreContable.setText("Cierre Contable");
         jMenuItemCierreContable.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -251,8 +258,24 @@ public class Inicio extends javax.swing.JFrame {
 
         jMenuBar2.add(jMenuCierreContable);
 
-        jMenu6.setText("Costeo de Ordenes");
+        jMenuManoObra.setText("|  Mano de Obra  |");
+        jMenuManoObra.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
 
+        jMenuItemManoObra.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jMenuItemManoObra.setText("Mano de Obra");
+        jMenuItemManoObra.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemManoObraActionPerformed(evt);
+            }
+        });
+        jMenuManoObra.add(jMenuItemManoObra);
+
+        jMenuBar2.add(jMenuManoObra);
+
+        jMenu6.setText("Costeo de Ordenes  |");
+        jMenu6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+
+        jMenuItemCosteo.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jMenuItemCosteo.setText("Costeo de Ordenes");
         jMenuItemCosteo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -269,11 +292,13 @@ public class Inicio extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelInicio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanelInicio, javax.swing.GroupLayout.DEFAULT_SIZE, 1268, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelInicio, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanelInicio, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 659, Short.MAX_VALUE)
         );
 
         pack();

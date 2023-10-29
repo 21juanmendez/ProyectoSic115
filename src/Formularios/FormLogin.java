@@ -63,7 +63,7 @@ public class FormLogin extends javax.swing.JFrame {
                 jTextUserActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(121, 244, 201, 25));
+        jPanel1.add(jTextUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(121, 244, 170, 25));
 
         jSeparator1.setForeground(new java.awt.Color(0, 0, 0));
         jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(87, 276, 235, 35));
@@ -84,7 +84,7 @@ public class FormLogin extends javax.swing.JFrame {
         jTextPass.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextPass.setBorder(null);
         jTextPass.setPreferredSize(new java.awt.Dimension(180, 20));
-        jPanel1.add(jTextPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(122, 338, 200, 24));
+        jPanel1.add(jTextPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(122, 338, 170, 24));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/userLabel.png"))); // NOI18N
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(93, 250, -1, -1));
@@ -126,11 +126,11 @@ public class FormLogin extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 414, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 418, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 563, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 577, Short.MAX_VALUE)
         );
 
         pack();

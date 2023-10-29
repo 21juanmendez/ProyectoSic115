@@ -44,11 +44,11 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Lucida Sans" size="18" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Reg&#xed;strese"/>
+            <Property name="text" type="java.lang.String" value="Reg&#xed;starse"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="175" y="19" width="-1" height="-1"/>
+              <AbsoluteConstraints x="180" y="20" width="-1" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
