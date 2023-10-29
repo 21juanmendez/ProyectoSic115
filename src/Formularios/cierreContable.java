@@ -388,7 +388,7 @@ public class cierreContable extends javax.swing.JPanel {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel1.setText("CIERRE CONTABLE");
+        jLabel1.setText("Cierre Contable");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 0, -1, -1));
 
         btnCierre.setText("CIERRE");
@@ -408,7 +408,6 @@ public class cierreContable extends javax.swing.JPanel {
                 "Compras Totales", "Descuento/Compra", "Devoluciones/Compra"
             }
         ));
-        tablaComprasNetas.setShowVerticalLines(true);
         jScrollPane1.setViewportView(tablaComprasNetas);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 240, 470, 70));
@@ -432,7 +431,6 @@ public class cierreContable extends javax.swing.JPanel {
                 "Compras Netas", "Inventario Inicial"
             }
         ));
-        jtableTablaMercanciasDispo.setShowVerticalLines(true);
         jScrollPane2.setViewportView(jtableTablaMercanciasDispo);
 
         jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 330, 310, 70));
@@ -455,7 +453,6 @@ public class cierreContable extends javax.swing.JPanel {
                 "Ventas Netas", "Costo de Venta"
             }
         ));
-        jtableTablaUtilidad.setShowVerticalLines(true);
         jScrollPane3.setViewportView(jtableTablaUtilidad);
 
         jPanel1.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 490, 310, 70));
@@ -477,7 +474,6 @@ public class cierreContable extends javax.swing.JPanel {
                 "Ventas Software", "Servicio Consultoría", "Devoluciones", "Descuento"
             }
         ));
-        tablaVentas.setShowVerticalLines(true);
         jScrollPane4.setViewportView(tablaVentas);
 
         jPanel1.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 70, 470, 70));
@@ -521,7 +517,6 @@ public class cierreContable extends javax.swing.JPanel {
             }
         ));
         jtableTablaComprasTotales.setMinimumSize(new java.awt.Dimension(45, 40));
-        jtableTablaComprasTotales.setShowVerticalLines(true);
         jScrollPane6.setViewportView(jtableTablaComprasTotales);
 
         jPanel1.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 150, 940, 70));
