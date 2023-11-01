@@ -29,13 +29,6 @@ public class cierreContable extends javax.swing.JPanel {
         mostrarResultado2();
         mostrarResultado3();
         mostrarResultado4();
-        resetxD();
-
-    }
-
-    public void resetxD() {
-        libroMayor2 libro = new libroMayor2();
-        libro.sumarCuentaCapitalSocial();
     }
 
     public void mostrarResultado() {
@@ -80,6 +73,7 @@ public class cierreContable extends javax.swing.JPanel {
             modelo.setValueAt(total2, 0, 1); // totalHaber del código 52 en la primera fila y segunda columna
             modelo.setValueAt(total3, 0, 2); // totalHaber del código 53 en la primera fila y tercera columna
             modelo.setValueAt(total4, 0, 3);
+            cn.close();//cerrando conexion
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
@@ -151,7 +145,7 @@ public class cierreContable extends javax.swing.JPanel {
             modelo.setValueAt(total6, 0, 5); // totalHaber del código 52 en la primera fila y segunda columna
             modelo.setValueAt(total7, 0, 6); // totalHaber del código 53 en la primera fila y tercera columna
             modelo.setValueAt(total8, 0, 7);
-
+            cn.close();//cerrando conexion
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
@@ -187,7 +181,7 @@ public class cierreContable extends javax.swing.JPanel {
             // Establece los valores en las filas y columnas correspondientes
             modelo.setValueAt(total1, 0, 1); // totalHaber del código 51 en la primera fila y primera columna
             modelo.setValueAt(total2, 0, 2); // totalHaber del código 52 en la primera fila y segunda columna
-
+            cn.close();//cerrando conexion
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
@@ -216,7 +210,7 @@ public class cierreContable extends javax.swing.JPanel {
 
             // Establece los valores en las filas y columnas correspondientes
             modelo.setValueAt(total1, 0, 1); // totalHaber del código 51 en la primera fila y primera columna
-
+            cn.close();//cerrando conexion
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
@@ -236,6 +230,7 @@ public class cierreContable extends javax.swing.JPanel {
             if (rs.next()) {
                 total = rs.getDouble("totalDebe");
             }
+            cn.close();//cerrando conexion
         } catch (SQLException e) {
             // Manejar la excepción si ocurre algún error durante la consulta
             JOptionPane.showMessageDialog(null, "Error al acceder a la base de datos: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
@@ -258,6 +253,7 @@ public class cierreContable extends javax.swing.JPanel {
             if (rs.next()) {
                 total = rs.getDouble("totalHaber");
             }
+            cn.close();//cerrando conexion
         } catch (SQLException e) {
             // Manejar la excepción si ocurre algún error durante la consulta
             JOptionPane.showMessageDialog(null, "Error al acceder a la base de datos: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
@@ -320,7 +316,7 @@ public class cierreContable extends javax.swing.JPanel {
             pstUpdate13.executeUpdate();
             pstUpdate14.executeUpdate();
             pstUpdate15.executeUpdate();
-
+            cn.close();//cerrando conexion
             // Notificar al usuario que las cuentas han sido actualizadas
             JOptionPane.showMessageDialog(null, "Cuentas actualizadas correctamente.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
         } catch (Exception e) {
@@ -564,6 +560,8 @@ public class cierreContable extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCierreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCierreActionPerformed
+        libroMayor2 libro = new libroMayor2();
+        libro.sumarCuentaCapitalSocial();
         double devolucionesSobreVentas = obtenerTotal("410103");
         double descuentosSobreVentas = obtenerTotal("410104");
         double ventas = obtenerTotalDos("51");
@@ -640,13 +638,12 @@ public class cierreContable extends javax.swing.JPanel {
             PreparedStatement pstUpdateUtilidad = cn.prepareStatement(updateUtilidad);
             pstUpdateUtilidad.setDouble(1, utilidad);
             pstUpdateUtilidad.executeUpdate();
-
+            cn.close();//cerrando conexion
             // Resto de tu código para las consultas de actualización...
             JOptionPane.showMessageDialog(null, "Cierre contable realizado correctamente.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
-
 
     }//GEN-LAST:event_btnCierreActionPerformed
 

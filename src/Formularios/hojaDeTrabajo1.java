@@ -33,7 +33,7 @@ public class hojaDeTrabajo1 extends javax.swing.JPanel {
         mostrarEstadoResultado();
         mostrarEstadoCapital();
         mostrarBalanceGeneral();
-        sumarBalanceGeneral();
+
 
         jLabelUtilidaes.setEnabled(false);
         jLabelCapital.setEnabled(false);
