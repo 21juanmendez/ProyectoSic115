@@ -22,7 +22,6 @@ public class balanceDeComprobacion extends javax.swing.JPanel {
      */
     public balanceDeComprobacion() {
         initComponents();
-        libroMayor libro=new libroMayor();
         mostrarBalance();
         sumarBalance();
     }
@@ -48,6 +47,7 @@ public class balanceDeComprobacion extends javax.swing.JPanel {
                 modeloTabla.addRow(new Object[]{codigo, cuenta, cargo, abono});
             }
             jTableBalance.setModel(modeloTabla);
+            cn.close();//cerrando conexion
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error: " + e);
         }
@@ -71,6 +71,7 @@ public class balanceDeComprobacion extends javax.swing.JPanel {
                 sumaAbono += Double.parseDouble(modelo.getValueAt(i, 3).toString()); // Suma los valores de la columna 2 (índice 1).
             }
             jTextFieldSumaHaberBalance.setText(String.valueOf(sumaAbono));
+            cn.close();//cerrando conexion
            
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);

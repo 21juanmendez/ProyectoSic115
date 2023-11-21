@@ -40,7 +40,7 @@ public class Bienvenida extends javax.swing.JPanel {
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 440, 660, 69));
 
         jLabel2.setBackground(new java.awt.Color(0, 153, 153));
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/agoraaaa.png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/AGORA-animated-unscreen.gif"))); // NOI18N
         jLabel2.setPreferredSize(new java.awt.Dimension(1200, 1200));
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 80, 364, 352));
 
@@ -52,7 +52,7 @@ public class Bienvenida extends javax.swing.JPanel {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 680, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 

@@ -11,6 +11,9 @@ import java.sql.ResultSet;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author juann
@@ -21,325 +24,305 @@ public class cierreContable extends javax.swing.JPanel {
      * Creates new form cierreContable
      */
     public cierreContable() {
-       initComponents();
-       mostrarResultado();
-       mostrarResultado2();
-       mostrarResultado3();
-       mostrarResultado4();
-      
-       
-       
+        initComponents();
+        mostrarResultado();
+        mostrarResultado2();
+        mostrarResultado3();
+        mostrarResultado4();
     }
-    
-    
-  public void mostrarResultado() {
-    ConexionDB db = new ConexionDB();
-    Connection cn = db.conectar();
 
-    try {
-        // Consultas SQL para obtener los datos de diferentes códigos de la tabla mayorizacion
-        String consultaCodigo1 = "SELECT totalHaber FROM mayorizacion WHERE codigo = '51'";
-        String consultaCodigo2 = "SELECT totalHaber FROM mayorizacion WHERE codigo = '5103'";
-        String consultaCodigo3 = "SELECT totalDebe FROM mayorizacion WHERE codigo = '410104'";
-        String consultaCodigo4 = "SELECT totalDebe FROM mayorizacion WHERE codigo = '410103'";
+    public void mostrarResultado() {
+        ConexionDB db = new ConexionDB();
+        Connection cn = db.conectar();
 
-        // Ejecutar las consultas y obtener los resultados
-        PreparedStatement pstConsulta1 = cn.prepareStatement(consultaCodigo1);
-        PreparedStatement pstConsulta2 = cn.prepareStatement(consultaCodigo2);
-        PreparedStatement pstConsulta3 = cn.prepareStatement(consultaCodigo3);
-        PreparedStatement pstConsulta4 = cn.prepareStatement(consultaCodigo4);
+        try {
+            // Consultas SQL para obtener los datos de diferentes códigos de la tabla mayorizacion
+            String consultaCodigo1 = "SELECT totalHaber FROM mayorizacion WHERE codigo = '51'";
+            String consultaCodigo2 = "SELECT totalHaber FROM mayorizacion WHERE codigo = '5103'";
+            String consultaCodigo3 = "SELECT totalDebe FROM mayorizacion WHERE codigo = '410104'";
+            String consultaCodigo4 = "SELECT totalDebe FROM mayorizacion WHERE codigo = '410103'";
 
-        ResultSet rs1 = pstConsulta1.executeQuery();
-        ResultSet rs2 = pstConsulta2.executeQuery();
-        ResultSet rs3 = pstConsulta3.executeQuery();
-        ResultSet rs4 = pstConsulta4.executeQuery();
-        
+            // Ejecutar las consultas y obtener los resultados
+            PreparedStatement pstConsulta1 = cn.prepareStatement(consultaCodigo1);
+            PreparedStatement pstConsulta2 = cn.prepareStatement(consultaCodigo2);
+            PreparedStatement pstConsulta3 = cn.prepareStatement(consultaCodigo3);
+            PreparedStatement pstConsulta4 = cn.prepareStatement(consultaCodigo4);
 
-        // Mueve el cursor al primer resultado para cada consulta
-        rs1.next();
-        rs2.next();
-        rs3.next();
-        rs4.next();
+            ResultSet rs1 = pstConsulta1.executeQuery();
+            ResultSet rs2 = pstConsulta2.executeQuery();
+            ResultSet rs3 = pstConsulta3.executeQuery();
+            ResultSet rs4 = pstConsulta4.executeQuery();
 
-        // Obtiene los valores de totalHaber de cada consulta
-        double total1 = rs1.getDouble("totalHaber");
-        double total2 = rs2.getDouble("totalHaber");
-        double total3 = rs3.getDouble("totalDebe");
-        double total4 = rs4.getDouble("totalDebe");
+            // Mueve el cursor al primer resultado para cada consulta
+            rs1.next();
+            rs2.next();
+            rs3.next();
+            rs4.next();
 
-        // Obtiene el modelo de la tabla
-        DefaultTableModel modelo = (DefaultTableModel) tablaVentas.getModel();
+            // Obtiene los valores de totalHaber de cada consulta
+            double total1 = rs1.getDouble("totalHaber");
+            double total2 = rs2.getDouble("totalHaber");
+            double total3 = rs3.getDouble("totalDebe");
+            double total4 = rs4.getDouble("totalDebe");
 
-        // Establece los valores en las filas y columnas correspondientes
-        modelo.setValueAt(total1, 0, 0); // totalHaber del código 51 en la primera fila y primera columna
-        modelo.setValueAt(total2, 0, 1); // totalHaber del código 52 en la primera fila y segunda columna
-        modelo.setValueAt(total3, 0, 2); // totalHaber del código 53 en la primera fila y tercera columna
-        modelo.setValueAt(total4, 0, 3);
-    } catch (Exception e) {
-        JOptionPane.showMessageDialog(null, "Error: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            // Obtiene el modelo de la tabla
+            DefaultTableModel modelo = (DefaultTableModel) tablaVentas.getModel();
+
+            // Establece los valores en las filas y columnas correspondientes
+            modelo.setValueAt(total1, 0, 0); // totalHaber del código 51 en la primera fila y primera columna
+            modelo.setValueAt(total2, 0, 1); // totalHaber del código 52 en la primera fila y segunda columna
+            modelo.setValueAt(total3, 0, 2); // totalHaber del código 53 en la primera fila y tercera columna
+            modelo.setValueAt(total4, 0, 3);
+            cn.close();//cerrando conexion
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }
-}
-    
+
     public void mostrarResultado2() {
-    ConexionDB db = new ConexionDB();
-    Connection cn = db.conectar();
+        ConexionDB db = new ConexionDB();
+        Connection cn = db.conectar();
 
-    try {
-        // Consultas SQL para obtener los datos de diferentes códigos de la tabla mayorizacion
-        String consultaCodigo1 = "SELECT totalDebe FROM mayorizacion WHERE codigo = '4101'";
-        String consultaCodigo2 = "SELECT totalDebe FROM mayorizacion WHERE codigo = '410102'";
-        String consultaCodigo3 = "SELECT totalDebe FROM mayorizacion WHERE codigo = '410106'";
-        String consultaCodigo4 = "SELECT totalDebe FROM mayorizacion WHERE codigo = '410113'";
-        String consultaCodigo5 = "SELECT totalDebe FROM mayorizacion WHERE codigo = '410114'";
-        String consultaCodigo6 = "SELECT totalDebe FROM mayorizacion WHERE codigo = '410120'";
-        String consultaCodigo7 = "SELECT totalDebe FROM mayorizacion WHERE codigo = '410119'";
-        String consultaCodigo8 = "SELECT totalDebe FROM mayorizacion WHERE codigo = '410107'";
-        
+        try {
+            // Consultas SQL para obtener los datos de diferentes códigos de la tabla mayorizacion
+            String consultaCodigo1 = "SELECT totalDebe FROM mayorizacion WHERE codigo = '4101'";
+            String consultaCodigo2 = "SELECT totalDebe FROM mayorizacion WHERE codigo = '410102'";
+            String consultaCodigo3 = "SELECT totalDebe FROM mayorizacion WHERE codigo = '410106'";
+            String consultaCodigo4 = "SELECT totalDebe FROM mayorizacion WHERE codigo = '410113'";
+            String consultaCodigo5 = "SELECT totalDebe FROM mayorizacion WHERE codigo = '410114'";
+            String consultaCodigo6 = "SELECT totalDebe FROM mayorizacion WHERE codigo = '410120'";
+            String consultaCodigo7 = "SELECT totalDebe FROM mayorizacion WHERE codigo = '410119'";
+            String consultaCodigo8 = "SELECT totalDebe FROM mayorizacion WHERE codigo = '410107'";
 
-        // Ejecutar las consultas y obtener los resultados
-        PreparedStatement pstConsulta1 = cn.prepareStatement(consultaCodigo1);
-        PreparedStatement pstConsulta2 = cn.prepareStatement(consultaCodigo2);
-        PreparedStatement pstConsulta3 = cn.prepareStatement(consultaCodigo3);
-        PreparedStatement pstConsulta4 = cn.prepareStatement(consultaCodigo4);
-        PreparedStatement pstConsulta5 = cn.prepareStatement(consultaCodigo5);
-        PreparedStatement pstConsulta6 = cn.prepareStatement(consultaCodigo6);
-        PreparedStatement pstConsulta7 = cn.prepareStatement(consultaCodigo7);
-        PreparedStatement pstConsulta8 = cn.prepareStatement(consultaCodigo8);
+            // Ejecutar las consultas y obtener los resultados
+            PreparedStatement pstConsulta1 = cn.prepareStatement(consultaCodigo1);
+            PreparedStatement pstConsulta2 = cn.prepareStatement(consultaCodigo2);
+            PreparedStatement pstConsulta3 = cn.prepareStatement(consultaCodigo3);
+            PreparedStatement pstConsulta4 = cn.prepareStatement(consultaCodigo4);
+            PreparedStatement pstConsulta5 = cn.prepareStatement(consultaCodigo5);
+            PreparedStatement pstConsulta6 = cn.prepareStatement(consultaCodigo6);
+            PreparedStatement pstConsulta7 = cn.prepareStatement(consultaCodigo7);
+            PreparedStatement pstConsulta8 = cn.prepareStatement(consultaCodigo8);
 
-        ResultSet rs1 = pstConsulta1.executeQuery();
-        ResultSet rs2 = pstConsulta2.executeQuery();
-        ResultSet rs3 = pstConsulta3.executeQuery();
-        ResultSet rs4 = pstConsulta4.executeQuery();
-        ResultSet rs5 = pstConsulta5.executeQuery();
-        ResultSet rs6 = pstConsulta6.executeQuery();
-        ResultSet rs7 = pstConsulta7.executeQuery();
-        ResultSet rs8 = pstConsulta8.executeQuery();
-        
+            ResultSet rs1 = pstConsulta1.executeQuery();
+            ResultSet rs2 = pstConsulta2.executeQuery();
+            ResultSet rs3 = pstConsulta3.executeQuery();
+            ResultSet rs4 = pstConsulta4.executeQuery();
+            ResultSet rs5 = pstConsulta5.executeQuery();
+            ResultSet rs6 = pstConsulta6.executeQuery();
+            ResultSet rs7 = pstConsulta7.executeQuery();
+            ResultSet rs8 = pstConsulta8.executeQuery();
 
-        // Mueve el cursor al primer resultado para cada consulta
-        rs1.next();
-        rs2.next();
-        rs3.next();
-        rs4.next();
-        rs5.next();
-        rs6.next();
-        rs7.next();
-        rs8.next();
-        
+            // Mueve el cursor al primer resultado para cada consulta
+            rs1.next();
+            rs2.next();
+            rs3.next();
+            rs4.next();
+            rs5.next();
+            rs6.next();
+            rs7.next();
+            rs8.next();
 
-        // Obtiene los valores de totalHaber de cada consulta
-        double total1 = rs1.getDouble("totalDebe");
-        double total2 = rs2.getDouble("totalDebe");
-        double total3 = rs3.getDouble("totalDebe");
-        double total4 = rs4.getDouble("totalDebe");
-        double total5 = rs5.getDouble("totalDebe");
-        double total6 = rs6.getDouble("totalDebe");
-        double total7 = rs7.getDouble("totalDebe");
-        double total8 = rs8.getDouble("totalDebe");
+            // Obtiene los valores de totalHaber de cada consulta
+            double total1 = rs1.getDouble("totalDebe");
+            double total2 = rs2.getDouble("totalDebe");
+            double total3 = rs3.getDouble("totalDebe");
+            double total4 = rs4.getDouble("totalDebe");
+            double total5 = rs5.getDouble("totalDebe");
+            double total6 = rs6.getDouble("totalDebe");
+            double total7 = rs7.getDouble("totalDebe");
+            double total8 = rs8.getDouble("totalDebe");
 
-        // Obtiene el modelo de la tabla
-        DefaultTableModel modelo = (DefaultTableModel) jtableTablaComprasTotales.getModel();
+            // Obtiene el modelo de la tabla
+            DefaultTableModel modelo = (DefaultTableModel) jtableTablaComprasTotales.getModel();
 
-        // Establece los valores en las filas y columnas correspondientes
-        modelo.setValueAt(total1, 0, 0); // totalHaber del código 51 en la primera fila y primera columna
-        modelo.setValueAt(total2, 0, 1); // totalHaber del código 52 en la primera fila y segunda columna
-        modelo.setValueAt(total3, 0, 2); // totalHaber del código 53 en la primera fila y tercera columna
-        modelo.setValueAt(total4, 0, 3);
-        modelo.setValueAt(total5, 0, 4); // totalHaber del código 51 en la primera fila y primera columna
-        modelo.setValueAt(total6, 0, 5); // totalHaber del código 52 en la primera fila y segunda columna
-        modelo.setValueAt(total7, 0, 6); // totalHaber del código 53 en la primera fila y tercera columna
-        modelo.setValueAt(total8, 0, 7);
-        
-    } catch (Exception e) {
-        JOptionPane.showMessageDialog(null, "Error: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            // Establece los valores en las filas y columnas correspondientes
+            modelo.setValueAt(total1, 0, 0); // totalHaber del código 51 en la primera fila y primera columna
+            modelo.setValueAt(total2, 0, 1); // totalHaber del código 52 en la primera fila y segunda columna
+            modelo.setValueAt(total3, 0, 2); // totalHaber del código 53 en la primera fila y tercera columna
+            modelo.setValueAt(total4, 0, 3);
+            modelo.setValueAt(total5, 0, 4); // totalHaber del código 51 en la primera fila y primera columna
+            modelo.setValueAt(total6, 0, 5); // totalHaber del código 52 en la primera fila y segunda columna
+            modelo.setValueAt(total7, 0, 6); // totalHaber del código 53 en la primera fila y tercera columna
+            modelo.setValueAt(total8, 0, 7);
+            cn.close();//cerrando conexion
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }
-}
-    
+
     public void mostrarResultado3() {
-    ConexionDB db = new ConexionDB();
-    Connection cn = db.conectar();
+        ConexionDB db = new ConexionDB();
+        Connection cn = db.conectar();
 
-    try {
-        // Consultas SQL para obtener los datos de diferentes códigos de la tabla mayorizacion
-        String consultaCodigo1 = "SELECT totalHaber FROM mayorizacion WHERE codigo = '5101'";
-        String consultaCodigo2 = "SELECT totalHaber FROM mayorizacion WHERE codigo = '5102'";
- 
+        try {
+            // Consultas SQL para obtener los datos de diferentes códigos de la tabla mayorizacion
+            String consultaCodigo1 = "SELECT totalHaber FROM mayorizacion WHERE codigo = '5101'";
+            String consultaCodigo2 = "SELECT totalHaber FROM mayorizacion WHERE codigo = '5102'";
 
-        // Ejecutar las consultas y obtener los resultados
-        PreparedStatement pstConsulta1 = cn.prepareStatement(consultaCodigo1);
-        PreparedStatement pstConsulta2 = cn.prepareStatement(consultaCodigo2);
-       
+            // Ejecutar las consultas y obtener los resultados
+            PreparedStatement pstConsulta1 = cn.prepareStatement(consultaCodigo1);
+            PreparedStatement pstConsulta2 = cn.prepareStatement(consultaCodigo2);
 
-        ResultSet rs1 = pstConsulta1.executeQuery();
-        ResultSet rs2 = pstConsulta2.executeQuery();
-       
-        
+            ResultSet rs1 = pstConsulta1.executeQuery();
+            ResultSet rs2 = pstConsulta2.executeQuery();
 
-        // Mueve el cursor al primer resultado para cada consulta
-        rs1.next();
-        rs2.next();
-        
+            // Mueve el cursor al primer resultado para cada consulta
+            rs1.next();
+            rs2.next();
 
-        // Obtiene los valores de totalHaber de cada consulta
-        double total1 = rs1.getDouble("totalHaber");
-        double total2 = rs2.getDouble("totalHaber");
-       
+            // Obtiene los valores de totalHaber de cada consulta
+            double total1 = rs1.getDouble("totalHaber");
+            double total2 = rs2.getDouble("totalHaber");
 
-        // Obtiene el modelo de la tabla
-        DefaultTableModel modelo = (DefaultTableModel) tablaComprasNetas.getModel();
+            // Obtiene el modelo de la tabla
+            DefaultTableModel modelo = (DefaultTableModel) tablaComprasNetas.getModel();
 
-        // Establece los valores en las filas y columnas correspondientes
-        modelo.setValueAt(total1, 0, 1); // totalHaber del código 51 en la primera fila y primera columna
-        modelo.setValueAt(total2, 0, 2); // totalHaber del código 52 en la primera fila y segunda columna
-        
-    } catch (Exception e) {
-        JOptionPane.showMessageDialog(null, "Error: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            // Establece los valores en las filas y columnas correspondientes
+            modelo.setValueAt(total1, 0, 1); // totalHaber del código 51 en la primera fila y primera columna
+            modelo.setValueAt(total2, 0, 2); // totalHaber del código 52 en la primera fila y segunda columna
+            cn.close();//cerrando conexion
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }
-}
+
     public void mostrarResultado4() {
-    ConexionDB db = new ConexionDB();
-    Connection cn = db.conectar();
+        ConexionDB db = new ConexionDB();
+        Connection cn = db.conectar();
 
-    try {
-        // Consultas SQL para obtener los datos de diferentes códigos de la tabla mayorizacion
-        String consultaCodigo1 = "SELECT totalDebe FROM mayorizacion WHERE codigo = '1103'";
-        
-        // Ejecutar las consultas y obtener los resultados
-        PreparedStatement pstConsulta1 = cn.prepareStatement(consultaCodigo1);
-      
-        ResultSet rs1 = pstConsulta1.executeQuery();
-        // Mueve el cursor al primer resultado para cada consulta
-        rs1.next();
-       
-        
+        try {
+            // Consultas SQL para obtener los datos de diferentes códigos de la tabla mayorizacion
+            String consultaCodigo1 = "SELECT totalDebe FROM mayorizacion WHERE codigo = '1103'";
 
-        // Obtiene los valores de totalHaber de cada consulta
-        double total1 = rs1.getDouble("totalDebe");
-        
+            // Ejecutar las consultas y obtener los resultados
+            PreparedStatement pstConsulta1 = cn.prepareStatement(consultaCodigo1);
 
-        // Obtiene el modelo de la tabla
-        DefaultTableModel modelo = (DefaultTableModel) jtableTablaMercanciasDispo.getModel();
+            ResultSet rs1 = pstConsulta1.executeQuery();
+            // Mueve el cursor al primer resultado para cada consulta
+            rs1.next();
 
-        // Establece los valores en las filas y columnas correspondientes
-        modelo.setValueAt(total1, 0, 1); // totalHaber del código 51 en la primera fila y primera columna
-        
-    } catch (Exception e) {
-        JOptionPane.showMessageDialog(null, "Error: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            // Obtiene los valores de totalHaber de cada consulta
+            double total1 = rs1.getDouble("totalDebe");
+
+            // Obtiene el modelo de la tabla
+            DefaultTableModel modelo = (DefaultTableModel) jtableTablaMercanciasDispo.getModel();
+
+            // Establece los valores en las filas y columnas correspondientes
+            modelo.setValueAt(total1, 0, 1); // totalHaber del código 51 en la primera fila y primera columna
+            cn.close();//cerrando conexion
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }
-}
-    
-    
+
     public double obtenerTotal(String codigo) {
-    ConexionDB db = new ConexionDB();
-    Connection cn = db.conectar();
-    double total = 0;
+        ConexionDB db = new ConexionDB();
+        Connection cn = db.conectar();
+        double total = 0;
 
-    try {
-        String consulta = "SELECT totalDebe FROM mayorizacion WHERE codigo = ?";
-        PreparedStatement pstConsulta = cn.prepareStatement(consulta);
-        pstConsulta.setString(1, codigo);
-        ResultSet rs = pstConsulta.executeQuery();
+        try {
+            String consulta = "SELECT totalDebe FROM mayorizacion WHERE codigo = ?";
+            PreparedStatement pstConsulta = cn.prepareStatement(consulta);
+            pstConsulta.setString(1, codigo);
+            ResultSet rs = pstConsulta.executeQuery();
 
-        if (rs.next()) {
-            total = rs.getDouble("totalDebe");
+            if (rs.next()) {
+                total = rs.getDouble("totalDebe");
+            }
+            cn.close();//cerrando conexion
+        } catch (SQLException e) {
+            // Manejar la excepción si ocurre algún error durante la consulta
+            JOptionPane.showMessageDialog(null, "Error al acceder a la base de datos: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
-    } catch (SQLException e) {
-        // Manejar la excepción si ocurre algún error durante la consulta
-       JOptionPane.showMessageDialog(null, "Error al acceder a la base de datos: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-    } 
-    
-    return total;
-}
-     public double obtenerTotalDos(String codigo) {
-    ConexionDB db = new ConexionDB();
-    Connection cn = db.conectar();
-    double total = 0;
 
-    try {
-        String consulta = "SELECT totalHaber FROM mayorizacion WHERE codigo = ?";
-        PreparedStatement pstConsulta = cn.prepareStatement(consulta);
-        pstConsulta.setString(1, codigo);
-        ResultSet rs = pstConsulta.executeQuery();
-
-        if (rs.next()) {
-            total = rs.getDouble("totalHaber");
-        }
-    } catch (SQLException e) {
-        // Manejar la excepción si ocurre algún error durante la consulta
-       JOptionPane.showMessageDialog(null, "Error al acceder a la base de datos: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-    } 
-    
-    return total;
-}
-    
-     public void actualizarCuentas() {
-    ConexionDB db = new ConexionDB();
-    Connection cn = db.conectar();
-
-    try {
-        // Consultas SQL para actualizar los valores a cero en la tabla mayorizacion
-        String updateCodigo1 = "UPDATE mayorizacion SET totalHaber = 0 WHERE codigo = '51'";
-        String updateCodigo2 = "UPDATE mayorizacion SET totalHaber = 0 WHERE codigo = '5103'";
-        String updateCodigo3 = "UPDATE mayorizacion SET totalDebe = 0 WHERE codigo = '410104'";
-        String updateCodigo4 = "UPDATE mayorizacion SET totalDebe = 0 WHERE codigo = '410103'";
-        String updateCodigo5 = "UPDATE mayorizacion SET totalDebe = 0 WHERE codigo = '4101'";
-        String updateCodigo6 = "UPDATE mayorizacion SET totalDebe = 0 WHERE codigo = '410102'";
-        String updateCodigo7 = "UPDATE mayorizacion SET totalDebe = 0 WHERE codigo = '410106'";
-        String updateCodigo8 = "UPDATE mayorizacion SET totalDebe = 0 WHERE codigo = '410113'";
-        String updateCodigo9 = "UPDATE mayorizacion SET totalDebe = 0 WHERE codigo = '410114'";
-        String updateCodigo10 = "UPDATE mayorizacion SET totalDebe = 0 WHERE codigo = '410120'";
-        String updateCodigo11 = "UPDATE mayorizacion SET totalDebe = 0 WHERE codigo = '410119'";
-        String updateCodigo12= "UPDATE mayorizacion SET totalDebe = 0 WHERE codigo = '410107'";
-        String updateCodigo13 = "UPDATE mayorizacion SET totalHaber = 0 WHERE codigo = '5101'";
-        String updateCodigo14 = "UPDATE mayorizacion SET totalHaber = 0 WHERE codigo = '5102'";
-        String updateCodigo15 = "UPDATE mayorizacion SET totalHaber = 0 WHERE codigo = '1103'";
-        
-        
-        
-
-        // Ejecutar las consultas de actualización
-        PreparedStatement pstUpdate1 = cn.prepareStatement(updateCodigo1);
-        PreparedStatement pstUpdate2 = cn.prepareStatement(updateCodigo2);
-        PreparedStatement pstUpdate3 = cn.prepareStatement(updateCodigo3);
-        PreparedStatement pstUpdate4 = cn.prepareStatement(updateCodigo4);
-        PreparedStatement pstUpdate5 = cn.prepareStatement(updateCodigo5);
-        PreparedStatement pstUpdate6 = cn.prepareStatement(updateCodigo6);
-        PreparedStatement pstUpdate7 = cn.prepareStatement(updateCodigo7);
-        PreparedStatement pstUpdate8 = cn.prepareStatement(updateCodigo8);
-        PreparedStatement pstUpdate9 = cn.prepareStatement(updateCodigo9);
-        PreparedStatement pstUpdate10 = cn.prepareStatement(updateCodigo10);
-        PreparedStatement pstUpdate11 = cn.prepareStatement(updateCodigo11);
-        PreparedStatement pstUpdate12 = cn.prepareStatement(updateCodigo12);
-        PreparedStatement pstUpdate13 = cn.prepareStatement(updateCodigo13);
-        PreparedStatement pstUpdate14 = cn.prepareStatement(updateCodigo14);
-        PreparedStatement pstUpdate15 = cn.prepareStatement(updateCodigo15);
-        
-
-        pstUpdate1.executeUpdate();
-        pstUpdate2.executeUpdate();
-        pstUpdate3.executeUpdate();
-        pstUpdate4.executeUpdate();
-        pstUpdate5.executeUpdate();
-        pstUpdate6.executeUpdate();
-        pstUpdate7.executeUpdate();
-        pstUpdate8.executeUpdate();
-        pstUpdate9.executeUpdate();
-        pstUpdate10.executeUpdate();
-        pstUpdate11.executeUpdate();
-        pstUpdate12.executeUpdate();
-        pstUpdate13.executeUpdate();
-        pstUpdate14.executeUpdate();
-        pstUpdate15.executeUpdate();
-        
-        
-        
-
-        // Notificar al usuario que las cuentas han sido actualizadas
-        JOptionPane.showMessageDialog(null, "Cuentas actualizadas correctamente.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
-    } catch (Exception e) {
-        JOptionPane.showMessageDialog(null, "Error: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        return total;
     }
-}  
+
+    public double obtenerTotalDos(String codigo) {
+        ConexionDB db = new ConexionDB();
+        Connection cn = db.conectar();
+        double total = 0;
+
+        try {
+            String consulta = "SELECT totalHaber FROM mayorizacion WHERE codigo = ?";
+            PreparedStatement pstConsulta = cn.prepareStatement(consulta);
+            pstConsulta.setString(1, codigo);
+            ResultSet rs = pstConsulta.executeQuery();
+
+            if (rs.next()) {
+                total = rs.getDouble("totalHaber");
+            }
+            cn.close();//cerrando conexion
+        } catch (SQLException e) {
+            // Manejar la excepción si ocurre algún error durante la consulta
+            JOptionPane.showMessageDialog(null, "Error al acceder a la base de datos: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+
+        return total;
+    }
+
+    public void actualizarCuentas() {
+        ConexionDB db = new ConexionDB();
+        Connection cn = db.conectar();
+
+        try {
+            // Consultas SQL para actualizar los valores a cero en la tabla mayorizacion
+            String updateCodigo1 = "UPDATE mayorizacion SET totalHaber = 0 WHERE codigo = '51'";
+            String updateCodigo2 = "UPDATE mayorizacion SET totalHaber = 0 WHERE codigo = '5103'";
+            String updateCodigo3 = "UPDATE mayorizacion SET totalDebe = 0 WHERE codigo = '410104'";
+            String updateCodigo4 = "UPDATE mayorizacion SET totalDebe = 0 WHERE codigo = '410103'";
+            String updateCodigo5 = "UPDATE mayorizacion SET totalDebe = 0 WHERE codigo = '4101'";
+            String updateCodigo6 = "UPDATE mayorizacion SET totalDebe = 0 WHERE codigo = '410102'";
+            String updateCodigo7 = "UPDATE mayorizacion SET totalDebe = 0 WHERE codigo = '410106'";
+            String updateCodigo8 = "UPDATE mayorizacion SET totalDebe = 0 WHERE codigo = '410113'";
+            String updateCodigo9 = "UPDATE mayorizacion SET totalDebe = 0 WHERE codigo = '410114'";
+            String updateCodigo10 = "UPDATE mayorizacion SET totalDebe = 0 WHERE codigo = '410120'";
+            String updateCodigo11 = "UPDATE mayorizacion SET totalDebe = 0 WHERE codigo = '410119'";
+            String updateCodigo12 = "UPDATE mayorizacion SET totalDebe = 0 WHERE codigo = '410107'";
+            String updateCodigo13 = "UPDATE mayorizacion SET totalHaber = 0 WHERE codigo = '5101'";
+            String updateCodigo14 = "UPDATE mayorizacion SET totalHaber = 0 WHERE codigo = '5102'";
+            String updateCodigo15 = "UPDATE mayorizacion SET totalHaber = 0 WHERE codigo = '1103'";
+
+            // Ejecutar las consultas de actualización
+            PreparedStatement pstUpdate1 = cn.prepareStatement(updateCodigo1);
+            PreparedStatement pstUpdate2 = cn.prepareStatement(updateCodigo2);
+            PreparedStatement pstUpdate3 = cn.prepareStatement(updateCodigo3);
+            PreparedStatement pstUpdate4 = cn.prepareStatement(updateCodigo4);
+            PreparedStatement pstUpdate5 = cn.prepareStatement(updateCodigo5);
+            PreparedStatement pstUpdate6 = cn.prepareStatement(updateCodigo6);
+            PreparedStatement pstUpdate7 = cn.prepareStatement(updateCodigo7);
+            PreparedStatement pstUpdate8 = cn.prepareStatement(updateCodigo8);
+            PreparedStatement pstUpdate9 = cn.prepareStatement(updateCodigo9);
+            PreparedStatement pstUpdate10 = cn.prepareStatement(updateCodigo10);
+            PreparedStatement pstUpdate11 = cn.prepareStatement(updateCodigo11);
+            PreparedStatement pstUpdate12 = cn.prepareStatement(updateCodigo12);
+            PreparedStatement pstUpdate13 = cn.prepareStatement(updateCodigo13);
+            PreparedStatement pstUpdate14 = cn.prepareStatement(updateCodigo14);
+            PreparedStatement pstUpdate15 = cn.prepareStatement(updateCodigo15);
+
+            pstUpdate1.executeUpdate();
+            pstUpdate2.executeUpdate();
+            pstUpdate3.executeUpdate();
+            pstUpdate4.executeUpdate();
+            pstUpdate5.executeUpdate();
+            pstUpdate6.executeUpdate();
+            pstUpdate7.executeUpdate();
+            pstUpdate8.executeUpdate();
+            pstUpdate9.executeUpdate();
+            pstUpdate10.executeUpdate();
+            pstUpdate11.executeUpdate();
+            pstUpdate12.executeUpdate();
+            pstUpdate13.executeUpdate();
+            pstUpdate14.executeUpdate();
+            pstUpdate15.executeUpdate();
+            cn.close();//cerrando conexion
+            // Notificar al usuario que las cuentas han sido actualizadas
+            JOptionPane.showMessageDialog(null, "Cuentas actualizadas correctamente.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -577,98 +560,91 @@ public class cierreContable extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCierreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCierreActionPerformed
-    double devolucionesSobreVentas = obtenerTotal("410103");
-    double descuentosSobreVentas = obtenerTotal("410104");
-    double ventas = obtenerTotalDos("51");
-    double consultoria = obtenerTotalDos("5103");
-    
-    double totalDevolucionesDescuentos = devolucionesSobreVentas + descuentosSobreVentas;
-    double totalIngresos = ventas + consultoria;
-    double ventasNetas = totalIngresos - totalDevolucionesDescuentos;
-    
-    txtVentasNetas.setToolTipText(null);
-    txtVentasNetas.setText(String.valueOf(ventasNetas));
-    txtVentasNetas.setEditable(false);
-    DefaultTableModel modelo5 = (DefaultTableModel)jtableTablaUtilidad.getModel();
-    modelo5.setValueAt(ventasNetas, 0, 0);
-   
-    
-    double compras = obtenerTotal("4101");
-    double gastosSobreCompra = obtenerTotal("410102");
-    double gastoServiciosBasicos = obtenerTotal("410106");
-    double gastosPapeleria= obtenerTotal("410113");
-    double gastoPublicidad = obtenerTotal("410114");
-    double gastoConsultoria = obtenerTotal("410120");
-    double costoDesarrollo = obtenerTotal("410119");
-    double costoInstalacion = obtenerTotal("410107");
-    double comprasTotales = compras + gastosSobreCompra + gastoServiciosBasicos + gastosPapeleria + gastoPublicidad + gastoConsultoria + costoDesarrollo + costoInstalacion;
-    
-    
-    txtComprasTotales.setToolTipText(null);
-    txtComprasTotales.setText(String.valueOf(comprasTotales));
-    txtComprasTotales.setEditable(false);
-    DefaultTableModel modelo = (DefaultTableModel) tablaComprasNetas.getModel();
-    modelo.setValueAt(comprasTotales, 0, 0);
-    
-    double descuentoSobreCompras = obtenerTotalDos("5101");
-    double devolucionesSobreCompras = obtenerTotalDos("5102");
-    double totalDevoluDesc = descuentoSobreCompras + devolucionesSobreCompras;
-    double comprasNetas = comprasTotales - totalDevoluDesc;
-    
-    txtComprasNetas.setToolTipText(null);
-    txtComprasNetas.setText(String.valueOf(comprasNetas));
-    txtComprasNetas.setEditable(false);
-    DefaultTableModel modelo1 = (DefaultTableModel) jtableTablaMercanciasDispo.getModel();
-    modelo1.setValueAt(comprasNetas, 0, 0);
-    
-    double inventarioInicial = obtenerTotal("1103");
-    double mercaDispo = comprasNetas + inventarioInicial;
-    txtMercaDispo.setToolTipText(null);
-    txtMercaDispo.setText(String.valueOf(mercaDispo));
-    txtMercaDispo.setEditable(false);
-    DefaultTableModel modelo2 = (DefaultTableModel)jtableTablaCostoVenta.getModel();
-    modelo2.setValueAt(mercaDispo, 0, 0);
-    
-    
-    //double inventarioFinal = inventarioInicial + (comprasNetas-ventasNetas);
-    double inventarioFinal = 0.0;
-    DefaultTableModel modelo3 = (DefaultTableModel)jtableTablaCostoVenta.getModel();
-    double inventarioFinalPositivo = Math.abs(inventarioFinal); 
-    modelo3.setValueAt(inventarioFinalPositivo, 0, 1);
-    double costoVenta = mercaDispo - inventarioFinal;
-    txtCostoVenta.setToolTipText(null);
-    txtCostoVenta.setText(String.valueOf(costoVenta));
-    txtCostoVenta.setEditable(false);
-    DefaultTableModel modelo4 = (DefaultTableModel)jtableTablaUtilidad.getModel();
-    modelo4.setValueAt(costoVenta, 0, 1);
-    
-     double utilidad = ventasNetas - costoVenta;
-     txtUtilidad.setToolTipText(null);
-     txtUtilidad.setText(String.valueOf(utilidad));
-     txtUtilidad.setEditable(false);
-    
-     
-    ConexionDB db = new ConexionDB();
-    Connection cn = db.conectar();
-     try {
-    // Resto de tu código para las consultas de actualización...
-    
-    String updateUtilidad = "UPDATE mayorizacion SET totalHaber = ? WHERE codigo = '3103'";
-    PreparedStatement pstUpdateUtilidad = cn.prepareStatement(updateUtilidad);
-    pstUpdateUtilidad.setDouble(1, utilidad);
-    pstUpdateUtilidad.executeUpdate();
+        libroMayor2 libro = new libroMayor2();
+        libro.sumarCuentaCapitalSocial();
+        double devolucionesSobreVentas = obtenerTotal("410103");
+        double descuentosSobreVentas = obtenerTotal("410104");
+        double ventas = obtenerTotalDos("51");
+        double consultoria = obtenerTotalDos("5103");
 
-    // Resto de tu código para las consultas de actualización...
+        double totalDevolucionesDescuentos = devolucionesSobreVentas + descuentosSobreVentas;
+        double totalIngresos = ventas + consultoria;
+        double ventasNetas = totalIngresos - totalDevolucionesDescuentos;
 
-    JOptionPane.showMessageDialog(null, "Cierre contable realizado correctamente.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
-} catch (Exception e) {
-    JOptionPane.showMessageDialog(null, "Error: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-}
-   
-    
-    
-    
-       
+        txtVentasNetas.setToolTipText(null);
+        txtVentasNetas.setText(String.valueOf(ventasNetas));
+        txtVentasNetas.setEditable(false);
+        DefaultTableModel modelo5 = (DefaultTableModel) jtableTablaUtilidad.getModel();
+        modelo5.setValueAt(ventasNetas, 0, 0);
+
+        double compras = obtenerTotal("4101");
+        double gastosSobreCompra = obtenerTotal("410102");
+        double gastoServiciosBasicos = obtenerTotal("410106");
+        double gastosPapeleria = obtenerTotal("410113");
+        double gastoPublicidad = obtenerTotal("410114");
+        double gastoConsultoria = obtenerTotal("410120");
+        double costoDesarrollo = obtenerTotal("410119");
+        double costoInstalacion = obtenerTotal("410107");
+        double comprasTotales = compras + gastosSobreCompra + gastoServiciosBasicos + gastosPapeleria + gastoPublicidad + gastoConsultoria + costoDesarrollo + costoInstalacion;
+
+        txtComprasTotales.setToolTipText(null);
+        txtComprasTotales.setText(String.valueOf(comprasTotales));
+        txtComprasTotales.setEditable(false);
+        DefaultTableModel modelo = (DefaultTableModel) tablaComprasNetas.getModel();
+        modelo.setValueAt(comprasTotales, 0, 0);
+
+        double descuentoSobreCompras = obtenerTotalDos("5101");
+        double devolucionesSobreCompras = obtenerTotalDos("5102");
+        double totalDevoluDesc = descuentoSobreCompras + devolucionesSobreCompras;
+        double comprasNetas = comprasTotales - totalDevoluDesc;
+
+        txtComprasNetas.setToolTipText(null);
+        txtComprasNetas.setText(String.valueOf(comprasNetas));
+        txtComprasNetas.setEditable(false);
+        DefaultTableModel modelo1 = (DefaultTableModel) jtableTablaMercanciasDispo.getModel();
+        modelo1.setValueAt(comprasNetas, 0, 0);
+
+        double inventarioInicial = obtenerTotal("1103");
+        double mercaDispo = comprasNetas + inventarioInicial;
+        txtMercaDispo.setToolTipText(null);
+        txtMercaDispo.setText(String.valueOf(mercaDispo));
+        txtMercaDispo.setEditable(false);
+        DefaultTableModel modelo2 = (DefaultTableModel) jtableTablaCostoVenta.getModel();
+        modelo2.setValueAt(mercaDispo, 0, 0);
+
+        //double inventarioFinal = inventarioInicial + (comprasNetas-ventasNetas);
+        double inventarioFinal = 0.0;
+        DefaultTableModel modelo3 = (DefaultTableModel) jtableTablaCostoVenta.getModel();
+        double inventarioFinalPositivo = Math.abs(inventarioFinal);
+        modelo3.setValueAt(inventarioFinalPositivo, 0, 1);
+        double costoVenta = mercaDispo - inventarioFinal;
+        txtCostoVenta.setToolTipText(null);
+        txtCostoVenta.setText(String.valueOf(costoVenta));
+        txtCostoVenta.setEditable(false);
+        DefaultTableModel modelo4 = (DefaultTableModel) jtableTablaUtilidad.getModel();
+        modelo4.setValueAt(costoVenta, 0, 1);
+
+        double utilidad = ventasNetas - costoVenta;
+        txtUtilidad.setToolTipText(null);
+        txtUtilidad.setText(String.valueOf(utilidad));
+        txtUtilidad.setEditable(false);
+
+        ConexionDB db = new ConexionDB();
+        Connection cn = db.conectar();
+        try {
+            // Resto de tu código para las consultas de actualización...
+
+            String updateUtilidad = "UPDATE mayorizacion SET totalHaber = ? WHERE codigo = '3103'";
+            PreparedStatement pstUpdateUtilidad = cn.prepareStatement(updateUtilidad);
+            pstUpdateUtilidad.setDouble(1, utilidad);
+            pstUpdateUtilidad.executeUpdate();
+            cn.close();//cerrando conexion
+            // Resto de tu código para las consultas de actualización...
+            JOptionPane.showMessageDialog(null, "Cierre contable realizado correctamente.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+
     }//GEN-LAST:event_btnCierreActionPerformed
 
     private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
